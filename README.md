@@ -69,7 +69,7 @@ The file 'launch_jobs.py' is responsible for spawning the scheduler and the appl
 This is an example of running the 'launch_jobs.py' script with only one client using a config found [here](benchmarking/config.json):
 
 ```bash
-LD_PRELOAD=/root/orion/src/cuda_capture/libinttemp.so:/usr/local/lib/python3.10/dist-packages/torch/lib/../../nvidia/cudnn/lib/libcudnn.so.9:/usr/local/lib/python3.10/dist-packages/torch/lib/../../nvidia/cublas/lib/libcublasLt.so.12:/usr/local/lib/python3.10/dist-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.12 python3 benchmarking/launch_jobs.py --algo orion --config_file benchmarking/config.json
+LD_PRELOAD=/home/cc/orion/src/cuda_capture/libinttemp.so:/usr/local/lib/python3.10/dist-packages/torch/lib/../../nvidia/cudnn/lib/libcudnn.so.9:/usr/local/lib/python3.10/dist-packages/torch/lib/../../nvidia/cublas/lib/libcublasLt.so.12:/usr/local/lib/python3.10/dist-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.12 python3 benchmarking/launch_jobs.py --algo orion --config_file benchmarking/config.json
 ```
 
 
