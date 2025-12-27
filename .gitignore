@@ -17,3 +17,7 @@ benchmarking/examples/*
 benchmarking/eval/*
 benchmarking/results/*
 results
+
+# Exception: allow h100_results/inf_inf_updated/results/
+!h100_results/inf_inf_updated/results/
+!h100_results/inf_inf_updated/results/**
