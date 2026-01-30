@@ -14,6 +14,7 @@ sys.path.append(f"{home_directory}/DeepLearningExamples/PyTorch/LanguageModeling
 from benchmark_suite.transformer_trainer import transformer_loop
 sys.path.append(f"{home_directory}/DeepLearningExamples/PyTorch/LanguageModeling/BERT")
 from bert_trainer import bert_loop
+from benchmark_suite.yolov5_inference import yolov5_loop
 
 from benchmark_suite.train_imagenet import imagenet_loop
 
@@ -25,6 +26,7 @@ function_dict = {
     "mobilenet_v2": imagenet_loop,
     "bert": bert_loop,
     "transformer": transformer_loop,
+    "yolov5s": yolov5_loop,
 }
 
 def seed_everything(seed: int):

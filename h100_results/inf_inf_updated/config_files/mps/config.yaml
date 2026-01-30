@@ -34,3 +34,8 @@ bert:
   arch: large # either base or large
   num_iterations: 3000
   request_rate: 25 # measured in 1/seconds. If 0 it means no sleep
+yolov5s:
+  arch: yolov5s
+  batch_size: 4
+  num_iterations: 9200
+  request_rate: 200  # measured in 1/seconds

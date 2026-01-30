@@ -10,20 +10,59 @@ args = parser.parse_args()
 
 df_raw = pd.read_csv(f'{args.results_dir}/raw_ncu.csv')
 
+# Check if this is long format (NCU default CSV) and pivot it
+if 'Metric Name' in df_raw.columns:
+    print("Converting long format to wide format for roofline analysis...")
+    # Combine Metric Name + Unit to match expected format (e.g., "metric_name [unit]")
+    df_raw['Metric_Full'] = df_raw['Metric Name'] + ' ' + df_raw['Metric Unit']
+    # Create unique kernel identifier using ID column (each kernel invocation has unique ID)
+    df_pivoted = df_raw.pivot_table(
+        index='Metric_Full',
+        columns='ID', 
+        values='Metric Value',
+        aggfunc='first'
+    )
+    # Reset index to make Metric_Full a column (column 0)
+    df_raw = df_pivoted.reset_index()
+    print(f"Pivoted to {len(df_raw)} metrics x {len(df_raw.columns)-1} kernels")
+
 startp = 0
 df_raw = df_raw.iloc[startp:]
 
 l = list(df_raw.iloc[0])
 print(l)
+
+# Debug: Print all available metric names
+print("\n=== Available metrics in pivoted dataframe ===")
+print(df_raw.iloc[:, 0].tolist())
+print("=" * 50 + "\n")
+
 df_basic = pd.read_csv(f'{args.results_dir}/output_ncu_sms.csv', index_col=0)
 dram_throughput = df_basic['DRAM_Throughput(%)']
 comp_throughput = df_basic['Compute(SM)(%)']
 
-fadd = 'smsp__sass_thread_inst_executed_op_fadd_pred_on.sum.per_cycle_elapsed [inst/cycle]'
-fmul = 'smsp__sass_thread_inst_executed_op_fmul_pred_on.sum.per_cycle_elapsed [inst/cycle]'
-ffma = 'smsp__sass_thread_inst_executed_op_ffma_pred_on.sum.per_cycle_elapsed [inst/cycle]'
-cycles_sec = 'smsp__cycles_elapsed.avg.per_second [Ghz]'
-bytes_sec = 'dram__bytes.sum.per_second [Tbyte/s]'
+# Search for metrics by partial name match (NCU units may vary)
+def find_metric_row(df, metric_substring):
+    """Find metric row by searching for substring in metric name"""
+    for idx, metric_name in enumerate(df.iloc[:, 0]):
+        if metric_substring in str(metric_name):
+            print(f"Found metric: {metric_name}")
+            return list(df.iloc[idx, 1:])
+    print(f"WARNING: Metric containing '{metric_substring}' not found!")
+    return None
+
+print("\nSearching for required metrics...")
+df_add = find_metric_row(df_raw, 'fadd_pred_on')
+df_mul = find_metric_row(df_raw, 'fmul_pred_on')
+df_fma = find_metric_row(df_raw, 'ffma_pred_on')
+df_cycles = find_metric_row(df_raw, 'cycles_elapsed')
+df_bytes = find_metric_row(df_raw, 'dram__bytes')
+
+# Verify all metrics were found
+if None in [df_add, df_mul, df_fma, df_cycles, df_bytes]:
+    print("\nERROR: Some required metrics are missing!")
+    print("Please check the NCU profiling output and ensure all 12 metrics were collected.")
+    exit(1)
 
 ai_list = []
 roofline_prof = [] # 1: comp, 0: mem, -1: invalid
@@ -31,12 +70,6 @@ roofline_prof = [] # 1: comp, 0: mem, -1: invalid
 comp_bound = 0
 mem_bound = 0
 rest = 0
-
-df_add = list(df_raw[df_raw.iloc[:, 0] == fadd].iloc[0, 1:])
-df_mul = list(df_raw[df_raw.iloc[:, 0] == fmul].iloc[0, 1:])
-df_fma = list(df_raw[df_raw.iloc[:, 0] == ffma].iloc[0, 1:])
-df_cycles = list(df_raw[df_raw.iloc[:, 0] == cycles_sec].iloc[0, 1:])
-df_bytes = list(df_raw[df_raw.iloc[:, 0] == bytes_sec].iloc[0, 1:])
 
 print(df_cycles, df_bytes)
 num_kernels = len(df_add)
@@ -46,25 +79,35 @@ for i in range(num_kernels):
     mul = df_mul[i]
     fma = df_fma[i]
 
-    if df_bytes[i] == "0.00":
-        df_bytes[i] = 0.00001 # to avoid division by zero
+    # Convert to float, handling both numeric and string types
+    def to_float(val):
+        if isinstance(val, (int, float)):
+            return float(val)
+        elif isinstance(val, str):
+            return float(val.replace("'", ''))
+        else:
+            return float(val)
+    
+    add = to_float(add)
+    mul = to_float(mul)
+    fma = to_float(fma)
+    cycles = to_float(df_cycles[i])
+    bytes_val = to_float(df_bytes[i])
+    
+    # Avoid division by zero
+    if bytes_val == 0.0 or bytes_val < 0.00001:
+        bytes_val = 0.00001
+    
+    # Convert bytes/s to Tbyte/s (divide by 10^12) then back for calculation
+    bytes_val = bytes_val / 1e12  # Now in Tbyte/s
+    cycles_ghz = cycles / 1e9  # Convert Hz to GHz
 
-    cycles = float(df_cycles[i])
-    bytes = float(df_bytes[i])*1000
-
-    if not isinstance(fma, float):
-        fma = float(fma.replace("'", ''))
-    add = float(add.replace("'", ''))
-    mul = float(mul.replace("'", ''))
-
-    print(i, add, mul, fma, cycles, bytes)
-    # if add or mul or fma:
-    #     print(f"HERE!")
+    print(i, add, mul, fma, cycles_ghz, bytes_val)
 
     if add or mul or fma:
-        flops_cycle = add+mul+fma*2
-        flops_sec = flops_cycle * cycles
-        ai = flops_sec/bytes
+        flops_cycle = add + mul + fma * 2
+        flops_sec = flops_cycle * cycles_ghz  # GFLOPs/s
+        ai = flops_sec / bytes_val  # arithmetic intensity
         ai_list.append(ai)
         if ai > args.ai_threshold:
             roofline_prof.append(1)

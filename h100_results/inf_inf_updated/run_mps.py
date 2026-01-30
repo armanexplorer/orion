@@ -9,6 +9,7 @@ mnames = {
     'mobilenet_v2': "MobileNetV2",
     'resnet101': 'ResNet101',
     'bert': 'BERT',
+    'yolov5s': 'YOLOv5s',
 }
 
 def run(model0, model1, config, combination_name, times=1, start_id = 0):
@@ -49,7 +50,7 @@ if __name__ == "__main__":
 
     policy = 'MPS'
 
-    models = ['resnet50', 'mobilenet_v2', 'resnet101', 'bert']
+    models = ['resnet50', 'mobilenet_v2', 'resnet101', 'bert', 'yolov5s']
     combinations = itertools.product(models, models)
     times = 1
     start_id = 0
