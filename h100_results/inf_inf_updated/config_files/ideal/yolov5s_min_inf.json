@@ -1,0 +1,16 @@
+[
+    {
+		"arch": "yolov5s",
+		"kernel_file": "/home/cc/orion/benchmarking/model_kernels/v100/yolov5s_4_fwd",
+        "num_kernels": 246,
+        "num_iters": 20,
+		"args": {
+			"model_name": "yolov5s",
+			"batchsize": 4,
+            "rps": 10,
+			"uniform": true,
+			"dummy_data": true,
+			"train": false
+		}
+	}
+]

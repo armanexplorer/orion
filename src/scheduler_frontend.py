@@ -67,29 +67,54 @@ class PyScheduler:
 
         if run_eval:
             if profile:
+                print(f"SCHED DEBUG: Starting first barrier wait (warmup setup)")
                 barriers[0].wait()
+                print(f"SCHED DEBUG: Passed first barrier, calling schedule for warmup setup")
+
+                # Some workloads (notably YOLOv5 via torch.hub) can spend a long time
+                # after the first barrier loading weights / initializing CUDA graphs.
+                # If we call into schedule() before the first client request is
+                # submitted, scheduler_eval may immediately exit its loop, and the
+                # client will later deadlock inside backend_lib.block().
+                #
+                # Mitigation: add a short, configurable delay for YOLO workloads.
+                try:
+                    has_yolo = any(("yolov5" in (name or "").lower()) for name in model_names)
+                except Exception:
+                    has_yolo = False
+
+                if has_yolo:
+                    delay_s = float(os.environ.get("ORION_SCHED_PREWARM_DELAY_SEC", "5"))
+                    if delay_s > 0:
+                        print(f"SCHED DEBUG: Detected YOLO workload, sleeping {delay_s}s before warmup-setup schedule")
+                        time.sleep(delay_s)
+
                 # run once to warm-up and setup
                 self._sched_lib.schedule(self._scheduler, num_clients, True, 0, True, 1, reef, sequential, reef_depth, hp_limit, update_start)
                 torch.cuda.synchronize()
+                print(f"SCHED DEBUG: First schedule done, synchronize complete")
 
                 for j in range(num_clients):
                     if (additional_kernel_files[j] is not None):
                         new_kernel_file = additional_kernel_files[j].encode('utf-8')
                         self._sched_lib.setup_change(self._scheduler, j, new_kernel_file, additional_num_kernels[j])
 
-                print("wait here")
+                print("SCHED DEBUG: wait here (waiting for barrier after warmup setup)")
                 barriers[0].wait() #FIXME
-                print("done!")
+                print("SCHED DEBUG: done! (passed barrier after warmup setup)")
 
                 # warmup
+                print(f"SCHED DEBUG: Starting warmup with 10 iterations")
                 self._sched_lib.schedule(self._scheduler, num_clients, True, 0, True, 10, reef, sequential, reef_depth, hp_limit, update_start)
                 torch.cuda.synchronize()
+                print(f"SCHED DEBUG: Warmup schedule done, waiting at barrier")
                 barriers[0].wait()
                 print(f"Warmup done, starting eval")
 
                 start = time.time()
                 print("call schedule")
                 self._sched_lib.schedule(self._scheduler, num_clients, True, 0, False, 0, reef, sequential, reef_depth, hp_limit, update_start)
+                print(f"SCHED DEBUG: Main schedule call returned, waiting at barrier")
                 barriers[0].wait()
                 torch.cuda.synchronize()
                 print(f"Total time is {time.time()-start}")

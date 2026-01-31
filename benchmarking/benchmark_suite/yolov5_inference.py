@@ -163,6 +163,9 @@ def yolov5_loop(
             print(f"Stopped at iteration {it}")
             break
         
+        # Keep the same semantics as imagenet_loop:
+        # - Submit request for index `it`
+        # - After submit, use `next_batch_idx = it + 1` for barrier points
         batch_idx = it
         
         with torch.no_grad():
@@ -172,17 +175,25 @@ def yolov5_loop(
                 if it < 5:
                     print(f"DEBUG: Executing iteration {it}, batch_idx={batch_idx}")
                 output = model(images)
+
+                if it == 0:
+                    print("YOLOv5 DEBUG: Calling backend_lib.block(0) (first request)")
                 block(backend_lib, batch_idx)
+                if it == 0:
+                    print("YOLOv5 DEBUG: backend_lib.block(0) returned")
                 
                 if batch_idx >= 10:
                     next_startup += sleep_times[batch_idx]
                 else:
                     next_startup = time.time()
                 
-                # Barrier syncs at batch 1 (for backward) and batch 10 (after warmup)
-                if batch_idx == 1 or batch_idx == 10:
+                # Barrier sync points to match imagenet_loop behavior:
+                # - after the first submitted request (next_batch_idx == 1)
+                # - after warmup requests (next_batch_idx == 10)
+                next_batch_idx = batch_idx + 1
+                if next_batch_idx == 1 or next_batch_idx == 10:
                     barriers[0].wait()
-                    if batch_idx == 10:
+                    if next_batch_idx == 10:
                         next_startup = time.time()
                         start_time = time.time()
                         print("Warmup completed, starting evaluation")

@@ -8,7 +8,7 @@
 *.nsys-rep
 *.svg
 *.png
-*.json
+# *.json
 .DS_Store
 .idea/
 __pycache__/
