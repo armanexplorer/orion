@@ -1,18 +1,33 @@
 import pandas as pd
 import argparse
+from pathlib import Path
+
+
+def _read_ncu_csv(path: str) -> pd.DataFrame:
+    """Read an NCU --csv export that may contain non-CSV preamble lines."""
+    p = Path(path)
+    header_idx = 0
+    with p.open("r", errors="replace") as f:
+        for idx, line in enumerate(f):
+            if line.startswith('"ID"') or line.startswith('ID,'):
+                header_idx = idx
+                break
+    return pd.read_csv(p, skiprows=header_idx)
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--results_dir', type=str, required=True,
                         help='path to directory containing the profiling files')
 parser.add_argument('--ai_threshold', type=float, default=9.2,
                         help='arithmetic intensity that seperates compute from memory bound kernels')
+parser.add_argument('--verbose', action='store_true', help='print per-kernel debug information')
 args = parser.parse_args()
 
-df_raw = pd.read_csv(f'{args.results_dir}/raw_ncu.csv')
+df_raw = _read_ncu_csv(f'{args.results_dir}/raw_ncu.csv')
 
 # Check if this is long format (NCU default CSV) and pivot it
 if 'Metric Name' in df_raw.columns:
-    print("Converting long format to wide format for roofline analysis...")
+    if args.verbose:
+        print("Converting long format to wide format for roofline analysis...")
     # Combine Metric Name + Unit to match expected format (e.g., "metric_name [unit]")
     df_raw['Metric_Full'] = df_raw['Metric Name'] + ' ' + df_raw['Metric Unit']
     # Create unique kernel identifier using ID column (each kernel invocation has unique ID)
@@ -24,18 +39,17 @@ if 'Metric Name' in df_raw.columns:
     )
     # Reset index to make Metric_Full a column (column 0)
     df_raw = df_pivoted.reset_index()
-    print(f"Pivoted to {len(df_raw)} metrics x {len(df_raw.columns)-1} kernels")
+    if args.verbose:
+        print(f"Pivoted to {len(df_raw)} metrics x {len(df_raw.columns)-1} kernels")
 
 startp = 0
 df_raw = df_raw.iloc[startp:]
 
-l = list(df_raw.iloc[0])
-print(l)
-
-# Debug: Print all available metric names
-print("\n=== Available metrics in pivoted dataframe ===")
-print(df_raw.iloc[:, 0].tolist())
-print("=" * 50 + "\n")
+if args.verbose:
+    # Debug: Print all available metric names
+    print("\n=== Available metrics in pivoted dataframe ===")
+    print(df_raw.iloc[:, 0].tolist())
+    print("=" * 50 + "\n")
 
 df_basic = pd.read_csv(f'{args.results_dir}/output_ncu_sms.csv', index_col=0)
 dram_throughput = df_basic['DRAM_Throughput(%)']
@@ -46,12 +60,14 @@ def find_metric_row(df, metric_substring):
     """Find metric row by searching for substring in metric name"""
     for idx, metric_name in enumerate(df.iloc[:, 0]):
         if metric_substring in str(metric_name):
-            print(f"Found metric: {metric_name}")
+            if args.verbose:
+                print(f"Found metric: {metric_name}")
             return list(df.iloc[idx, 1:])
     print(f"WARNING: Metric containing '{metric_substring}' not found!")
     return None
 
-print("\nSearching for required metrics...")
+if args.verbose:
+    print("\nSearching for required metrics...")
 df_add = find_metric_row(df_raw, 'fadd_pred_on')
 df_mul = find_metric_row(df_raw, 'fmul_pred_on')
 df_fma = find_metric_row(df_raw, 'ffma_pred_on')
@@ -70,8 +86,6 @@ roofline_prof = [] # 1: comp, 0: mem, -1: invalid
 comp_bound = 0
 mem_bound = 0
 rest = 0
-
-print(df_cycles, df_bytes)
 num_kernels = len(df_add)
 
 for i in range(num_kernels):
@@ -102,7 +116,8 @@ for i in range(num_kernels):
     bytes_val = bytes_val / 1e12  # Now in Tbyte/s
     cycles_ghz = cycles / 1e9  # Convert Hz to GHz
 
-    print(i, add, mul, fma, cycles_ghz, bytes_val)
+    if args.verbose:
+        print(i, add, mul, fma, cycles_ghz, bytes_val)
 
     if add or mul or fma:
         flops_cycle = add + mul + fma * 2
@@ -163,7 +178,8 @@ for i in range(num_kernels):
 #         rest += 1
 
 
-print(df_basic)
+if args.verbose:
+    print(df_basic)
 df_basic['AI(flops/bytes)'] = ai_list
 df_basic['Roofline_prof'] = roofline_prof
 df_basic.to_csv(f'{args.results_dir}/output_ncu_sms_roofline.csv')

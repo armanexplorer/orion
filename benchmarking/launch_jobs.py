@@ -14,7 +14,6 @@ sys.path.append(f"{home_directory}/DeepLearningExamples/PyTorch/LanguageModeling
 from benchmark_suite.transformer_trainer import transformer_loop
 sys.path.append(f"{home_directory}/DeepLearningExamples/PyTorch/LanguageModeling/BERT")
 from bert_trainer import bert_loop
-from benchmark_suite.yolov5_inference import yolov5_loop
 
 from benchmark_suite.train_imagenet import imagenet_loop
 
@@ -26,8 +25,32 @@ function_dict = {
     "mobilenet_v2": imagenet_loop,
     "bert": bert_loop,
     "transformer": transformer_loop,
-    "yolov5s": yolov5_loop,
 }
+
+
+def _rewrite_kernel_path(original_path: str | None, kernel_root: str) -> str | None:
+    if not original_path:
+        return original_path
+
+    marker = "/benchmarking/model_kernels/"
+    try:
+        idx = original_path.index(marker)
+    except ValueError:
+        return os.path.join(kernel_root, os.path.basename(original_path))
+
+    suffix = original_path[idx + len(marker) :]
+    # suffix is typically "<gpu>/<file_name>"; drop the gpu directory.
+    parts = suffix.split("/", 1)
+    relative = parts[1] if len(parts) == 2 else suffix
+    return os.path.join(kernel_root, relative)
+
+
+def _apply_kernel_root_overrides(config_dict_list: list[dict], kernel_root: str) -> None:
+    for config in config_dict_list:
+        if "kernel_file" in config:
+            config["kernel_file"] = _rewrite_kernel_path(config["kernel_file"], kernel_root)
+        if "additional_kernel_file" in config and config["additional_kernel_file"] is not None:
+            config["additional_kernel_file"] = _rewrite_kernel_path(config["additional_kernel_file"], kernel_root)
 
 def seed_everything(seed: int):
     import random, os
@@ -135,6 +158,19 @@ if __name__ == "__main__":
     parser.add_argument('--orion_hp_limit', type=int, default=1,
                         help='If orion is used, and the high priority job is training, this shows the maximum tolerated training iteration time')
 
+    parser.add_argument(
+        '--kernel_gpu',
+        type=str,
+        default=None,
+        help='If set, rewrites kernel_file paths to $HOME/orion/benchmarking/model_kernels/<kernel_gpu>/*'
+    )
+    parser.add_argument(
+        '--kernel_root',
+        type=str,
+        default=None,
+        help='If set, rewrites kernel_file paths to <kernel_root>/* (overrides --kernel_gpu)'
+    )
+
     args = parser.parse_args()
 
     torch.cuda.set_device(0)
@@ -143,4 +179,12 @@ if __name__ == "__main__":
     profile = True
     with open(args.config_file) as f:
         config_dict = json.load(f)
+
+    if args.kernel_root or args.kernel_gpu:
+        home_directory = os.path.expanduser('~')
+        kernel_root = args.kernel_root
+        if not kernel_root:
+            kernel_root = os.path.join(home_directory, 'orion', 'benchmarking', 'model_kernels', args.kernel_gpu)
+        _apply_kernel_root_overrides(config_dict, kernel_root)
+
     launch_jobs(config_dict, args, True)

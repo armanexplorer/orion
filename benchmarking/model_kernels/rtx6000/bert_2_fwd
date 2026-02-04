@@ -1,0 +1,430 @@
+Name,Profile,Memory_footprint,SM_usage,Duration,Block,Grid
+void at::unrolled_elementwise_kernel,-1,0,1,4608.0,128.0,2.0
+void at::vectorized_elementwise_kernel,1,0,1,2336.0,128.0,1.0
+void at::vectorized_elementwise_kernel,1,0,1,2336.0,128.0,1.0
+void (anonymous namespace)::elementwise_kernel_with_index,-1,0,1,1760.0,64.0,6.0
+void at::vectorized_gather_kernel,-1,0,192,5760.0,256.0,768.0
+void at::elementwise_kernel,-1,0,1,2816.0,128.0,3.0
+void at::vectorized_gather_kernel,0,0,192,7296.0,256.0,768.0
+void at::vectorized_gather_kernel,-1,0,192,5824.0,256.0,768.0
+void at::vectorized_elementwise_kernel,1,0,96,15168.0,128.0,768.0
+void at::vectorized_elementwise_kernel,1,0,96,14880.0,128.0,768.0
+void at::(anonymous namespace)::vectorized_layer_norm_kernel,1,0,96,15264.0,128.0,768.0
+void at::elementwise_kernel,0,0,384,11584.0,128.0,3072.0
+volta_sgemm_128x64_tn,1,0,48,177280.0,128.0,192.0
+void at::elementwise_kernel,1,0,384,11456.0,128.0,3072.0
+void at::elementwise_kernel,0,0,384,11584.0,128.0,3072.0
+volta_sgemm_128x64_tn,1,0,48,176736.0,128.0,192.0
+void at::elementwise_kernel,1,0,384,11456.0,128.0,3072.0
+void at::elementwise_kernel,0,0,384,11616.0,128.0,3072.0
+volta_sgemm_128x64_tn,1,0,48,177536.0,128.0,192.0
+void at::elementwise_kernel,1,0,384,11520.0,128.0,3072.0
+volta_sgemm_64x64_tn,1,0,144,86880.0,64.0,1152.0
+void at::vectorized_elementwise_kernel,1,0,576,61280.0,128.0,4608.0
+void at::elementwise_kernel,1,0,2304,63104.0,128.0,18432.0
+void (anonymous namespace)::softmax_warp_forward,1,0,384,64128.0,128.0,3072.0
+volta_sgemm_64x64_nn,1,0,24,92608.0,64.0,192.0
+void at::elementwise_kernel,0,0,384,11936.0,128.0,3072.0
+volta_sgemm_128x128_tn,1,0,24,209600.0,256.0,48.0
+void at::elementwise_kernel,1,0,384,15936.0,128.0,3072.0
+void at::(anonymous namespace)::vectorized_layer_norm_kernel,1,0,96,16000.0,128.0,768.0
+volta_sgemm_128x64_tn,1,0,192,597888.0,128.0,768.0
+void at::vectorized_elementwise_kernel,1,0,384,40448.0,128.0,3072.0
+volta_sgemm_128x64_tn,1,0,192,594400.0,128.0,768.0
+void at::vectorized_elementwise_kernel,1,0,96,15104.0,128.0,768.0
+void at::(anonymous namespace)::vectorized_layer_norm_kernel,1,0,96,15424.0,128.0,768.0
+volta_sgemm_128x128_tn,1,0,24,209376.0,256.0,48.0
+volta_sgemm_128x128_tn,1,0,24,209504.0,256.0,48.0
+volta_sgemm_128x128_tn,1,0,24,208608.0,256.0,48.0
+volta_sgemm_64x64_tn,1,0,144,86720.0,64.0,1152.0
+void at::vectorized_elementwise_kernel,1,0,576,60384.0,128.0,4608.0
+void at::elementwise_kernel,1,0,2304,62880.0,128.0,18432.0
+void (anonymous namespace)::softmax_warp_forward,1,0,384,63616.0,128.0,3072.0
+volta_sgemm_64x64_nn,1,0,24,92544.0,64.0,192.0
+void at::elementwise_kernel,0,0,384,12256.0,128.0,3072.0
+volta_sgemm_128x128_tn,1,0,24,209952.0,256.0,48.0
+void at::vectorized_elementwise_kernel,1,0,96,14752.0,128.0,768.0
+void at::(anonymous namespace)::vectorized_layer_norm_kernel,1,0,96,15680.0,128.0,768.0
+volta_sgemm_128x64_tn,1,0,192,597056.0,128.0,768.0
+void at::vectorized_elementwise_kernel,1,0,384,40992.0,128.0,3072.0
+volta_sgemm_128x64_tn,1,0,192,594144.0,128.0,768.0
+void at::vectorized_elementwise_kernel,1,0,96,15104.0,128.0,768.0
+void at::(anonymous namespace)::vectorized_layer_norm_kernel,1,0,96,15456.0,128.0,768.0
+volta_sgemm_128x128_tn,1,0,24,210176.0,256.0,48.0
+volta_sgemm_128x128_tn,1,0,24,209664.0,256.0,48.0
+volta_sgemm_128x128_tn,1,0,24,210176.0,256.0,48.0
+volta_sgemm_64x64_tn,1,0,144,86784.0,64.0,1152.0
+void at::vectorized_elementwise_kernel,1,0,576,61088.0,128.0,4608.0
+void at::elementwise_kernel,1,0,2304,63200.0,128.0,18432.0
+void (anonymous namespace)::softmax_warp_forward,1,0,384,63168.0,128.0,3072.0
+volta_sgemm_64x64_nn,1,0,24,93248.0,64.0,192.0
+void at::elementwise_kernel,0,0,384,11808.0,128.0,3072.0
+volta_sgemm_128x128_tn,1,0,24,208736.0,256.0,48.0
+void at::vectorized_elementwise_kernel,1,0,96,15360.0,128.0,768.0
+void at::(anonymous namespace)::vectorized_layer_norm_kernel,1,0,96,15488.0,128.0,768.0
+volta_sgemm_128x64_tn,1,0,192,596224.0,128.0,768.0
+void at::vectorized_elementwise_kernel,1,0,384,40512.0,128.0,3072.0
+volta_sgemm_128x64_tn,1,0,192,594464.0,128.0,768.0
+void at::vectorized_elementwise_kernel,1,0,96,15072.0,128.0,768.0
+void at::(anonymous namespace)::vectorized_layer_norm_kernel,1,0,96,15392.0,128.0,768.0
+volta_sgemm_128x128_tn,1,0,24,209088.0,256.0,48.0
+volta_sgemm_128x128_tn,1,0,24,210656.0,256.0,48.0
+volta_sgemm_128x128_tn,1,0,24,210336.0,256.0,48.0
+volta_sgemm_64x64_tn,1,0,144,86208.0,64.0,1152.0
+void at::vectorized_elementwise_kernel,1,0,576,60800.0,128.0,4608.0
+void at::elementwise_kernel,1,0,2304,63136.0,128.0,18432.0
+void (anonymous namespace)::softmax_warp_forward,1,0,384,63328.0,128.0,3072.0
+volta_sgemm_64x64_nn,1,0,24,94080.0,64.0,192.0
+void at::elementwise_kernel,0,0,384,11936.0,128.0,3072.0
+volta_sgemm_128x128_tn,1,0,24,209376.0,256.0,48.0
+void at::vectorized_elementwise_kernel,1,0,96,15264.0,128.0,768.0
+void at::(anonymous namespace)::vectorized_layer_norm_kernel,1,0,96,15712.0,128.0,768.0
+volta_sgemm_128x64_tn,1,0,192,597056.0,128.0,768.0
+void at::vectorized_elementwise_kernel,1,0,384,40448.0,128.0,3072.0
+volta_sgemm_128x64_tn,1,0,192,593632.0,128.0,768.0
+void at::vectorized_elementwise_kernel,1,0,96,14880.0,128.0,768.0
+void at::(anonymous namespace)::vectorized_layer_norm_kernel,1,0,96,15360.0,128.0,768.0
+volta_sgemm_128x128_tn,1,0,24,209568.0,256.0,48.0
+volta_sgemm_128x128_tn,1,0,24,209984.0,256.0,48.0
+volta_sgemm_128x128_tn,1,0,24,210560.0,256.0,48.0
+volta_sgemm_64x64_tn,1,0,144,86528.0,64.0,1152.0
+void at::vectorized_elementwise_kernel,1,0,576,60448.0,128.0,4608.0
+void at::elementwise_kernel,1,0,2304,63264.0,128.0,18432.0
+void (anonymous namespace)::softmax_warp_forward,1,0,384,63744.0,128.0,3072.0
+volta_sgemm_64x64_nn,1,0,24,92288.0,64.0,192.0
+void at::elementwise_kernel,0,0,384,12032.0,128.0,3072.0
+volta_sgemm_128x128_tn,1,0,24,209248.0,256.0,48.0
+void at::vectorized_elementwise_kernel,1,0,96,15392.0,128.0,768.0
+void at::(anonymous namespace)::vectorized_layer_norm_kernel,1,0,96,15904.0,128.0,768.0
+volta_sgemm_128x64_tn,1,0,192,595840.0,128.0,768.0
+void at::vectorized_elementwise_kernel,1,0,384,40448.0,128.0,3072.0
+volta_sgemm_128x64_tn,1,0,192,594752.0,128.0,768.0
+void at::vectorized_elementwise_kernel,1,0,96,15008.0,128.0,768.0
+void at::(anonymous namespace)::vectorized_layer_norm_kernel,1,0,96,15392.0,128.0,768.0
+volta_sgemm_128x128_tn,1,0,24,210432.0,256.0,48.0
+volta_sgemm_128x128_tn,1,0,24,209600.0,256.0,48.0
+volta_sgemm_128x128_tn,1,0,24,209344.0,256.0,48.0
+volta_sgemm_64x64_tn,1,0,144,86080.0,64.0,1152.0
+void at::vectorized_elementwise_kernel,1,0,576,60800.0,128.0,4608.0
+void at::elementwise_kernel,1,0,2304,63168.0,128.0,18432.0
+void (anonymous namespace)::softmax_warp_forward,1,0,384,62400.0,128.0,3072.0
+volta_sgemm_64x64_nn,1,0,24,94528.0,64.0,192.0
+void at::elementwise_kernel,0,0,384,12064.0,128.0,3072.0
+volta_sgemm_128x128_tn,1,0,24,209152.0,256.0,48.0
+void at::vectorized_elementwise_kernel,1,0,96,15072.0,128.0,768.0
+void at::(anonymous namespace)::vectorized_layer_norm_kernel,1,0,96,16288.0,128.0,768.0
+volta_sgemm_128x64_tn,1,0,192,598432.0,128.0,768.0
+void at::vectorized_elementwise_kernel,1,0,384,40128.0,128.0,3072.0
+volta_sgemm_128x64_tn,1,0,192,595040.0,128.0,768.0
+void at::vectorized_elementwise_kernel,1,0,96,14816.0,128.0,768.0
+void at::(anonymous namespace)::vectorized_layer_norm_kernel,1,0,96,15488.0,128.0,768.0
+volta_sgemm_128x128_tn,1,0,24,212288.0,256.0,48.0
+volta_sgemm_128x128_tn,1,0,24,212192.0,256.0,48.0
+volta_sgemm_128x128_tn,1,0,24,212096.0,256.0,48.0
+volta_sgemm_64x64_tn,1,0,144,87680.0,64.0,1152.0
+void at::vectorized_elementwise_kernel,1,0,576,60800.0,128.0,4608.0
+void at::elementwise_kernel,1,0,2304,63232.0,128.0,18432.0
+void (anonymous namespace)::softmax_warp_forward,1,0,384,64032.0,128.0,3072.0
+volta_sgemm_64x64_nn,1,0,24,94528.0,64.0,192.0
+void at::elementwise_kernel,0,0,384,11776.0,128.0,3072.0
+volta_sgemm_128x128_tn,1,0,24,211040.0,256.0,48.0
+void at::vectorized_elementwise_kernel,1,0,96,15360.0,128.0,768.0
+void at::(anonymous namespace)::vectorized_layer_norm_kernel,1,0,96,15648.0,128.0,768.0
+volta_sgemm_128x64_tn,1,0,192,597280.0,128.0,768.0
+void at::vectorized_elementwise_kernel,1,0,384,40320.0,128.0,3072.0
+volta_sgemm_128x64_tn,1,0,192,596224.0,128.0,768.0
+void at::vectorized_elementwise_kernel,1,0,96,15008.0,128.0,768.0
+void at::(anonymous namespace)::vectorized_layer_norm_kernel,1,0,96,15520.0,128.0,768.0
+volta_sgemm_128x128_tn,1,0,24,211968.0,256.0,48.0
+volta_sgemm_128x128_tn,1,0,24,212864.0,256.0,48.0
+volta_sgemm_128x128_tn,1,0,24,212448.0,256.0,48.0
+volta_sgemm_64x64_tn,1,0,144,87424.0,64.0,1152.0
+void at::vectorized_elementwise_kernel,1,0,576,61024.0,128.0,4608.0
+void at::elementwise_kernel,1,0,2304,63072.0,128.0,18432.0
+void (anonymous namespace)::softmax_warp_forward,1,0,384,62720.0,128.0,3072.0
+volta_sgemm_64x64_nn,1,0,24,95040.0,64.0,192.0
+void at::elementwise_kernel,0,0,384,11840.0,128.0,3072.0
+volta_sgemm_128x128_tn,1,0,24,211712.0,256.0,48.0
+void at::vectorized_elementwise_kernel,1,0,96,15136.0,128.0,768.0
+void at::(anonymous namespace)::vectorized_layer_norm_kernel,1,0,96,16000.0,128.0,768.0
+volta_sgemm_128x64_tn,1,0,192,599008.0,128.0,768.0
+void at::vectorized_elementwise_kernel,1,0,384,41120.0,128.0,3072.0
+volta_sgemm_128x64_tn,1,0,192,596672.0,128.0,768.0
+void at::vectorized_elementwise_kernel,1,0,96,14848.0,128.0,768.0
+void at::(anonymous namespace)::vectorized_layer_norm_kernel,1,0,96,15616.0,128.0,768.0
+volta_sgemm_128x128_tn,1,0,24,211552.0,256.0,48.0
+volta_sgemm_128x128_tn,1,0,24,211968.0,256.0,48.0
+volta_sgemm_128x128_tn,1,0,24,211328.0,256.0,48.0
+volta_sgemm_64x64_tn,1,0,144,86816.0,64.0,1152.0
+void at::vectorized_elementwise_kernel,1,0,576,61248.0,128.0,4608.0
+void at::elementwise_kernel,1,0,2304,63136.0,128.0,18432.0
+void (anonymous namespace)::softmax_warp_forward,1,0,384,63264.0,128.0,3072.0
+volta_sgemm_64x64_nn,1,0,24,95232.0,64.0,192.0
+void at::elementwise_kernel,0,0,384,11904.0,128.0,3072.0
+volta_sgemm_128x128_tn,1,0,24,213056.0,256.0,48.0
+void at::vectorized_elementwise_kernel,1,0,96,15136.0,128.0,768.0
+void at::(anonymous namespace)::vectorized_layer_norm_kernel,1,0,96,15712.0,128.0,768.0
+volta_sgemm_128x64_tn,1,0,192,598560.0,128.0,768.0
+void at::vectorized_elementwise_kernel,1,0,384,40288.0,128.0,3072.0
+volta_sgemm_128x64_tn,1,0,192,596736.0,128.0,768.0
+void at::vectorized_elementwise_kernel,1,0,96,15328.0,128.0,768.0
+void at::(anonymous namespace)::vectorized_layer_norm_kernel,1,0,96,15264.0,128.0,768.0
+volta_sgemm_128x128_tn,1,0,24,211488.0,256.0,48.0
+volta_sgemm_128x128_tn,1,0,24,212064.0,256.0,48.0
+volta_sgemm_128x128_tn,1,0,24,217408.0,256.0,48.0
+volta_sgemm_64x64_tn,1,0,144,87168.0,64.0,1152.0
+void at::vectorized_elementwise_kernel,1,0,576,61344.0,128.0,4608.0
+void at::elementwise_kernel,1,0,2304,63008.0,128.0,18432.0
+void (anonymous namespace)::softmax_warp_forward,1,0,384,63968.0,128.0,3072.0
+volta_sgemm_64x64_nn,1,0,24,94592.0,64.0,192.0
+void at::elementwise_kernel,0,0,384,11840.0,128.0,3072.0
+volta_sgemm_128x128_tn,1,0,24,211296.0,256.0,48.0
+void at::vectorized_elementwise_kernel,1,0,96,15200.0,128.0,768.0
+void at::(anonymous namespace)::vectorized_layer_norm_kernel,1,0,96,15488.0,128.0,768.0
+volta_sgemm_128x64_tn,1,0,192,597952.0,128.0,768.0
+void at::vectorized_elementwise_kernel,1,0,384,40768.0,128.0,3072.0
+volta_sgemm_128x64_tn,1,0,192,597408.0,128.0,768.0
+void at::vectorized_elementwise_kernel,1,0,96,15232.0,128.0,768.0
+void at::(anonymous namespace)::vectorized_layer_norm_kernel,1,0,96,14912.0,128.0,768.0
+volta_sgemm_128x128_tn,1,0,24,212512.0,256.0,48.0
+volta_sgemm_128x128_tn,1,0,24,212000.0,256.0,48.0
+volta_sgemm_128x128_tn,1,0,24,211744.0,256.0,48.0
+volta_sgemm_64x64_tn,1,0,144,87392.0,64.0,1152.0
+void at::vectorized_elementwise_kernel,1,0,576,60608.0,128.0,4608.0
+void at::elementwise_kernel,1,0,2304,63264.0,128.0,18432.0
+void (anonymous namespace)::softmax_warp_forward,1,0,384,63264.0,128.0,3072.0
+volta_sgemm_64x64_nn,1,0,24,94496.0,64.0,192.0
+void at::elementwise_kernel,0,0,384,11840.0,128.0,3072.0
+volta_sgemm_128x128_tn,1,0,24,211200.0,256.0,48.0
+void at::vectorized_elementwise_kernel,1,0,96,14976.0,128.0,768.0
+void at::(anonymous namespace)::vectorized_layer_norm_kernel,1,0,96,15392.0,128.0,768.0
+volta_sgemm_128x64_tn,1,0,192,596608.0,128.0,768.0
+void at::vectorized_elementwise_kernel,1,0,384,40384.0,128.0,3072.0
+volta_sgemm_128x64_tn,1,0,192,595872.0,128.0,768.0
+void at::vectorized_elementwise_kernel,1,0,96,15200.0,128.0,768.0
+void at::(anonymous namespace)::vectorized_layer_norm_kernel,1,0,96,15648.0,128.0,768.0
+volta_sgemm_128x128_tn,1,0,24,212192.0,256.0,48.0
+volta_sgemm_128x128_tn,1,0,24,211776.0,256.0,48.0
+volta_sgemm_128x128_tn,1,0,24,211968.0,256.0,48.0
+volta_sgemm_64x64_tn,1,0,144,87104.0,64.0,1152.0
+void at::vectorized_elementwise_kernel,1,0,576,61248.0,128.0,4608.0
+void at::elementwise_kernel,1,0,2304,63136.0,128.0,18432.0
+void (anonymous namespace)::softmax_warp_forward,1,0,384,62752.0,128.0,3072.0
+volta_sgemm_64x64_nn,1,0,24,93568.0,64.0,192.0
+void at::elementwise_kernel,0,0,384,12032.0,128.0,3072.0
+volta_sgemm_128x128_tn,1,0,24,211168.0,256.0,48.0
+void at::vectorized_elementwise_kernel,1,0,96,15264.0,128.0,768.0
+void at::(anonymous namespace)::vectorized_layer_norm_kernel,1,0,96,15552.0,128.0,768.0
+volta_sgemm_128x64_tn,1,0,192,597504.0,128.0,768.0
+void at::vectorized_elementwise_kernel,1,0,384,40544.0,128.0,3072.0
+volta_sgemm_128x64_tn,1,0,192,595040.0,128.0,768.0
+void at::vectorized_elementwise_kernel,1,0,96,15168.0,128.0,768.0
+void at::(anonymous namespace)::vectorized_layer_norm_kernel,1,0,96,15488.0,128.0,768.0
+volta_sgemm_128x128_tn,1,0,24,212640.0,256.0,48.0
+volta_sgemm_128x128_tn,1,0,24,212192.0,256.0,48.0
+volta_sgemm_128x128_tn,1,0,24,212768.0,256.0,48.0
+volta_sgemm_64x64_tn,1,0,144,87584.0,64.0,1152.0
+void at::vectorized_elementwise_kernel,1,0,576,61312.0,128.0,4608.0
+void at::elementwise_kernel,1,0,2304,63136.0,128.0,18432.0
+void (anonymous namespace)::softmax_warp_forward,1,0,384,64032.0,128.0,3072.0
+volta_sgemm_64x64_nn,1,0,24,94368.0,64.0,192.0
+void at::elementwise_kernel,0,0,384,11936.0,128.0,3072.0
+volta_sgemm_128x128_tn,1,0,24,211232.0,256.0,48.0
+void at::vectorized_elementwise_kernel,1,0,96,15616.0,128.0,768.0
+void at::(anonymous namespace)::vectorized_layer_norm_kernel,1,0,96,16192.0,128.0,768.0
+volta_sgemm_128x64_tn,1,0,192,599104.0,128.0,768.0
+void at::vectorized_elementwise_kernel,1,0,384,40320.0,128.0,3072.0
+volta_sgemm_128x64_tn,1,0,192,595072.0,128.0,768.0
+void at::vectorized_elementwise_kernel,1,0,96,15040.0,128.0,768.0
+void at::(anonymous namespace)::vectorized_layer_norm_kernel,1,0,96,15936.0,128.0,768.0
+volta_sgemm_128x128_tn,1,0,24,211744.0,256.0,48.0
+volta_sgemm_128x128_tn,1,0,24,212672.0,256.0,48.0
+volta_sgemm_128x128_tn,1,0,24,212640.0,256.0,48.0
+volta_sgemm_64x64_tn,1,0,144,87104.0,64.0,1152.0
+void at::vectorized_elementwise_kernel,1,0,576,60800.0,128.0,4608.0
+void at::elementwise_kernel,1,0,2304,63232.0,128.0,18432.0
+void (anonymous namespace)::softmax_warp_forward,1,0,384,62848.0,128.0,3072.0
+volta_sgemm_64x64_nn,1,0,24,93824.0,64.0,192.0
+void at::elementwise_kernel,0,0,384,11872.0,128.0,3072.0
+volta_sgemm_128x128_tn,1,0,24,211424.0,256.0,48.0
+void at::vectorized_elementwise_kernel,1,0,96,15168.0,128.0,768.0
+void at::(anonymous namespace)::vectorized_layer_norm_kernel,1,0,96,15328.0,128.0,768.0
+volta_sgemm_128x64_tn,1,0,192,597184.0,128.0,768.0
+void at::vectorized_elementwise_kernel,1,0,384,40864.0,128.0,3072.0
+volta_sgemm_128x64_tn,1,0,192,596704.0,128.0,768.0
+void at::vectorized_elementwise_kernel,1,0,96,14976.0,128.0,768.0
+void at::(anonymous namespace)::vectorized_layer_norm_kernel,1,0,96,15520.0,128.0,768.0
+volta_sgemm_128x128_tn,1,0,24,211840.0,256.0,48.0
+volta_sgemm_128x128_tn,1,0,24,212960.0,256.0,48.0
+volta_sgemm_128x128_tn,1,0,24,211936.0,256.0,48.0
+volta_sgemm_64x64_tn,1,0,144,87008.0,64.0,1152.0
+void at::vectorized_elementwise_kernel,1,0,576,60672.0,128.0,4608.0
+void at::elementwise_kernel,1,0,2304,63168.0,128.0,18432.0
+void (anonymous namespace)::softmax_warp_forward,1,0,384,64672.0,128.0,3072.0
+volta_sgemm_64x64_nn,1,0,24,94208.0,64.0,192.0
+void at::elementwise_kernel,0,0,384,11968.0,128.0,3072.0
+volta_sgemm_128x128_tn,1,0,24,211168.0,256.0,48.0
+void at::vectorized_elementwise_kernel,1,0,96,15008.0,128.0,768.0
+void at::(anonymous namespace)::vectorized_layer_norm_kernel,1,0,96,15552.0,128.0,768.0
+volta_sgemm_128x64_tn,1,0,192,598112.0,128.0,768.0
+void at::vectorized_elementwise_kernel,1,0,384,41024.0,128.0,3072.0
+volta_sgemm_128x64_tn,1,0,192,594944.0,128.0,768.0
+void at::vectorized_elementwise_kernel,1,0,96,15200.0,128.0,768.0
+void at::(anonymous namespace)::vectorized_layer_norm_kernel,1,0,96,15904.0,128.0,768.0
+volta_sgemm_128x128_tn,1,0,24,212384.0,256.0,48.0
+volta_sgemm_128x128_tn,1,0,24,212608.0,256.0,48.0
+volta_sgemm_128x128_tn,1,0,24,210944.0,256.0,48.0
+volta_sgemm_64x64_tn,1,0,144,87328.0,64.0,1152.0
+void at::vectorized_elementwise_kernel,1,0,576,61568.0,128.0,4608.0
+void at::elementwise_kernel,1,0,2304,63008.0,128.0,18432.0
+void (anonymous namespace)::softmax_warp_forward,1,0,384,62688.0,128.0,3072.0
+volta_sgemm_64x64_nn,1,0,24,93408.0,64.0,192.0
+void at::elementwise_kernel,0,0,384,12224.0,128.0,3072.0
+volta_sgemm_128x128_tn,1,0,24,212352.0,256.0,48.0
+void at::vectorized_elementwise_kernel,1,0,96,15104.0,128.0,768.0
+void at::(anonymous namespace)::vectorized_layer_norm_kernel,1,0,96,15520.0,128.0,768.0
+volta_sgemm_128x64_tn,1,0,192,598176.0,128.0,768.0
+void at::vectorized_elementwise_kernel,1,0,384,40192.0,128.0,3072.0
+volta_sgemm_128x64_tn,1,0,192,594656.0,128.0,768.0
+void at::vectorized_elementwise_kernel,1,0,96,14976.0,128.0,768.0
+void at::(anonymous namespace)::vectorized_layer_norm_kernel,1,0,96,15296.0,128.0,768.0
+volta_sgemm_128x128_tn,1,0,24,212064.0,256.0,48.0
+volta_sgemm_128x128_tn,1,0,24,212096.0,256.0,48.0
+volta_sgemm_128x128_tn,1,0,24,212480.0,256.0,48.0
+volta_sgemm_64x64_tn,1,0,144,87232.0,64.0,1152.0
+void at::vectorized_elementwise_kernel,1,0,576,60832.0,128.0,4608.0
+void at::elementwise_kernel,1,0,2304,63232.0,128.0,18432.0
+void (anonymous namespace)::softmax_warp_forward,1,0,384,63328.0,128.0,3072.0
+volta_sgemm_64x64_nn,1,0,24,93376.0,64.0,192.0
+void at::elementwise_kernel,0,0,384,11968.0,128.0,3072.0
+volta_sgemm_128x128_tn,1,0,24,211584.0,256.0,48.0
+void at::vectorized_elementwise_kernel,1,0,96,15072.0,128.0,768.0
+void at::(anonymous namespace)::vectorized_layer_norm_kernel,1,0,96,15488.0,128.0,768.0
+volta_sgemm_128x64_tn,1,0,192,598496.0,128.0,768.0
+void at::vectorized_elementwise_kernel,1,0,384,40224.0,128.0,3072.0
+volta_sgemm_128x64_tn,1,0,192,595776.0,128.0,768.0
+void at::vectorized_elementwise_kernel,1,0,96,15104.0,128.0,768.0
+void at::(anonymous namespace)::vectorized_layer_norm_kernel,1,0,96,15808.0,128.0,768.0
+volta_sgemm_128x128_tn,1,0,24,212192.0,256.0,48.0
+volta_sgemm_128x128_tn,1,0,24,212672.0,256.0,48.0
+volta_sgemm_128x128_tn,1,0,24,212032.0,256.0,48.0
+volta_sgemm_64x64_tn,1,0,144,87584.0,64.0,1152.0
+void at::vectorized_elementwise_kernel,1,0,576,61184.0,128.0,4608.0
+void at::elementwise_kernel,1,0,2304,62944.0,128.0,18432.0
+void (anonymous namespace)::softmax_warp_forward,1,0,384,63968.0,128.0,3072.0
+volta_sgemm_64x64_nn,1,0,24,93984.0,64.0,192.0
+void at::elementwise_kernel,0,0,384,12032.0,128.0,3072.0
+volta_sgemm_128x128_tn,1,0,24,211360.0,256.0,48.0
+void at::vectorized_elementwise_kernel,1,0,96,15328.0,128.0,768.0
+void at::(anonymous namespace)::vectorized_layer_norm_kernel,1,0,96,15392.0,128.0,768.0
+volta_sgemm_128x64_tn,1,0,192,597792.0,128.0,768.0
+void at::vectorized_elementwise_kernel,1,0,384,40032.0,128.0,3072.0
+volta_sgemm_128x64_tn,1,0,192,596704.0,128.0,768.0
+void at::vectorized_elementwise_kernel,1,0,96,15104.0,128.0,768.0
+void at::(anonymous namespace)::vectorized_layer_norm_kernel,1,0,96,15296.0,128.0,768.0
+volta_sgemm_128x128_tn,1,0,24,212416.0,256.0,48.0
+volta_sgemm_128x128_tn,1,0,24,212128.0,256.0,48.0
+volta_sgemm_128x128_tn,1,0,24,212480.0,256.0,48.0
+volta_sgemm_64x64_tn,1,0,144,86784.0,64.0,1152.0
+void at::vectorized_elementwise_kernel,1,0,576,60640.0,128.0,4608.0
+void at::elementwise_kernel,1,0,2304,63232.0,128.0,18432.0
+void (anonymous namespace)::softmax_warp_forward,1,0,384,62464.0,128.0,3072.0
+volta_sgemm_64x64_nn,1,0,24,93632.0,64.0,192.0
+void at::elementwise_kernel,0,0,384,11712.0,128.0,3072.0
+volta_sgemm_128x128_tn,1,0,24,211680.0,256.0,48.0
+void at::vectorized_elementwise_kernel,1,0,96,15072.0,128.0,768.0
+void at::(anonymous namespace)::vectorized_layer_norm_kernel,1,0,96,15328.0,128.0,768.0
+volta_sgemm_128x64_tn,1,0,192,596832.0,128.0,768.0
+void at::vectorized_elementwise_kernel,1,0,384,40832.0,128.0,3072.0
+volta_sgemm_128x64_tn,1,0,192,595040.0,128.0,768.0
+void at::vectorized_elementwise_kernel,1,0,96,14976.0,128.0,768.0
+void at::(anonymous namespace)::vectorized_layer_norm_kernel,1,0,96,15520.0,128.0,768.0
+volta_sgemm_128x128_tn,1,0,24,212192.0,256.0,48.0
+volta_sgemm_128x128_tn,1,0,24,211520.0,256.0,48.0
+volta_sgemm_128x128_tn,1,0,24,212128.0,256.0,48.0
+volta_sgemm_64x64_tn,1,0,144,87328.0,64.0,1152.0
+void at::vectorized_elementwise_kernel,1,0,576,61216.0,128.0,4608.0
+void at::elementwise_kernel,1,0,2304,63040.0,128.0,18432.0
+void (anonymous namespace)::softmax_warp_forward,1,0,384,64096.0,128.0,3072.0
+volta_sgemm_64x64_nn,1,0,24,93888.0,64.0,192.0
+void at::elementwise_kernel,0,0,384,11936.0,128.0,3072.0
+volta_sgemm_128x128_tn,1,0,24,212256.0,256.0,48.0
+void at::vectorized_elementwise_kernel,1,0,96,15072.0,128.0,768.0
+void at::(anonymous namespace)::vectorized_layer_norm_kernel,1,0,96,15776.0,128.0,768.0
+volta_sgemm_128x64_tn,1,0,192,599200.0,128.0,768.0
+void at::vectorized_elementwise_kernel,1,0,384,40448.0,128.0,3072.0
+volta_sgemm_128x64_tn,1,0,192,596512.0,128.0,768.0
+void at::vectorized_elementwise_kernel,1,0,96,15200.0,128.0,768.0
+void at::(anonymous namespace)::vectorized_layer_norm_kernel,1,0,96,15712.0,128.0,768.0
+volta_sgemm_128x128_tn,1,0,24,211744.0,256.0,48.0
+volta_sgemm_128x128_tn,1,0,24,212384.0,256.0,48.0
+volta_sgemm_128x128_tn,1,0,24,211392.0,256.0,48.0
+volta_sgemm_64x64_tn,1,0,144,87040.0,64.0,1152.0
+void at::vectorized_elementwise_kernel,1,0,576,61632.0,128.0,4608.0
+void at::elementwise_kernel,1,0,2304,63104.0,128.0,18432.0
+void (anonymous namespace)::softmax_warp_forward,1,0,384,63168.0,128.0,3072.0
+volta_sgemm_64x64_nn,1,0,24,93856.0,64.0,192.0
+void at::elementwise_kernel,0,0,384,12032.0,128.0,3072.0
+volta_sgemm_128x128_tn,1,0,24,211008.0,256.0,48.0
+void at::vectorized_elementwise_kernel,1,0,96,15200.0,128.0,768.0
+void at::(anonymous namespace)::vectorized_layer_norm_kernel,1,0,96,15936.0,128.0,768.0
+volta_sgemm_128x64_tn,1,0,192,596544.0,128.0,768.0
+void at::vectorized_elementwise_kernel,1,0,384,40352.0,128.0,3072.0
+volta_sgemm_128x64_tn,1,0,192,596512.0,128.0,768.0
+void at::vectorized_elementwise_kernel,1,0,96,15360.0,128.0,768.0
+void at::(anonymous namespace)::vectorized_layer_norm_kernel,1,0,96,15232.0,128.0,768.0
+volta_sgemm_128x128_tn,1,0,24,212288.0,256.0,48.0
+volta_sgemm_128x128_tn,1,0,24,211424.0,256.0,48.0
+volta_sgemm_128x128_tn,1,0,24,211936.0,256.0,48.0
+volta_sgemm_64x64_tn,1,0,144,87136.0,64.0,1152.0
+void at::vectorized_elementwise_kernel,1,0,576,60960.0,128.0,4608.0
+void at::elementwise_kernel,1,0,2304,63072.0,128.0,18432.0
+void (anonymous namespace)::softmax_warp_forward,1,0,384,63392.0,128.0,3072.0
+volta_sgemm_64x64_nn,1,0,24,93280.0,64.0,192.0
+void at::elementwise_kernel,0,0,384,11776.0,128.0,3072.0
+volta_sgemm_128x128_tn,1,0,24,211744.0,256.0,48.0
+void at::vectorized_elementwise_kernel,1,0,96,15264.0,128.0,768.0
+void at::(anonymous namespace)::vectorized_layer_norm_kernel,1,0,96,15296.0,128.0,768.0
+volta_sgemm_128x64_tn,1,0,192,598176.0,128.0,768.0
+void at::vectorized_elementwise_kernel,1,0,384,40480.0,128.0,3072.0
+volta_sgemm_128x64_tn,1,0,192,596000.0,128.0,768.0
+void at::vectorized_elementwise_kernel,1,0,96,15232.0,128.0,768.0
+void at::(anonymous namespace)::vectorized_layer_norm_kernel,1,0,96,15648.0,128.0,768.0
+volta_sgemm_128x128_tn,1,0,24,211456.0,256.0,48.0
+volta_sgemm_128x128_tn,1,0,24,212096.0,256.0,48.0
+volta_sgemm_128x128_tn,1,0,24,212192.0,256.0,48.0
+volta_sgemm_64x64_tn,1,0,144,86912.0,64.0,1152.0
+void at::vectorized_elementwise_kernel,1,0,576,60704.0,128.0,4608.0
+void at::elementwise_kernel,1,0,2304,63264.0,128.0,18432.0
+void (anonymous namespace)::softmax_warp_forward,1,0,384,63776.0,128.0,3072.0
+volta_sgemm_64x64_nn,1,0,24,93728.0,64.0,192.0
+void at::elementwise_kernel,0,0,384,11872.0,128.0,3072.0
+volta_sgemm_128x128_tn,1,0,24,212032.0,256.0,48.0
+void at::vectorized_elementwise_kernel,1,0,96,15136.0,128.0,768.0
+void at::(anonymous namespace)::vectorized_layer_norm_kernel,1,0,96,15520.0,128.0,768.0
+volta_sgemm_128x64_tn,1,0,192,597856.0,128.0,768.0
+void at::vectorized_elementwise_kernel,1,0,384,40800.0,128.0,3072.0
+volta_sgemm_128x64_tn,1,0,192,596320.0,128.0,768.0
+void at::vectorized_elementwise_kernel,1,0,96,15104.0,128.0,768.0
+void at::(anonymous namespace)::vectorized_layer_norm_kernel,1,0,96,15808.0,128.0,768.0
+volta_sgemm_128x128_tn,1,0,24,211232.0,256.0,48.0
+volta_sgemm_128x128_tn,1,0,24,211712.0,256.0,48.0
+volta_sgemm_128x128_tn,1,0,24,212096.0,256.0,48.0
+volta_sgemm_64x64_tn,1,0,144,87456.0,64.0,1152.0
+void at::vectorized_elementwise_kernel,1,0,576,60832.0,128.0,4608.0
+void at::elementwise_kernel,1,0,2304,63104.0,128.0,18432.0
+void (anonymous namespace)::softmax_warp_forward,1,0,384,63520.0,128.0,3072.0
+volta_sgemm_64x64_nn,1,0,24,92672.0,64.0,192.0
+void at::elementwise_kernel,0,0,384,11968.0,128.0,3072.0
+volta_sgemm_128x128_tn,1,0,24,211328.0,256.0,48.0
+void at::vectorized_elementwise_kernel,1,0,96,15168.0,128.0,768.0
+void at::(anonymous namespace)::vectorized_layer_norm_kernel,1,0,96,15328.0,128.0,768.0
+volta_sgemm_128x64_tn,1,0,192,598016.0,128.0,768.0
+void at::vectorized_elementwise_kernel,1,0,384,41184.0,128.0,3072.0
+volta_sgemm_128x64_tn,1,0,192,595328.0,128.0,768.0
+void at::vectorized_elementwise_kernel,1,0,96,15104.0,128.0,768.0
+void at::(anonymous namespace)::vectorized_layer_norm_kernel,1,0,96,16352.0,128.0,768.0
+void at::elementwise_kernel,0,0,384,11616.0,128.0,3072.0
+void gemmSN_TN_kernel,1,0,16,12704.0,128.0,128.0
+void at::vectorized_elementwise_kernel,1,0,1,2336.0,128.0,2.0
+volta_sgemm_32x32_sliced1x4_tn,1,0,48,16928.0,128.0,96.0

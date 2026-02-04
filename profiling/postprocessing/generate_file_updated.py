@@ -24,6 +24,8 @@ parser.add_argument('--output_file_name', type=str, required=True,
                         help='path to the profiling output file')
 parser.add_argument('--model_type', type=str, required=True,
                         help='Model type. (vision, bert, transformer) are currently supported')
+parser.add_argument('--verbose', action='store_true',
+                        help='Print per-kernel debug output')
 args = parser.parse_args()
 
 df = pd.read_csv(args.input_file_name)
@@ -39,7 +41,8 @@ rem_kernel_names = []
 
 conv_info = []
 l = df.to_dict('records')
-print(len(l))
+if args.verbose:
+    print(len(l))
 
 found = 0
 i = 0
@@ -53,7 +56,8 @@ while i < num_rows:
     #processed_kernel_names.append(x)
 
     x = x.replace("<unnamed>", "(anonymous namespace)")
-    print(x)
+    if args.verbose:
+        print(x)
     if 'cudnn' in x and 'LSTM' not in x:
         if ('bn_fw' in x) or ('bn_bw' in x):
             processed_kernel_names.append(['BatchNorm', row['Roofline_prof'], 0, row["SM_needed"], row["Duration(ns)"], row["Block"], row["Grid"]])
@@ -107,7 +111,8 @@ while i < num_rows:
             processed_kernel_names.append([x.split('<')[0],  row['Roofline_prof'], 0, row["SM_needed"], row["Duration(ns)"], row["Block"], row["Grid"]])
     elif ('sm86_xmma' in x or 'implicit_convolve_sgemm' in x or 'cutlass::Kernel2' in x):
         conv_info.append([row["SM_needed"], row["Duration(ns)"], row["Roofline_prof"]])
-        print(conv_info, x)
+        if args.verbose:
+            print(conv_info, x)
         sms = [x[0] for x in conv_info]
         dur_list = [x[1] for x in conv_info]
         profiles = [x[2] for x in conv_info]

@@ -1,0 +1,61 @@
+ResNet50 ResNet50 0
+ERROR: ld.so: object '/usr/local/lib/python3.10/dist-packages/torch/lib/../../nvidia/cudnn/lib/libcudnn.so.9' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+ERROR: ld.so: object '/usr/local/lib/python3.10/dist-packages/torch/lib/../../nvidia/cublas/lib/libcublasLt.so.12' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+ERROR: ld.so: object '/usr/local/lib/python3.10/dist-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.12' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+/home/cc/.local/lib/python3.10/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+python3: intercept_cudnn.cpp:39: cudnnStatus_t cudnnBackendExecute(cudnnHandle_t, cudnnBackendDescriptor_t, cudnnBackendDescriptor_t): Assertion `cudnn_backend_func != NULL' failed.
+Aborted (core dumped)
+cp: cannot stat 'client_0.json': No such file or directory
+rm: cannot remove 'client_0.json': No such file or directory
+cp: cannot stat 'client_1.json': No such file or directory
+MobileNetV2 ResNet50 0
+ERROR: ld.so: object '/usr/local/lib/python3.10/dist-packages/torch/lib/../../nvidia/cudnn/lib/libcudnn.so.9' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+ERROR: ld.so: object '/usr/local/lib/python3.10/dist-packages/torch/lib/../../nvidia/cublas/lib/libcublasLt.so.12' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+ERROR: ld.so: object '/usr/local/lib/python3.10/dist-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.12' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+/home/cc/.local/lib/python3.10/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+python3: intercept_cudnn.cpp:39: cudnnStatus_t cudnnBackendExecute(cudnnHandle_t, cudnnBackendDescriptor_t, cudnnBackendDescriptor_t): Assertion `cudnn_backend_func != NULL' failed.
+Aborted (core dumped)
+cp: cannot stat 'client_0.json': No such file or directory
+rm: cannot remove 'client_0.json': No such file or directory
+cp: cannot stat 'client_1.json': No such file or directory
+ResNet101 ResNet50 0
+ERROR: ld.so: object '/usr/local/lib/python3.10/dist-packages/torch/lib/../../nvidia/cudnn/lib/libcudnn.so.9' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+ERROR: ld.so: object '/usr/local/lib/python3.10/dist-packages/torch/lib/../../nvidia/cublas/lib/libcublasLt.so.12' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+ERROR: ld.so: object '/usr/local/lib/python3.10/dist-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.12' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+/home/cc/.local/lib/python3.10/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+python3: intercept_cudnn.cpp:39: cudnnStatus_t cudnnBackendExecute(cudnnHandle_t, cudnnBackendDescriptor_t, cudnnBackendDescriptor_t): Assertion `cudnn_backend_func != NULL' failed.
+Aborted (core dumped)
+cp: cannot stat 'client_0.json': No such file or directory
+rm: cannot remove 'client_0.json': No such file or directory
+cp: cannot stat 'client_1.json': No such file or directory
+BERT ResNet50 0
+ERROR: ld.so: object '/usr/local/lib/python3.10/dist-packages/torch/lib/../../nvidia/cudnn/lib/libcudnn.so.9' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+ERROR: ld.so: object '/usr/local/lib/python3.10/dist-packages/torch/lib/../../nvidia/cublas/lib/libcublasLt.so.12' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+ERROR: ld.so: object '/usr/local/lib/python3.10/dist-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.12' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+/home/cc/.local/lib/python3.10/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+python3: intercept_cudnn.cpp:39: cudnnStatus_t cudnnBackendExecute(cudnnHandle_t, cudnnBackendDescriptor_t, cudnnBackendDescriptor_t): Assertion `cudnn_backend_func != NULL' failed.
+Aborted (core dumped)
+cp: cannot stat 'client_0.json': No such file or directory
+rm: cannot remove 'client_0.json': No such file or directory
+cp: cannot stat 'client_1.json': No such file or directory
+ResNet50 MobileNetV2 0
+ERROR: ld.so: object '/usr/local/lib/python3.10/dist-packages/torch/lib/../../nvidia/cudnn/lib/libcudnn.so.9' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+ERROR: ld.so: object '/usr/local/lib/python3.10/dist-packages/torch/lib/../../nvidia/cublas/lib/libcublasLt.so.12' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+ERROR: ld.so: object '/usr/local/lib/python3.10/dist-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.12' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+/home/cc/.local/lib/python3.10/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+python3: intercept_cudnn.cpp:39: cudnnStatus_t cudnnBackendExecute(cudnnHandle_t, cudnnBackendDescriptor_t, cudnnBackendDescriptor_t): Assertion `cudnn_backend_func != NULL' failed.
+Aborted (core dumped)
+cp: cannot stat 'client_0.json': No such file or directory
+rm: cannot remove 'client_0.json': No such file or directory
+cp: cannot stat 'client_1.json': No such file or directory
+MobileNetV2 MobileNetV2 0
+ERROR: ld.so: object '/usr/local/lib/python3.10/dist-packages/torch/lib/../../nvidia/cudnn/lib/libcudnn.so.9' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+ERROR: ld.so: object '/usr/local/lib/python3.10/dist-packages/torch/lib/../../nvidia/cublas/lib/libcublasLt.so.12' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+ERROR: ld.so: object '/usr/local/lib/python3.10/dist-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.12' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+/home/cc/.local/lib/python3.10/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]

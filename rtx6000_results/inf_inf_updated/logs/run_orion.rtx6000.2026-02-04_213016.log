@@ -1,0 +1,125 @@
+ResNet50 ResNet50 0
+/home/cc/.local/lib/python3.10/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+[{'arch': 'resnet50', 'kernel_file': '/home/cc/orion/benchmarking/model_kernels/rtx6000/resnet50_8_fwd', 'num_kernels': 174, 'num_iters': 10000000, 'args': {'model_name': 'resnet50', 'batchsize': 8, 'rps': 200, 'uniform': False, 'dummy_data': True, 'train': False}}, {'arch': 'resnet50', 'kernel_file': '/home/cc/orion/benchmarking/model_kernels/rtx6000/resnet50_8_fwd', 'num_kernels': 174, 'num_iters': 9200, 'args': {'model_name': 'resnet50', 'batchsize': 8, 'rps': 200, 'uniform': False, 'dummy_data': True, 'train': False}}]
+2
+2.9.1+cu128
+[303915, 303916]
+REEF IS False, SEQUENTIAL IS False
+[False, False]
+['resnet50', 'resnet50'] [b'/home/cc/orion/benchmarking/model_kernels/rtx6000/resnet50_8_fwd', b'/home/cc/orion/benchmarking/model_kernels/rtx6000/resnet50_8_fwd'] [303915, 303916]
+resnet50 8 0 [<threading.Barrier object at 0x7fdc9ac2b6d0>, <threading.Barrier object at 0x7fdc9ac2b700>] 1
+resnet50 8 0 [<threading.Barrier object at 0x7fdc9ac2b6d0>, <threading.Barrier object at 0x7fdc9ac2b700>] 0
+SIZE is 9200
+Num clients is 2
+before starting, profile is True
+SCHED DEBUG: Starting first barrier wait (warmup setup)
+SIZE is 10000000
+-------------- thread id:   303915
+SCHED DEBUG: Passed first barrier, calling schedule for warmup setup
+-------------- thread id:   303916
+Setting stream to  140584614387776
+Setting stream to  140584614388000
+Enter loop!
+Start epoch:  0
+Enter loop!
+Start epoch:  0
+SCHED DEBUG: First schedule done, synchronize complete
+SCHED DEBUG: wait here (waiting for barrier after warmup setup)
+SCHED DEBUG: done! (passed barrier after warmup setup)
+SCHED DEBUG: Starting warmup with 10 iterations
+SCHED DEBUG: Warmup schedule done, waiting at barrier
+Warmup done, starting eval
+call schedule
+Client 1 at barrier!
+---- STOP!
+Client 0 at barrier!
+SCHED DEBUG: Main schedule call returned, waiting at barrier
+Total time is 92.13839197158813
+Client 0 finished! p50: 43.262083649635315 sec, p95: 85.09011464118957 sec, p99: 88.87876471042632 sec
+Client 1 finished! p50: 23.071913838386536 sec, p95: 44.68225536346435 sec, p99: 46.7291809630394 sec
+Finished! Ready to join!
+Finished! Ready to join!
+train joined!
+sched joined!
+--------- all threads joined!
+KERNEL_INFO_FILE IS /home/cc/orion/benchmarking/model_kernels/rtx6000/resnet50_8_fwd
+----------- SIZE: 922
+KERNEL_INFO_FILE IS /home/cc/orion/benchmarking/model_kernels/rtx6000/resnet50_8_fwd
+----------- SIZE: 922
+size is 0
+size is 0
+Stream for client 0 is 1744855104
+Stream for client 1 is 1744855328
+At get streams, idx is 0, is_sequential is 0
+At get streams, idx is 1, is_sequential is 0
+EXIT LOOP!
+EXIT LOOP!
+Client 1, Total loop took 92.134003 sec
+======= Client 0 has done 513 iterations
+EXIT LOOP!
+Total loop took 92.134003 sec
+MobileNetV2 ResNet50 0
+/home/cc/.local/lib/python3.10/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+[{'arch': 'mobilenet_v2', 'kernel_file': '/home/cc/orion/benchmarking/model_kernels/rtx6000/mobilenet_16_fwd', 'num_kernels': 151, 'num_iters': 10000000, 'args': {'model_name': 'mobilenet_v2', 'batchsize': 16, 'rps': 200, 'uniform': False, 'dummy_data': True, 'train': False}}, {'arch': 'resnet50', 'kernel_file': '/home/cc/orion/benchmarking/model_kernels/rtx6000/resnet50_8_fwd', 'num_kernels': 174, 'num_iters': 9200, 'args': {'model_name': 'resnet50', 'batchsize': 8, 'rps': 200, 'uniform': False, 'dummy_data': True, 'train': False}}]
+2
+2.9.1+cu128
+[304411, 304412]
+REEF IS False, SEQUENTIAL IS False
+[False, False]
+['mobilenet_v2', 'resnet50'] [b'/home/cc/orion/benchmarking/model_kernels/rtx6000/mobilenet_16_fwd', b'/home/cc/orion/benchmarking/model_kernels/rtx6000/resnet50_8_fwd'] [304411, 304412]
+mobilenet_v2 16 0 [<threading.Barrier object at 0x7f937182b6d0>, <threading.Barrier object at 0x7f937182b700>] 0
+resnet50 8 0 [<threading.Barrier object at 0x7f937182b6d0>, <threading.Barrier object at 0x7f937182b700>] 1
+Num clients is 2
+before starting, profile is True
+SCHED DEBUG: Starting first barrier wait (warmup setup)
+SIZE is 10000000
+SIZE is 9200
+-------------- thread id:   304412
+-------------- thread id:   304411
+Setting stream to  140270545046384
+Setting stream to  140270545046608
+SCHED DEBUG: Passed first barrier, calling schedule for warmup setup
+Enter loop!
+Start epoch:  0
+Enter loop!
+Start epoch:  0
+SCHED DEBUG: First schedule done, synchronize complete
+SCHED DEBUG: wait here (waiting for barrier after warmup setup)
+SCHED DEBUG: done! (passed barrier after warmup setup)
+SCHED DEBUG: Starting warmup with 10 iterations
+SCHED DEBUG: Warmup schedule done, waiting at barrier
+Warmup done, starting eval
+call schedule
+Client 1 at barrier!
+---- STOP!
+Client 0 at barrier!
+SCHED DEBUG: Main schedule call returned, waiting at barrier
+Total time is 93.26377201080322
+Client 0 finished! p50: 44.75096154212952 sec, p95: 85.49897691011428 sec, p99: 89.20709359884263 sec
+Finished! Ready to join!
+Client 1 finished! p50: 24.34088110923767 sec, p95: 45.62352339029312 sec, p99: 47.514540367126465 sec
+Finished! Ready to join!
+train joined!
+sched joined!
+--------- all threads joined!
+KERNEL_INFO_FILE IS /home/cc/orion/benchmarking/model_kernels/rtx6000/mobilenet_16_fwd
+----------- SIZE: 607
+KERNEL_INFO_FILE IS /home/cc/orion/benchmarking/model_kernels/rtx6000/resnet50_8_fwd
+----------- SIZE: 922
+size is 0
+size is 0
+Stream for client 0 is 1208126320
+Stream for client 1 is 1208126544
+At get streams, idx is 1, is_sequential is 0
+At get streams, idx is 0, is_sequential is 0
+EXIT LOOP!
+EXIT LOOP!
+Client 1, Total loop took 93.259003 sec
+======= Client 0 has done 627 iterations
+EXIT LOOP!
+Total loop took 93.259003 sec
+ResNet101 ResNet50 0
+/home/cc/.local/lib/python3.10/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]

@@ -1,12 +1,35 @@
 import pandas as pd
 import argparse
+from pathlib import Path
+
+
+def _read_ncu_csv(path: str) -> pd.DataFrame:
+    """Read an NCU --csv export that may contain non-CSV preamble lines.
+
+    Nsight Compute sometimes prints lines like "==PROF== Connected ..." to stdout
+    even when --csv is enabled. When users redirect stdout to a .csv file, those
+    lines break pandas parsing.
+    """
+    p = Path(path)
+    header_idx = 0
+    try:
+        with p.open("r", errors="replace") as f:
+            for idx, line in enumerate(f):
+                # Expected header begins with ID column.
+                if line.startswith('"ID"') or line.startswith('ID,'):
+                    header_idx = idx
+                    break
+    except FileNotFoundError:
+        raise
+
+    return pd.read_csv(p, skiprows=header_idx)
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--results_dir', type=str, required=True,
                         help='path to directory containing the profiling files')
 args = parser.parse_args()
 
-df = pd.read_csv(f'{args.results_dir}/output_ncu.csv')
+df = _read_ncu_csv(f'{args.results_dir}/output_ncu.csv')
 
 # Check if this is wide format (from --page raw) or long format (default)
 if 'Metric Name' in df.columns:

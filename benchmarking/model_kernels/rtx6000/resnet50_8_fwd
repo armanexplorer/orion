@@ -1,0 +1,923 @@
+Name,Profile,Memory_footprint,SM_usage,Duration,Block,Grid
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_xregs_large_nn_v1,1,0,262,199872.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_xregs_large_nn_v1,1,0,262,200448.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_medium_nn_v1,1,0,392,243392.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_medium_nn_v1,1,0,392,243232.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_medium_nn_v1,1,0,392,226976.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2144.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_medium_nn_v1,1,0,392,227008.0,0,0
+Conv-void implicit_convolve_sgemm,1,0,628,408448.0,0,0
+Conv-void implicit_convolve_sgemm,1,0,628,409792.0,0,0
+Conv-void implicit_convolve_sgemm,1,0,392,438240.0,0,0
+Conv-void implicit_convolve_sgemm,1,0,392,437600.0,0,0
+Conv-void implicit_convolve_sgemm,1,0,523,528448.0,0,0
+Conv-void implicit_convolve_sgemm,1,0,523,528224.0,0,0
+Conv-void implicit_convolve_sgemm,1,0,784,788192.0,0,0
+Conv-void implicit_convolve_sgemm,1,0,784,788928.0,0,0
+volta_gcgemm_32x32_nt,1,0,182,21248.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21280.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,20928.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21152.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21024.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,20960.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21024.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,20960.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21248.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,20992.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,20960.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,20896.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,20928.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,20992.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21024.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,20928.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21280.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,20960.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,20864.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,20704.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21184.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21216.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,20992.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21088.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21088.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21088.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21056.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,20960.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21216.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21248.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21088.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21056.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,20960.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21152.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,20992.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,20896.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21184.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21152.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21184.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21088.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21056.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21024.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21120.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,20864.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21248.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21216.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21216.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21184.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21056.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21248.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21152.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,20928.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,20928.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21152.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21184.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21056.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21376.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21280.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21280.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21056.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21312.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,20608.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21312.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21088.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21056.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21248.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21280.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21216.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21184.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21184.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21216.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,20992.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21152.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21248.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21152.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,20960.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21312.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21184.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21216.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,20992.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21536.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21344.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21408.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21248.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21024.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21312.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21088.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21312.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21184.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21312.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21120.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21408.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21024.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21312.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21344.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21248.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21280.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21376.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21248.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21440.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21216.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21056.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21248.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21376.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21184.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21312.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21280.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21248.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21248.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21312.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21312.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21216.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21248.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21088.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21376.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21344.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21216.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21216.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21280.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21120.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21120.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21280.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21152.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21344.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21120.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21344.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21248.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21216.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21088.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21376.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21216.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21280.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21120.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21504.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21248.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21408.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21152.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21312.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21312.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21152.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21088.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21280.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21216.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21248.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,20992.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21088.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21056.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21312.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21344.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21120.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21376.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21280.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21472.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21440.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21152.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21280.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21152.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21312.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21312.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21024.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21216.0,64.0,1088.0
+volta_gcgemm_32x32_nt,1,0,182,21280.0,64.0,1088.0
+void cnn::kern_precompute_indices,-1,0,1,1920.0,49.0,3.0
+void precomputed_convolve_sgemm,1,0,496,518496.0,256.0,1486.0
+Conv-void implicit_convolve_sgemm,1,0,16,4146976.0,0,0
+Conv-void implicit_convolve_sgemm,1,0,5,32512.0,0,0
+Conv-void implicit_convolve_sgemm,1,0,10,43520.0,0,0
+Conv-void implicit_convolve_sgemm,1,0,5,43968.0,0,0
+void cnn::kern_precompute_indices,-1,0,1,1984.0,49.0,3.0
+void precomputed_convolve_sgemm,1,0,496,518304.0,256.0,1486.0
+Conv-void implicit_convolve_sgemm,1,0,10,32416.0,0,0
+Conv-void implicit_convolve_sgemm,1,0,5,32576.0,0,0
+Conv-void implicit_convolve_sgemm,1,0,10,43840.0,0,0
+Conv-void implicit_convolve_sgemm,1,0,5,43808.0,0,0
+Conv-void implicit_convolve_sgemm,1,0,523,532960.0,0,0
+Conv-void implicit_convolve_sgemm,1,0,523,532480.0,0,0
+Conv-void implicit_convolve_sgemm,1,0,523,533792.0,0,0
+BatchNorm,1,0,256,89568.0,512.0,512.0
+void at::vectorized_elementwise_kernel,0,0,784,84224.0,128.0,6272.0
+void at::(anonymous namespace)::max_pool_forward_nchw,0,0,1568,84320.0,256.0,6272.0
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_small_nn_v1,1,0,49,38336.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_small_nn_v1,1,0,49,38080.0,0,0
+volta_sgemm_64x64_nn,1,0,49,36544.0,64.0,392.0
+volta_sgemm_64x64_nn,1,0,49,36672.0,64.0,392.0
+volta_sgemm_64x64_nn,1,0,49,36672.0,64.0,392.0
+volta_sgemm_64x64_nn,1,0,49,36736.0,64.0,392.0
+volta_sgemm_64x64_nn,1,0,49,36672.0,64.0,392.0
+volta_sgemm_64x64_nn,1,0,49,36736.0,64.0,392.0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_interior_nn_v1,1,0,49,41728.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_interior_nn_v1,1,0,49,44448.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_small_nn_v1,1,0,49,45952.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_small_nn_v1,1,0,49,46240.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_small_nn_v1,1,0,49,46336.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_small_nn_v1,1,0,49,45696.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_small_nn_v1,1,0,98,45216.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2144.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_small_nn_v1,1,0,98,45120.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_medium_nn_v1,1,0,98,46016.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_medium_nn_v1,1,0,98,46080.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_medium_nn_v1,1,0,98,45504.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_medium_nn_v1,1,0,98,45888.0,0,0
+volta_sgemm_64x64_nn,1,0,49,36672.0,64.0,392.0
+BatchNorm,1,0,256,24192.0,512.0,512.0
+void at::vectorized_elementwise_kernel,0,0,196,19968.0,128.0,1568.0
+void winograd::generateWinogradTilesKernel,1,0,4,3104.0,128.0,32.0
+Conv-_5x_cudnn_volta_scudnn_winograd_128x128_ldg1_ldg4_relu_tile148t_nt_v1,1,0,224,156928.0,0,0
+void winograd::generateWinogradTilesKernel,1,0,4,3072.0,128.0,32.0
+Conv-_5x_cudnn_volta_scudnn_winograd_128x128_ldg1_ldg4_relu_tile148t_nt_v1,1,0,224,156128.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_small_nn_v1,1,0,49,198016.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_small_nn_v1,1,0,49,197952.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_xregs_large_nn_v1,1,0,66,193760.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_xregs_large_nn_v1,1,0,66,193472.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_small_nn_v1,1,0,98,198368.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_small_nn_v1,1,0,98,198880.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_sliced1x2_ldg4_relu_exp_medium_nhwc_tn_v1,1,0,392,212736.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_sliced1x2_ldg4_relu_exp_medium_nhwc_tn_v1,1,0,392,233696.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_medium_nn_v1,1,0,392,229216.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2208.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_medium_nn_v1,1,0,98,209056.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_sliced1x4_ldg4_relu_exp_small_nhwc_tn_v1,1,0,392,242976.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_sliced1x4_ldg4_relu_exp_small_nhwc_tn_v1,1,0,392,264096.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_medium_nn_v1,1,0,392,264768.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_medium_nn_v1,1,0,98,243456.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x32_3dconv_fprop_small_nn_v1,1,0,98,245888.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x32_3dconv_fprop_small_nn_v1,1,0,98,245248.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_small_nn_v1,1,0,49,265120.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_small_nn_v1,1,0,49,264800.0,0,0
+void winograd::generateWinogradTilesKernel,1,0,4,3072.0,128.0,32.0
+Conv-_5x_cudnn_volta_scudnn_winograd_128x128_ldg1_ldg4_relu_tile148t_nt_v1,1,0,224,157376.0,0,0
+BatchNorm,1,0,256,24192.0,512.0,512.0
+void at::vectorized_elementwise_kernel,0,0,196,20096.0,128.0,1568.0
+volta_sgemm_64x64_nn,1,0,196,103616.0,64.0,1568.0
+volta_sgemm_64x64_nn,1,0,196,103616.0,64.0,1568.0
+volta_sgemm_64x64_nn,1,0,196,103712.0,64.0,1568.0
+volta_sgemm_64x64_nn,1,0,196,103392.0,64.0,1568.0
+volta_sgemm_64x64_nn,1,0,196,102752.0,64.0,1568.0
+volta_sgemm_64x64_nn,1,0,196,103392.0,64.0,1568.0
+Conv-_5x_cudnn_volta_scudnn_128x128_relu_small_nn_v1,1,0,196,106912.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x128_relu_small_nn_v1,1,0,196,105888.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_small_nn_v1,1,0,196,105664.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_small_nn_v1,1,0,196,104928.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_small_nn_v1,1,0,196,126048.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_small_nn_v1,1,0,196,127072.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_small_nn_v1,1,0,196,125856.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_small_nn_v1,1,0,196,128064.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_interior_nn_v1,1,0,196,130464.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_interior_nn_v1,1,0,196,127904.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_medium_nn_v1,1,0,392,141280.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_medium_nn_v1,1,0,392,141024.0,0,0
+Conv-void implicit_convolve_sgemm,1,0,262,181536.0,0,0
+Conv-void implicit_convolve_sgemm,1,0,262,182336.0,0,0
+volta_sgemm_64x64_nn,1,0,196,102496.0,64.0,1568.0
+BatchNorm,1,0,1024,88544.0,512.0,2048.0
+volta_sgemm_64x64_nn,1,0,196,103232.0,64.0,1568.0
+BatchNorm,1,0,1024,88608.0,512.0,2048.0
+void at::vectorized_elementwise_kernel,1,0,784,123680.0,128.0,6272.0
+void at::vectorized_elementwise_kernel,0,0,784,83616.0,128.0,6272.0
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_small_nn_v1,1,0,49,102720.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_small_nn_v1,1,0,49,102560.0,0,0
+volta_sgemm_64x64_nn,1,0,49,113184.0,64.0,392.0
+volta_sgemm_64x64_nn,1,0,49,112928.0,64.0,392.0
+volta_sgemm_64x64_nn,1,0,49,113088.0,64.0,392.0
+volta_sgemm_64x64_nn,1,0,49,113376.0,64.0,392.0
+volta_sgemm_64x64_nn,1,0,49,113152.0,64.0,392.0
+volta_sgemm_64x64_nn,1,0,49,113472.0,64.0,392.0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_interior_nn_v1,1,0,49,124704.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_interior_nn_v1,1,0,49,126304.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_small_nn_v1,1,0,49,135296.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_small_nn_v1,1,0,49,135168.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_small_nn_v1,1,0,49,136032.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_small_nn_v1,1,0,49,135840.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_small_nn_v1,1,0,98,103840.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2304.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_small_nn_v1,1,0,98,103872.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_medium_nn_v1,1,0,98,127360.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_medium_nn_v1,1,0,98,128256.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_medium_nn_v1,1,0,98,107200.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2144.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_medium_nn_v1,1,0,98,107008.0,0,0
+volta_sgemm_64x64_nn,1,0,49,113312.0,64.0,392.0
+BatchNorm,1,0,256,24096.0,512.0,512.0
+void at::vectorized_elementwise_kernel,0,0,196,20160.0,128.0,1568.0
+void winograd::generateWinogradTilesKernel,1,0,4,3072.0,128.0,32.0
+Conv-_5x_cudnn_volta_scudnn_winograd_128x128_ldg1_ldg4_relu_tile148t_nt_v1,1,0,224,157312.0,0,0
+BatchNorm,1,0,256,24192.0,512.0,512.0
+void at::vectorized_elementwise_kernel,0,0,196,19936.0,128.0,1568.0
+volta_sgemm_64x64_nn,1,0,196,102912.0,64.0,1568.0
+BatchNorm,1,0,1024,88608.0,512.0,2048.0
+void at::vectorized_elementwise_kernel,1,0,784,123904.0,128.0,6272.0
+void at::vectorized_elementwise_kernel,0,0,784,83520.0,128.0,6272.0
+volta_sgemm_64x64_nn,1,0,49,113824.0,64.0,392.0
+BatchNorm,1,0,256,24032.0,512.0,512.0
+void at::vectorized_elementwise_kernel,0,0,196,19840.0,128.0,1568.0
+void winograd::generateWinogradTilesKernel,1,0,4,3072.0,128.0,32.0
+Conv-_5x_cudnn_volta_scudnn_winograd_128x128_ldg1_ldg4_relu_tile148t_nt_v1,1,0,224,158176.0,0,0
+BatchNorm,1,0,256,24128.0,512.0,512.0
+void at::vectorized_elementwise_kernel,0,0,196,20032.0,128.0,1568.0
+volta_sgemm_64x64_nn,1,0,196,104064.0,64.0,1568.0
+BatchNorm,1,0,1024,88832.0,512.0,2048.0
+void at::vectorized_elementwise_kernel,1,0,784,123456.0,128.0,6272.0
+void at::vectorized_elementwise_kernel,0,0,784,83904.0,128.0,6272.0
+Conv-_5x_cudnn_volta_scudnn_128x128_relu_small_nn_v1,1,0,98,164832.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x128_relu_small_nn_v1,1,0,98,164352.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_small_nn_v1,1,0,98,176128.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_small_nn_v1,1,0,98,176352.0,0,0
+volta_sgemm_64x64_nn,1,0,98,175712.0,64.0,784.0
+volta_sgemm_64x64_nn,1,0,98,175072.0,64.0,784.0
+volta_sgemm_64x64_nn,1,0,98,174944.0,64.0,784.0
+volta_sgemm_64x64_nn,1,0,98,175776.0,64.0,784.0
+volta_sgemm_64x64_nn,1,0,98,175744.0,64.0,784.0
+volta_sgemm_64x64_nn,1,0,98,175072.0,64.0,784.0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_small_nn_v1,1,0,196,189760.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2208.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_small_nn_v1,1,0,196,189952.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_medium_nn_v1,1,0,196,194880.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_medium_nn_v1,1,0,196,194528.0,0,0
+Conv-void implicit_convolve_sgemm,1,0,196,380928.0,0,0
+Conv-void implicit_convolve_sgemm,1,0,196,379616.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_medium_nn_v1,1,0,196,220032.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_medium_nn_v1,1,0,196,220288.0,0,0
+Conv-void implicit_convolve_sgemm,1,0,131,281376.0,0,0
+Conv-void implicit_convolve_sgemm,1,0,131,281760.0,0,0
+Conv-void implicit_convolve_sgemm,1,0,131,282848.0,0,0
+BatchNorm,1,0,512,45408.0,512.0,1024.0
+void at::vectorized_elementwise_kernel,0,0,392,41344.0,128.0,3136.0
+Conv-_5x_cudnn_volta_scudnn_128x128_relu_small_nn_v1,1,0,25,237248.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x128_relu_small_nn_v1,1,0,25,237632.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_xregs_large_nn_v1,1,0,33,251808.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_xregs_large_nn_v1,1,0,33,252544.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_small_nn_v1,1,0,25,260608.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_small_nn_v1,1,0,25,260960.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_medium_nn_v1,1,0,49,287328.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_medium_nn_v1,1,0,49,286048.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2208.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_small_nn_v1,1,0,49,264992.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2144.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_small_nn_v1,1,0,49,263712.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2240.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_medium_nn_v1,1,0,49,275104.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_medium_nn_v1,1,0,49,274880.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_small_nn_v1,1,0,25,299872.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_small_nn_v1,1,0,25,302464.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_small_nn_v1,1,0,25,308224.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_small_nn_v1,1,0,25,300032.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x32_3dconv_fprop_small_nn_v1,1,0,49,294240.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2144.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x32_3dconv_fprop_small_nn_v1,1,0,49,295200.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_sliced1x4_ldg4_relu_exp_small_nhwc_tn_v1,1,0,784,254976.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_sliced1x4_ldg4_relu_exp_small_nhwc_tn_v1,1,0,784,266592.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_small_nn_v1,1,0,200,271232.0,0,0
+BatchNorm,1,0,256,13312.0,256.0,1024.0
+void at::vectorized_elementwise_kernel,0,0,98,9472.0,128.0,784.0
+volta_sgemm_64x64_nn,1,0,104,101472.0,64.0,832.0
+volta_sgemm_64x64_nn,1,0,104,101408.0,64.0,832.0
+volta_sgemm_64x64_nn,1,0,104,98976.0,64.0,832.0
+volta_sgemm_64x64_nn,1,0,104,99136.0,64.0,832.0
+volta_sgemm_64x64_nn,1,0,104,100928.0,64.0,832.0
+volta_sgemm_64x64_nn,1,0,104,100000.0,64.0,832.0
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_small_nn_v1,1,0,98,98720.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_small_nn_v1,1,0,98,98880.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x128_relu_small_nn_v1,1,0,98,97248.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x128_relu_small_nn_v1,1,0,98,96416.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_interior_nn_v1,1,0,98,107200.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_interior_nn_v1,1,0,98,106752.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_small_nn_v1,1,0,98,110912.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_small_nn_v1,1,0,98,110176.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_small_nn_v1,1,0,98,111136.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_small_nn_v1,1,0,98,110240.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_medium_nn_v1,1,0,196,117472.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_medium_nn_v1,1,0,196,117728.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2240.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_small_nn_v1,1,0,196,116768.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_small_nn_v1,1,0,196,117120.0,0,0
+volta_sgemm_64x64_nn,1,0,104,99840.0,64.0,832.0
+BatchNorm,1,0,1024,46400.0,256.0,4096.0
+Conv-_5x_cudnn_volta_scudnn_128x128_relu_small_nn_v1,1,0,98,176608.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x128_relu_small_nn_v1,1,0,98,176480.0,0,0
+Conv-void implicit_convolve_sgemm,1,0,98,241280.0,0,0
+Conv-void implicit_convolve_sgemm,1,0,98,242592.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_small_nn_v1,1,0,98,202080.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_small_nn_v1,1,0,98,201952.0,0,0
+Conv-void implicit_convolve_sgemm,1,0,131,295264.0,0,0
+Conv-void implicit_convolve_sgemm,1,0,131,296800.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2144.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_small_nn_v1,1,0,196,217312.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_small_nn_v1,1,0,196,216480.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2208.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_medium_nn_v1,1,0,196,219808.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2208.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_medium_nn_v1,1,0,196,219104.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_sliced1x2_ldg4_relu_exp_medium_nhwc_tn_v1,1,0,1568,281696.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_sliced1x2_ldg4_relu_exp_medium_nhwc_tn_v1,1,0,1568,321088.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_medium_nn_v1,1,0,800,300544.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_medium_nn_v1,1,0,196,257664.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_sliced1x4_ldg4_relu_exp_small_nhwc_tn_v1,1,0,1568,316704.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_sliced1x4_ldg4_relu_exp_small_nhwc_tn_v1,1,0,1568,357344.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_interior_nn_v1,1,0,800,274720.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_interior_nn_v1,1,0,98,233888.0,0,0
+Conv-void implicit_convolve_sgemm,1,0,131,298272.0,0,0
+BatchNorm,1,0,1024,46432.0,256.0,4096.0
+void at::vectorized_elementwise_kernel,1,0,392,61984.0,128.0,3136.0
+void at::vectorized_elementwise_kernel,0,0,392,41216.0,128.0,3136.0
+volta_sgemm_64x64_nn,1,0,26,113216.0,64.0,208.0
+volta_sgemm_64x64_nn,1,0,26,114144.0,64.0,208.0
+volta_sgemm_64x64_nn,1,0,26,113312.0,64.0,208.0
+volta_sgemm_64x64_nn,1,0,26,113792.0,64.0,208.0
+volta_sgemm_64x64_nn,1,0,26,113024.0,64.0,208.0
+volta_sgemm_64x64_nn,1,0,26,112960.0,64.0,208.0
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_small_nn_v1,1,0,25,125760.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_small_nn_v1,1,0,25,125408.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_interior_nn_v1,1,0,25,125728.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_interior_nn_v1,1,0,25,126592.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_small_nn_v1,1,0,25,141696.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_small_nn_v1,1,0,25,138464.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_small_nn_v1,1,0,25,144352.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_small_nn_v1,1,0,25,143232.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_medium_nn_v1,1,0,49,119840.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_medium_nn_v1,1,0,49,120992.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_small_nn_v1,1,0,49,128320.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_small_nn_v1,1,0,49,128288.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_medium_nn_v1,1,0,49,131296.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2208.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_medium_nn_v1,1,0,49,131808.0,0,0
+volta_sgemm_64x64_nn,1,0,26,113344.0,64.0,208.0
+BatchNorm,1,0,256,13408.0,256.0,1024.0
+void at::vectorized_elementwise_kernel,0,0,98,9504.0,128.0,784.0
+void winograd::generateWinogradTilesKernel,1,0,16,4448.0,128.0,128.0
+Conv-_5x_cudnn_volta_scudnn_winograd_128x128_ldg1_ldg4_relu_tile148t_nt_v1,1,0,128,156192.0,0,0
+void winograd::generateWinogradTilesKernel,1,0,16,4384.0,128.0,128.0
+Conv-_5x_cudnn_volta_scudnn_winograd_128x128_ldg1_ldg4_relu_tile148t_nt_v1,1,0,128,156512.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_small_nn_v1,1,0,25,256544.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_small_nn_v1,1,0,25,256320.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_xregs_large_nn_v1,1,0,33,251584.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_xregs_large_nn_v1,1,0,33,251488.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_small_nn_v1,1,0,49,260320.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_small_nn_v1,1,0,49,260384.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_sliced1x2_ldg4_relu_exp_medium_nhwc_tn_v1,1,0,200,263904.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_sliced1x2_ldg4_relu_exp_medium_nhwc_tn_v1,1,0,200,274208.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2208.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_medium_nn_v1,1,0,200,286592.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_medium_nn_v1,1,0,49,276608.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_sliced1x4_ldg4_relu_exp_small_nhwc_tn_v1,1,0,200,218720.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_sliced1x4_ldg4_relu_exp_small_nhwc_tn_v1,1,0,200,229504.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_medium_nn_v1,1,0,200,260288.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_medium_nn_v1,1,0,49,250272.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2240.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x32_3dconv_fprop_small_nn_v1,1,0,49,252096.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x32_3dconv_fprop_small_nn_v1,1,0,49,252768.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_small_nn_v1,1,0,25,280768.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_small_nn_v1,1,0,25,281248.0,0,0
+void winograd::generateWinogradTilesKernel,1,0,16,4448.0,128.0,128.0
+Conv-_5x_cudnn_volta_scudnn_winograd_128x128_ldg1_ldg4_relu_tile148t_nt_v1,1,0,128,156192.0,0,0
+BatchNorm,1,0,256,13440.0,256.0,1024.0
+void at::vectorized_elementwise_kernel,0,0,98,9408.0,128.0,784.0
+volta_sgemm_64x64_nn,1,0,104,99648.0,64.0,832.0
+BatchNorm,1,0,1024,46432.0,256.0,4096.0
+void at::vectorized_elementwise_kernel,1,0,392,62208.0,128.0,3136.0
+void at::vectorized_elementwise_kernel,0,0,392,40992.0,128.0,3136.0
+volta_sgemm_64x64_nn,1,0,26,113760.0,64.0,208.0
+BatchNorm,1,0,256,13280.0,256.0,1024.0
+void at::vectorized_elementwise_kernel,0,0,98,9312.0,128.0,784.0
+void winograd::generateWinogradTilesKernel,1,0,16,4416.0,128.0,128.0
+Conv-_5x_cudnn_volta_scudnn_winograd_128x128_ldg1_ldg4_relu_tile148t_nt_v1,1,0,128,156544.0,0,0
+BatchNorm,1,0,256,13472.0,256.0,1024.0
+void at::vectorized_elementwise_kernel,0,0,98,9472.0,128.0,784.0
+volta_sgemm_64x64_nn,1,0,104,99328.0,64.0,832.0
+BatchNorm,1,0,1024,46624.0,256.0,4096.0
+void at::vectorized_elementwise_kernel,1,0,392,61984.0,128.0,3136.0
+void at::vectorized_elementwise_kernel,0,0,392,41184.0,128.0,3136.0
+volta_sgemm_64x64_nn,1,0,26,113440.0,64.0,208.0
+BatchNorm,1,0,256,13344.0,256.0,1024.0
+void at::vectorized_elementwise_kernel,0,0,98,9472.0,128.0,784.0
+void winograd::generateWinogradTilesKernel,1,0,16,4448.0,128.0,128.0
+Conv-_5x_cudnn_volta_scudnn_winograd_128x128_ldg1_ldg4_relu_tile148t_nt_v1,1,0,128,156544.0,0,0
+BatchNorm,1,0,256,13280.0,256.0,1024.0
+void at::vectorized_elementwise_kernel,0,0,98,9472.0,128.0,784.0
+volta_sgemm_64x64_nn,1,0,104,104960.0,64.0,832.0
+BatchNorm,1,0,1024,46400.0,256.0,4096.0
+void at::vectorized_elementwise_kernel,1,0,392,61984.0,128.0,3136.0
+void at::vectorized_elementwise_kernel,0,0,392,41824.0,128.0,3136.0
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_small_nn_v1,1,0,49,184384.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_small_nn_v1,1,0,49,184608.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x128_relu_small_nn_v1,1,0,49,214656.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x128_relu_small_nn_v1,1,0,49,214528.0,0,0
+volta_sgemm_64x64_nn,1,0,52,215552.0,64.0,416.0
+volta_sgemm_64x64_nn,1,0,52,215552.0,64.0,416.0
+volta_sgemm_64x64_nn,1,0,52,215168.0,64.0,416.0
+volta_sgemm_64x64_nn,1,0,52,215520.0,64.0,416.0
+volta_sgemm_64x64_nn,1,0,52,215936.0,64.0,416.0
+volta_sgemm_64x64_nn,1,0,52,215200.0,64.0,416.0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_interior_nn_v1,1,0,49,227936.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_interior_nn_v1,1,0,49,230400.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2208.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_small_nn_v1,1,0,98,186048.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_small_nn_v1,1,0,98,185888.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_medium_nn_v1,1,0,98,192192.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2208.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_medium_nn_v1,1,0,98,191840.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_small_nn_v1,1,0,49,252032.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_small_nn_v1,1,0,49,252032.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_small_nn_v1,1,0,49,252832.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_small_nn_v1,1,0,49,249888.0,0,0
+volta_sgemm_64x64_nn,1,0,52,215104.0,64.0,416.0
+BatchNorm,1,0,512,24320.0,256.0,2048.0
+void at::vectorized_elementwise_kernel,0,0,196,20608.0,128.0,1568.0
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_small_nn_v1,1,0,13,284640.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_small_nn_v1,1,0,13,284672.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_small_nn_v1,1,0,26,286944.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2208.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_small_nn_v1,1,0,26,285920.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_xregs_large_nn_v1,1,0,18,294592.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_xregs_large_nn_v1,1,0,18,295392.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_sliced1x2_ldg4_relu_exp_medium_nhwc_tn_v1,1,0,512,283680.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_sliced1x2_ldg4_relu_exp_medium_nhwc_tn_v1,1,0,512,291808.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_sliced1x4_ldg4_relu_exp_small_nhwc_tn_v1,1,0,512,294816.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_sliced1x4_ldg4_relu_exp_small_nhwc_tn_v1,1,0,512,295168.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_medium_nn_v1,1,0,112,321760.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_medium_nn_v1,1,0,26,315456.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2144.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x32_3dconv_fprop_small_nn_v1,1,0,26,336448.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x32_3dconv_fprop_small_nn_v1,1,0,26,335936.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_medium_nn_v1,1,0,26,345184.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_medium_nn_v1,1,0,26,345024.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x128_relu_small_nn_v1,1,0,13,452480.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x128_relu_small_nn_v1,1,0,13,452448.0,0,0
+Conv-void implicit_convolve_sgemm,1,0,17,457376.0,0,0
+Conv-void implicit_convolve_sgemm,1,0,17,457696.0,0,0
+Conv-void implicit_convolve_sgemm,1,0,17,456960.0,0,0
+BatchNorm,1,0,128,8160.0,64.0,2048.0
+void at::vectorized_elementwise_kernel,-1,0,49,5216.0,128.0,392.0
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_small_nn_v1,1,0,52,100832.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_small_nn_v1,1,0,52,100480.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_small_nn_v1,1,0,104,106688.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2144.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_small_nn_v1,1,0,104,107072.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x128_relu_small_nn_v1,1,0,52,116992.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x128_relu_small_nn_v1,1,0,52,116960.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_medium_nn_v1,1,0,104,109696.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_medium_nn_v1,1,0,104,109696.0,0,0
+volta_sgemm_64x64_nn,1,0,64,118272.0,64.0,512.0
+volta_sgemm_64x64_nn,1,0,64,118272.0,64.0,512.0
+volta_sgemm_64x64_nn,1,0,64,118432.0,64.0,512.0
+volta_sgemm_64x64_nn,1,0,64,118816.0,64.0,512.0
+volta_sgemm_64x64_nn,1,0,64,118528.0,64.0,512.0
+volta_sgemm_64x64_nn,1,0,64,117888.0,64.0,512.0
+Conv-_5x_cudnn_volta_scudnn_128x64_sliced1x2_ldg4_relu_exp_medium_nhwc_tn_v1,1,0,112,104128.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_sliced1x2_ldg4_relu_exp_medium_nhwc_tn_v1,1,0,448,125888.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_interior_nn_v1,1,0,448,145856.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_interior_nn_v1,1,0,52,123872.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_medium_nn_v1,1,0,104,118848.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_medium_nn_v1,1,0,104,118528.0,0,0
+volta_sgemm_64x64_nn,1,0,64,117792.0,64.0,512.0
+BatchNorm,1,0,512,24192.0,64.0,8192.0
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_small_nn_v1,1,0,52,190912.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_small_nn_v1,1,0,52,189952.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_small_nn_v1,1,0,104,198464.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_small_nn_v1,1,0,104,197920.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x128_relu_small_nn_v1,1,0,52,219104.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x128_relu_small_nn_v1,1,0,52,218336.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_medium_nn_v1,1,0,104,202080.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2208.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_medium_nn_v1,1,0,104,201888.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_interior_nn_v1,1,0,52,251904.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_interior_nn_v1,1,0,52,252608.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_sliced1x2_ldg4_relu_exp_medium_nhwc_tn_v1,1,0,800,219328.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_sliced1x2_ldg4_relu_exp_medium_nhwc_tn_v1,1,0,800,240384.0,0,0
+Conv-void implicit_convolve_sgemm,1,0,448,295456.0,0,0
+Conv-void implicit_convolve_sgemm,1,0,50,275200.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_small_nn_v1,1,0,52,278304.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_small_nn_v1,1,0,52,276864.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_small_nn_v1,1,0,52,275008.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_small_nn_v1,1,0,52,270912.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_medium_nn_v1,1,0,104,261024.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_medium_nn_v1,1,0,104,259008.0,0,0
+Conv-void implicit_convolve_sgemm,1,0,50,275584.0,0,0
+BatchNorm,1,0,512,24640.0,64.0,8192.0
+void at::vectorized_elementwise_kernel,1,0,196,31168.0,128.0,1568.0
+void at::vectorized_elementwise_kernel,0,0,196,20224.0,128.0,1568.0
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_small_nn_v1,1,0,13,131232.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_small_nn_v1,1,0,13,131104.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_small_nn_v1,1,0,26,132864.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_small_nn_v1,1,0,26,132864.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2144.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_medium_nn_v1,1,0,26,140576.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_medium_nn_v1,1,0,26,140704.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_sliced1x2_ldg4_relu_exp_medium_nhwc_tn_v1,1,0,448,139808.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_sliced1x2_ldg4_relu_exp_medium_nhwc_tn_v1,1,0,448,145984.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_sliced1x4_ldg4_relu_exp_small_nhwc_tn_v1,1,0,448,151712.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_sliced1x4_ldg4_relu_exp_small_nhwc_tn_v1,1,0,448,152032.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_medium_nn_v1,1,0,112,171040.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_medium_nn_v1,1,0,26,164768.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x32_3dconv_fprop_small_nn_v1,1,0,26,159680.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x32_3dconv_fprop_small_nn_v1,1,0,26,160768.0,0,0
+Conv-void implicit_convolve_sgemm,1,0,40,197024.0,0,0
+Conv-void implicit_convolve_sgemm,1,0,40,190464.0,0,0
+volta_sgemm_64x64_nn,1,0,16,206592.0,64.0,128.0
+volta_sgemm_64x64_nn,1,0,16,206592.0,64.0,128.0
+volta_sgemm_64x64_nn,1,0,16,206784.0,64.0,128.0
+volta_sgemm_64x64_nn,1,0,16,206624.0,64.0,128.0
+Conv-void implicit_convolve_sgemm,1,0,40,196256.0,0,0
+BatchNorm,1,0,128,7904.0,64.0,2048.0
+void at::vectorized_elementwise_kernel,-1,0,49,5056.0,128.0,392.0
+void winograd::generateWinogradTilesKernel,1,0,64,9984.0,128.0,512.0
+Conv-_5x_cudnn_volta_scudnn_winograd_128x128_ldg1_ldg4_relu_tile148t_nt_v1,1,0,64,146336.0,0,0
+void winograd::generateWinogradTilesKernel,1,0,64,10080.0,128.0,512.0
+Conv-_5x_cudnn_volta_scudnn_winograd_128x128_ldg1_ldg4_relu_tile148t_nt_v1,1,0,64,146624.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_small_nn_v1,1,0,13,276352.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_small_nn_v1,1,0,13,276320.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_xregs_large_nn_v1,1,0,18,314016.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_xregs_large_nn_v1,1,0,18,313664.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_small_nn_v1,1,0,26,279392.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_small_nn_v1,1,0,26,279232.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_sliced1x2_ldg4_relu_exp_medium_nhwc_tn_v1,1,0,512,274336.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_sliced1x2_ldg4_relu_exp_medium_nhwc_tn_v1,1,0,512,277760.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_medium_nn_v1,1,0,112,350464.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_medium_nn_v1,1,0,26,344896.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_sliced1x4_ldg4_relu_exp_small_nhwc_tn_v1,1,0,512,273760.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_sliced1x4_ldg4_relu_exp_small_nhwc_tn_v1,1,0,512,280384.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_medium_nn_v1,1,0,112,349728.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_medium_nn_v1,1,0,26,343328.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2144.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x32_3dconv_fprop_small_nn_v1,1,0,26,309280.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2144.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x32_3dconv_fprop_small_nn_v1,1,0,26,308032.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_small_nn_v1,1,0,13,518720.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_small_nn_v1,1,0,13,519808.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_medium_nn_v1,1,0,26,342496.0,0,0
+BatchNorm,1,0,128,8064.0,64.0,2048.0
+void at::vectorized_elementwise_kernel,-1,0,49,5152.0,128.0,392.0
+volta_sgemm_64x64_nn,1,0,64,118464.0,64.0,512.0
+BatchNorm,1,0,512,24384.0,64.0,8192.0
+void at::vectorized_elementwise_kernel,1,0,196,31360.0,128.0,1568.0
+void at::vectorized_elementwise_kernel,0,0,196,20448.0,128.0,1568.0
+Conv-void implicit_convolve_sgemm,1,0,40,201056.0,0,0
+BatchNorm,1,0,128,8256.0,64.0,2048.0
+void at::vectorized_elementwise_kernel,-1,0,49,5184.0,128.0,392.0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_medium_nn_v1,1,0,26,343264.0,0,0
+BatchNorm,1,0,128,8128.0,64.0,2048.0
+void at::vectorized_elementwise_kernel,-1,0,49,5216.0,128.0,392.0
+volta_sgemm_64x64_nn,1,0,64,118496.0,64.0,512.0
+BatchNorm,1,0,512,24256.0,64.0,8192.0
+void at::vectorized_elementwise_kernel,1,0,196,31040.0,128.0,1568.0
+void at::vectorized_elementwise_kernel,0,0,196,20000.0,128.0,1568.0
+Conv-void implicit_convolve_sgemm,1,0,40,199328.0,0,0
+BatchNorm,1,0,128,8352.0,64.0,2048.0
+void at::vectorized_elementwise_kernel,-1,0,49,5248.0,128.0,392.0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_medium_nn_v1,1,0,26,343424.0,0,0
+BatchNorm,1,0,128,7968.0,64.0,2048.0
+void at::vectorized_elementwise_kernel,-1,0,49,5472.0,128.0,392.0
+volta_sgemm_64x64_nn,1,0,64,118496.0,64.0,512.0
+BatchNorm,1,0,512,24288.0,64.0,8192.0
+void at::vectorized_elementwise_kernel,1,0,196,31520.0,128.0,1568.0
+void at::vectorized_elementwise_kernel,0,0,196,20576.0,128.0,1568.0
+Conv-void implicit_convolve_sgemm,1,0,40,197472.0,0,0
+BatchNorm,1,0,128,8224.0,64.0,2048.0
+void at::vectorized_elementwise_kernel,-1,0,49,5152.0,128.0,392.0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_medium_nn_v1,1,0,26,342688.0,0,0
+BatchNorm,1,0,128,8384.0,64.0,2048.0
+void at::vectorized_elementwise_kernel,-1,0,49,5120.0,128.0,392.0
+volta_sgemm_64x64_nn,1,0,64,118400.0,64.0,512.0
+BatchNorm,1,0,512,24576.0,64.0,8192.0
+void at::vectorized_elementwise_kernel,1,0,196,31232.0,128.0,1568.0
+void at::vectorized_elementwise_kernel,0,0,196,21120.0,128.0,1568.0
+Conv-void implicit_convolve_sgemm,1,0,40,198560.0,0,0
+BatchNorm,1,0,128,8224.0,64.0,2048.0
+void at::vectorized_elementwise_kernel,-1,0,49,5312.0,128.0,392.0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_medium_nn_v1,1,0,26,341472.0,0,0
+BatchNorm,1,0,128,8256.0,64.0,2048.0
+void at::vectorized_elementwise_kernel,-1,0,49,5184.0,128.0,392.0
+volta_sgemm_64x64_nn,1,0,64,117984.0,64.0,512.0
+BatchNorm,1,0,512,24192.0,64.0,8192.0
+void at::vectorized_elementwise_kernel,1,0,196,31264.0,128.0,1568.0
+void at::vectorized_elementwise_kernel,0,0,196,20480.0,128.0,1568.0
+Conv-_5x_cudnn_volta_scudnn_128x128_relu_small_nn_v1,1,0,26,212736.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x128_relu_small_nn_v1,1,0,26,212800.0,0,0
+volta_sgemm_64x64_nn,1,0,32,220960.0,64.0,256.0
+volta_sgemm_64x64_nn,1,0,32,221600.0,64.0,256.0
+volta_sgemm_64x64_nn,1,0,32,221440.0,64.0,256.0
+volta_sgemm_64x64_nn,1,0,32,221728.0,64.0,256.0
+volta_sgemm_64x64_nn,1,0,32,221504.0,64.0,256.0
+volta_sgemm_64x64_nn,1,0,32,221792.0,64.0,256.0
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_small_nn_v1,1,0,26,231520.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_small_nn_v1,1,0,26,231712.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_sliced1x4_ldg4_relu_exp_small_nhwc_tn_v1,1,0,448,214528.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_sliced1x4_ldg4_relu_exp_small_nhwc_tn_v1,1,0,448,224896.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_small_nn_v1,1,0,224,246176.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_small_nn_v1,1,0,52,235360.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_interior_nn_v1,1,0,26,238496.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_interior_nn_v1,1,0,26,237440.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_medium_nn_v1,1,0,52,242080.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2208.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_medium_nn_v1,1,0,52,241728.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_sliced1x2_ldg4_relu_exp_medium_nhwc_tn_v1,1,0,448,244768.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_sliced1x2_ldg4_relu_exp_medium_nhwc_tn_v1,1,0,448,256640.0,0,0
+volta_sgemm_64x64_nn,1,0,32,222208.0,64.0,256.0
+BatchNorm,1,0,256,13504.0,64.0,4096.0
+void at::vectorized_elementwise_kernel,0,0,98,9440.0,128.0,784.0
+Conv-_5x_cudnn_volta_scudnn_128x32_sliced1x4_ldg4_relu_exp_small_nhwc_tn_v1,1,0,2048,328896.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_sliced1x4_ldg4_relu_exp_small_nhwc_tn_v1,1,0,2048,322080.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_small_nn_v1,1,0,64,538656.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_small_nn_v1,1,0,8,534048.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2208.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_small_nn_v1,1,0,16,538336.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_small_nn_v1,1,0,16,537920.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_sliced1x2_ldg4_relu_exp_medium_nhwc_tn_v1,1,0,2048,538208.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_sliced1x2_ldg4_relu_exp_medium_nhwc_tn_v1,1,0,2048,539616.0,0,0
+Conv-void implicit_convolve_sgemm,1,0,64,539712.0,0,0
+Conv-void implicit_convolve_sgemm,1,0,13,530816.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_xregs_large_nn_v1,1,0,11,586272.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_xregs_large_nn_v1,1,0,11,586208.0,0,0
+Conv-void implicit_convolve_sgemm,1,0,21,569568.0,0,0
+Conv-void implicit_convolve_sgemm,1,0,21,601536.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2144.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x32_3dconv_fprop_small_nn_v1,1,0,16,592416.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2240.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x32_3dconv_fprop_small_nn_v1,1,0,16,590304.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2144.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_medium_nn_v1,1,0,16,632960.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2208.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_medium_nn_v1,1,0,16,632256.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_medium_nn_v1,1,0,16,655296.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_medium_nn_v1,1,0,16,652768.0,0,0
+Conv-void implicit_convolve_sgemm,1,0,21,571360.0,0,0
+BatchNorm,1,0,256,6880.0,64.0,4096.0
+void at::vectorized_elementwise_kernel,-1,0,25,3808.0,128.0,196.0
+Conv-_5x_cudnn_volta_scudnn_128x128_relu_small_nn_v1,1,0,32,116608.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x128_relu_small_nn_v1,1,0,32,115872.0,0,0
+volta_sgemm_64x64_nn,1,0,32,117568.0,64.0,256.0
+volta_sgemm_64x64_nn,1,0,32,118304.0,64.0,256.0
+volta_sgemm_64x64_nn,1,0,32,118112.0,64.0,256.0
+volta_sgemm_64x64_nn,1,0,32,117696.0,64.0,256.0
+volta_sgemm_64x64_nn,1,0,32,117824.0,64.0,256.0
+volta_sgemm_64x64_nn,1,0,32,117600.0,64.0,256.0
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_small_nn_v1,1,0,32,126720.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_small_nn_v1,1,0,32,126272.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_interior_nn_v1,1,0,32,133408.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_interior_nn_v1,1,0,32,133088.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_sliced1x2_ldg4_relu_exp_medium_nhwc_tn_v1,1,0,64,125792.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_sliced1x2_ldg4_relu_exp_medium_nhwc_tn_v1,1,0,256,137088.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2208.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_small_nn_v1,1,0,256,141664.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2208.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_small_nn_v1,1,0,64,130240.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_medium_nn_v1,1,0,64,133248.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_medium_nn_v1,1,0,64,133536.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_small_nn_v1,1,0,32,145504.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_small_nn_v1,1,0,32,144512.0,0,0
+volta_sgemm_64x64_nn,1,0,32,117440.0,64.0,256.0
+BatchNorm,1,0,1024,19904.0,64.0,16384.0
+Conv-_5x_cudnn_volta_scudnn_128x128_relu_small_nn_v1,1,0,32,224192.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x128_relu_small_nn_v1,1,0,32,225472.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_small_nn_v1,1,0,32,254752.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_small_nn_v1,1,0,32,255072.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_small_nn_v1,1,0,64,260544.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_small_nn_v1,1,0,64,260128.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_medium_nn_v1,1,0,64,264256.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_medium_nn_v1,1,0,64,264128.0,0,0
+Conv-void implicit_convolve_sgemm,1,0,28,296480.0,0,0
+Conv-void implicit_convolve_sgemm,1,0,28,307584.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_sliced1x2_ldg4_relu_exp_medium_nhwc_tn_v1,1,0,448,246752.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_sliced1x2_ldg4_relu_exp_medium_nhwc_tn_v1,1,0,448,257408.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_interior_nn_v1,1,0,256,308640.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_interior_nn_v1,1,0,32,296352.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_small_nn_v1,1,0,32,308448.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_small_nn_v1,1,0,32,308160.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_small_nn_v1,1,0,32,310080.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_relu_small_nn_v1,1,0,32,307552.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_sliced1x4_ldg4_relu_exp_small_nhwc_tn_v1,1,0,448,260512.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_sliced1x4_ldg4_relu_exp_small_nhwc_tn_v1,1,0,448,271904.0,0,0
+Conv-void implicit_convolve_sgemm,1,0,256,318048.0,0,0
+BatchNorm,1,0,1024,20160.0,64.0,16384.0
+void at::vectorized_elementwise_kernel,1,0,98,15456.0,128.0,784.0
+void at::vectorized_elementwise_kernel,0,0,98,9440.0,128.0,784.0
+Conv-_5x_cudnn_volta_scudnn_128x32_sliced1x4_ldg4_relu_exp_small_nhwc_tn_v1,1,0,256,135584.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_sliced1x4_ldg4_relu_exp_small_nhwc_tn_v1,1,0,256,140960.0,0,0
+volta_sgemm_64x64_nn,1,0,8,218432.0,64.0,64.0
+volta_sgemm_64x64_nn,1,0,8,220096.0,64.0,64.0
+volta_sgemm_64x64_nn,1,0,8,217792.0,64.0,64.0
+volta_sgemm_64x64_nn,1,0,8,217440.0,64.0,64.0
+volta_sgemm_64x64_nn,1,0,8,216576.0,64.0,64.0
+volta_sgemm_64x64_nn,1,0,8,216672.0,64.0,64.0
+Conv-void implicit_convolve_sgemm,1,0,64,232736.0,0,0
+Conv-void implicit_convolve_sgemm,1,0,13,226720.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_sliced1x2_ldg4_relu_exp_medium_nhwc_tn_v1,1,0,256,229856.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_sliced1x2_ldg4_relu_exp_medium_nhwc_tn_v1,1,0,256,234752.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_small_nn_v1,1,0,64,247296.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_small_nn_v1,1,0,8,242944.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_small_nn_v1,1,0,16,245184.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_small_nn_v1,1,0,16,245312.0,0,0
+Conv-void implicit_convolve_sgemm,1,0,21,251264.0,0,0
+Conv-void implicit_convolve_sgemm,1,0,21,238880.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_medium_nn_v1,1,0,16,264448.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_medium_nn_v1,1,0,16,264288.0,0,0
+Conv-void implicit_convolve_sgemm,1,0,21,246592.0,0,0
+BatchNorm,1,0,256,6880.0,64.0,4096.0
+void at::vectorized_elementwise_kernel,-1,0,25,3744.0,128.0,196.0
+Conv-_5x_cudnn_volta_scudnn_128x32_sliced1x4_ldg4_relu_exp_small_nhwc_tn_v1,1,0,2048,312384.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x32_sliced1x4_ldg4_relu_exp_small_nhwc_tn_v1,1,0,2048,314880.0,0,0
+void winograd_nonfused::winogradForwardData4x4,1,0,171,12992.0,256.0,512.0
+void winograd_nonfused::winogradForwardFilter4x4,1,0,256,95168.0,256.0,1024.0
+volta_sgemm_64x64_nn,1,0,36,130368.0,64.0,288.0
+void winograd_nonfused::winogradForwardOutput4x4,1,0,128,12544.0,256.0,512.0
+void winograd_nonfused::winogradForwardData4x4,1,0,171,13120.0,256.0,512.0
+void winograd_nonfused::winogradForwardFilter4x4,1,0,256,94912.0,256.0,1024.0
+volta_sgemm_64x64_nn,1,0,36,130560.0,64.0,288.0
+void winograd_nonfused::winogradForwardOutput4x4,1,0,128,12800.0,256.0,512.0
+void winograd::generateWinogradTilesKernel,1,0,256,50272.0,128.0,2048.0
+Conv-_5x_cudnn_volta_scudnn_winograd_128x128_ldg1_ldg4_relu_tile148t_nt_v1,1,0,64,281760.0,0,0
+void winograd::generateWinogradTilesKernel,1,0,256,50688.0,128.0,2048.0
+Conv-_5x_cudnn_volta_scudnn_winograd_128x128_ldg1_ldg4_relu_tile148t_nt_v1,1,0,64,277216.0,0,0
+Conv-void implicit_convolve_sgemm,1,0,13,503936.0,0,0
+Conv-void implicit_convolve_sgemm,1,0,13,506080.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_small_nn_v1,1,0,8,529728.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_small_nn_v1,1,0,8,529568.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_small_nn_v1,1,0,16,534112.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x64_3dconv_fprop_small_nn_v1,1,0,16,533792.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_sliced1x2_ldg4_relu_exp_medium_nhwc_tn_v1,1,0,2048,533664.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_sliced1x2_ldg4_relu_exp_medium_nhwc_tn_v1,1,0,2048,538240.0,0,0
+Conv-void implicit_convolve_sgemm,1,0,64,561152.0,0,0
+Conv-void implicit_convolve_sgemm,1,0,21,527488.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x32_3dconv_fprop_small_nn_v1,1,0,16,532288.0,0,0
+cask__5x_cudnn::computeBOffsetsKernel(cask__5x_cudnn::ComputeBOffsetsParams),-1,0,1,2176.0,256.0,2.0
+Conv-_5x_cudnn_volta_scudnn_128x32_3dconv_fprop_small_nn_v1,1,0,16,532160.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_xregs_large_nn_v1,1,0,11,676992.0,0,0
+Conv-_5x_cudnn_volta_scudnn_128x64_relu_xregs_large_nn_v1,1,0,11,658400.0,0,0
+Conv-void implicit_convolve_sgemm,1,0,21,555872.0,0,0
+BatchNorm,1,0,256,6880.0,64.0,4096.0
+void at::vectorized_elementwise_kernel,-1,0,25,3744.0,128.0,196.0
+volta_sgemm_64x64_nn,1,0,32,117440.0,64.0,256.0
+BatchNorm,1,0,1024,20000.0,64.0,16384.0
+void at::vectorized_elementwise_kernel,1,0,98,15552.0,128.0,784.0
+void at::vectorized_elementwise_kernel,0,0,98,9664.0,128.0,784.0
+Conv-void implicit_convolve_sgemm,1,0,21,238528.0,0,0
+BatchNorm,1,0,256,6752.0,64.0,4096.0
+void at::vectorized_elementwise_kernel,-1,0,25,3712.0,128.0,196.0
+Conv-void implicit_convolve_sgemm,1,0,21,555776.0,0,0
+BatchNorm,1,0,256,6880.0,64.0,4096.0
+void at::vectorized_elementwise_kernel,-1,0,25,3808.0,128.0,196.0
+volta_sgemm_64x64_nn,1,0,32,117024.0,64.0,256.0
+BatchNorm,1,0,1024,20096.0,64.0,16384.0
+void at::vectorized_elementwise_kernel,1,0,98,15680.0,128.0,784.0
+void at::vectorized_elementwise_kernel,0,0,98,9504.0,128.0,784.0
+void at::reduce_kernel,1,0,512,18432.0,512.0,1024.0
+void cublasLt::globalKernel,1,0,32,43552.0,256.0,125.0
