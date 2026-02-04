@@ -7,7 +7,6 @@ trace_files_hp = [
     ("MobileNetV2", "mnet"),
     ("ResNet101", "rnet101"),
     ("BERT", "bert"),
-    ("YOLOv5s", "yolov5s"), 
 ]
 
 HOME = os.path.expanduser("~")
