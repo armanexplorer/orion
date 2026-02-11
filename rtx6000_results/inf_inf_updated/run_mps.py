@@ -3,31 +3,53 @@ import itertools
 import logging
 import os
 import copy
+import subprocess
+from pathlib import Path
 
 mnames = {
     'resnet50': "ResNet50",
     'mobilenet_v2': "MobileNetV2",
     'resnet101': 'ResNet101',
     'bert': 'BERT',
-    'yolov5s': 'YOLOv5s',
 }
 
 def run(model0, model1, config, combination_name, times=1, start_id = 0):
 
-    config_file_name = f'gen_conf_{combination_name}.yaml'
+    out_root = Path('results') / 'mps'
+    configs_dir = out_root / 'configs'
+    logs_dir = out_root / 'logs'
+    configs_dir.mkdir(parents=True, exist_ok=True)
+    logs_dir.mkdir(parents=True, exist_ok=True)
 
-    logging.info(f'dump config to {config_file_name}')
-    with open(f'./{config_file_name}', 'w') as file:
+    config_path = configs_dir / f'gen_conf_{combination_name}.yaml'
+
+    logging.info(f'dump config to {config_path}')
+    with config_path.open('w') as file:
         yaml.dump(config, file)
-    # run python main.py
+
     logging.info(f'training with this config {times} times')
 
+    baseline_main = Path(os.path.expanduser('~')) / 'orion' / 'related' / 'baselines' / 'main.py'
 
     for i in range(start_id, start_id + times):
-        log_file = f'log_{i}_{combination_name}.log'
-        os.system(f"python3 {os.path.expanduser( '~' )}/orion/related/baselines/main.py --config ./{config_file_name}")
-        print(f"{combination_name}.log.json")
-        os.system(f"mv {combination_name}.log.json results/mps/{mnames[model0]}_{mnames[model1]}_{i}.json")
+        log_path = logs_dir / f'log_{i}_{combination_name}.log'
+
+        cmd = [
+            'python3',
+            str(baseline_main),
+            '--config',
+            str(config_path),
+            '--log',
+            str(log_path),
+        ]
+        subprocess.run(cmd, check=True)
+
+        produced_json = Path(f'{log_path}.json')
+        if not produced_json.exists():
+            raise FileNotFoundError(f'Expected baseline output JSON not found: {produced_json}')
+
+        final_json = out_root / f"{mnames[model0]}_{mnames[model1]}_{i}.json"
+        produced_json.replace(final_json)
 
 
 
@@ -50,7 +72,7 @@ if __name__ == "__main__":
 
     policy = 'MPS'
 
-    models = ['resnet50', 'mobilenet_v2', 'resnet101', 'bert', 'yolov5s']
+    models = ['resnet50', 'mobilenet_v2', 'resnet101', 'bert']
     combinations = itertools.product(models, models)
     times = 1
     start_id = 0
