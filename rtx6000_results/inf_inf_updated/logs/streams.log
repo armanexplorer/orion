@@ -1,0 +1,160 @@
+11/02/2026 14:07:33 INFO    : [run_streams.py:26] dump config to results/streams/configs/gen_conf_eval-resnet50eval-resnet50.yaml
+11/02/2026 14:07:33 INFO    : [run_streams.py:30] running Streams baseline 1 times
+/home/cc/.local/lib/python3.10/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+{'model0': {'mode': 'eval', 'name': 'resnet50'}, 'model1': {'mode': 'eval', 'name': 'resnet50'}}
+['resnet50', 'resnet50'] ['eval', 'eval'] [{'arch': 'resnet50', 'batch_size': 8, 'num_iterations': 9200, 'request_rate': 200}, {'arch': 'resnet50', 'batch_size': 8, 'num_iterations': 9200, 'request_rate': 200}]
+num_clients is 2
+tid is 0, distribution is poisson, num_requests is 9200, rate is 200
+tid is 1, distribution is poisson, num_requests is 10000000, rate is 200
+11/02/2026 14:10:10 INFO    : [run_streams.py:26] dump config to results/streams/configs/gen_conf_eval-resnet50eval-mobilenet_v2.yaml
+11/02/2026 14:10:10 INFO    : [run_streams.py:30] running Streams baseline 1 times
+/home/cc/.local/lib/python3.10/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+{'model0': {'mode': 'eval', 'name': 'resnet50'}, 'model1': {'mode': 'eval', 'name': 'mobilenet_v2'}}
+['resnet50', 'mobilenet_v2'] ['eval', 'eval'] [{'arch': 'resnet50', 'batch_size': 8, 'num_iterations': 9200, 'request_rate': 200}, {'arch': 'mobilenet_v2', 'batch_size': 16, 'num_iterations': 9200, 'request_rate': 200}]
+num_clients is 2
+tid is 1, distribution is poisson, num_requests is 10000000, rate is 200
+tid is 0, distribution is poisson, num_requests is 9200, rate is 200
+11/02/2026 14:12:31 INFO    : [run_streams.py:26] dump config to results/streams/configs/gen_conf_eval-resnet50eval-resnet101.yaml
+11/02/2026 14:12:31 INFO    : [run_streams.py:30] running Streams baseline 1 times
+/home/cc/.local/lib/python3.10/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+{'model0': {'mode': 'eval', 'name': 'resnet50'}, 'model1': {'mode': 'eval', 'name': 'resnet101'}}
+['resnet50', 'resnet101'] ['eval', 'eval'] [{'arch': 'resnet50', 'batch_size': 8, 'num_iterations': 9200, 'request_rate': 200}, {'arch': 'resnet101', 'batch_size': 8, 'num_iterations': 5000, 'request_rate': 100}]
+num_clients is 2
+tid is 0, distribution is poisson, num_requests is 9200, rate is 200
+tid is 1, distribution is poisson, num_requests is 10000000, rate is 100
+11/02/2026 14:15:05 INFO    : [run_streams.py:26] dump config to results/streams/configs/gen_conf_eval-resnet50eval-bert.yaml
+11/02/2026 14:15:05 INFO    : [run_streams.py:30] running Streams baseline 1 times
+/home/cc/.local/lib/python3.10/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+{'model0': {'mode': 'eval', 'name': 'resnet50'}, 'model1': {'mode': 'eval', 'name': 'bert'}}
+['resnet50', 'bert'] ['eval', 'eval'] [{'arch': 'resnet50', 'batch_size': 8, 'num_iterations': 9200, 'request_rate': 200}, {'arch': 'large', 'batch_size': 2, 'num_iterations': 3000, 'request_rate': 25}]
+num_clients is 2
+tid is 0, distribution is poisson, num_requests is 9200, rate is 200
+tid is 1, distribution is poisson, num_requests is 10000000, rate is 25
+11/02/2026 14:18:42 INFO    : [run_streams.py:26] dump config to results/streams/configs/gen_conf_eval-mobilenet_v2eval-resnet50.yaml
+11/02/2026 14:18:42 INFO    : [run_streams.py:30] running Streams baseline 1 times
+/home/cc/.local/lib/python3.10/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+{'model0': {'mode': 'eval', 'name': 'mobilenet_v2'}, 'model1': {'mode': 'eval', 'name': 'resnet50'}}
+['mobilenet_v2', 'resnet50'] ['eval', 'eval'] [{'arch': 'mobilenet_v2', 'batch_size': 16, 'num_iterations': 9200, 'request_rate': 200}, {'arch': 'resnet50', 'batch_size': 8, 'num_iterations': 9200, 'request_rate': 200}]
+num_clients is 2
+tid is 1, distribution is poisson, num_requests is 10000000, rate is 200
+tid is 0, distribution is poisson, num_requests is 9200, rate is 200
+11/02/2026 14:20:15 INFO    : [run_streams.py:26] dump config to results/streams/configs/gen_conf_eval-mobilenet_v2eval-mobilenet_v2.yaml
+11/02/2026 14:20:15 INFO    : [run_streams.py:30] running Streams baseline 1 times
+/home/cc/.local/lib/python3.10/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+{'model0': {'mode': 'eval', 'name': 'mobilenet_v2'}, 'model1': {'mode': 'eval', 'name': 'mobilenet_v2'}}
+['mobilenet_v2', 'mobilenet_v2'] ['eval', 'eval'] [{'arch': 'mobilenet_v2', 'batch_size': 16, 'num_iterations': 9200, 'request_rate': 200}, {'arch': 'mobilenet_v2', 'batch_size': 16, 'num_iterations': 9200, 'request_rate': 200}]
+num_clients is 2
+tid is 1, distribution is poisson, num_requests is 10000000, rate is 200
+tid is 0, distribution is poisson, num_requests is 9200, rate is 200
+11/02/2026 14:21:38 INFO    : [run_streams.py:26] dump config to results/streams/configs/gen_conf_eval-mobilenet_v2eval-resnet101.yaml
+11/02/2026 14:21:38 INFO    : [run_streams.py:30] running Streams baseline 1 times
+/home/cc/.local/lib/python3.10/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+{'model0': {'mode': 'eval', 'name': 'mobilenet_v2'}, 'model1': {'mode': 'eval', 'name': 'resnet101'}}
+['mobilenet_v2', 'resnet101'] ['eval', 'eval'] [{'arch': 'mobilenet_v2', 'batch_size': 16, 'num_iterations': 9200, 'request_rate': 200}, {'arch': 'resnet101', 'batch_size': 8, 'num_iterations': 5000, 'request_rate': 100}]
+num_clients is 2
+tid is 0, distribution is poisson, num_requests is 9200, rate is 200
+tid is 1, distribution is poisson, num_requests is 10000000, rate is 100
+11/02/2026 14:23:15 INFO    : [run_streams.py:26] dump config to results/streams/configs/gen_conf_eval-mobilenet_v2eval-bert.yaml
+11/02/2026 14:23:15 INFO    : [run_streams.py:30] running Streams baseline 1 times
+/home/cc/.local/lib/python3.10/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+{'model0': {'mode': 'eval', 'name': 'mobilenet_v2'}, 'model1': {'mode': 'eval', 'name': 'bert'}}
+['mobilenet_v2', 'bert'] ['eval', 'eval'] [{'arch': 'mobilenet_v2', 'batch_size': 16, 'num_iterations': 9200, 'request_rate': 200}, {'arch': 'large', 'batch_size': 2, 'num_iterations': 3000, 'request_rate': 25}]
+num_clients is 2
+tid is 0, distribution is poisson, num_requests is 9200, rate is 200
+tid is 1, distribution is poisson, num_requests is 10000000, rate is 25
+11/02/2026 14:25:28 INFO    : [run_streams.py:26] dump config to results/streams/configs/gen_conf_eval-resnet101eval-resnet50.yaml
+11/02/2026 14:25:28 INFO    : [run_streams.py:30] running Streams baseline 1 times
+/home/cc/.local/lib/python3.10/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+{'model0': {'mode': 'eval', 'name': 'resnet101'}, 'model1': {'mode': 'eval', 'name': 'resnet50'}}
+['resnet101', 'resnet50'] ['eval', 'eval'] [{'arch': 'resnet101', 'batch_size': 8, 'num_iterations': 5000, 'request_rate': 100}, {'arch': 'resnet50', 'batch_size': 8, 'num_iterations': 9200, 'request_rate': 200}]
+num_clients is 2
+tid is 1, distribution is poisson, num_requests is 10000000, rate is 200
+tid is 0, distribution is poisson, num_requests is 5000, rate is 100
+11/02/2026 14:28:03 INFO    : [run_streams.py:26] dump config to results/streams/configs/gen_conf_eval-resnet101eval-mobilenet_v2.yaml
+11/02/2026 14:28:03 INFO    : [run_streams.py:30] running Streams baseline 1 times
+/home/cc/.local/lib/python3.10/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+{'model0': {'mode': 'eval', 'name': 'resnet101'}, 'model1': {'mode': 'eval', 'name': 'mobilenet_v2'}}
+['resnet101', 'mobilenet_v2'] ['eval', 'eval'] [{'arch': 'resnet101', 'batch_size': 8, 'num_iterations': 5000, 'request_rate': 100}, {'arch': 'mobilenet_v2', 'batch_size': 16, 'num_iterations': 9200, 'request_rate': 200}]
+num_clients is 2
+tid is 1, distribution is poisson, num_requests is 10000000, rate is 200
+tid is 0, distribution is poisson, num_requests is 5000, rate is 100
+resnet50 resnet50 {'policy': 'Streams', 'models': {'model0': {'mode': 'eval', 'name': 'resnet50'}, 'model1': {'mode': 'eval', 'name': 'resnet50'}}, 'shared_config': {'distribution': 'poisson', 'trace_path': './inter_arrival_times.json', 'pin_memory': True, 'seed': 42}, 'resnet50': {'arch': 'resnet50', 'batch_size': 8, 'num_iterations': 9200, 'request_rate': 200}, 'resnet101': {'arch': 'resnet101', 'batch_size': 8, 'num_iterations': 5000, 'request_rate': 100}, 'mobilenet_v2': {'arch': 'mobilenet_v2', 'batch_size': 16, 'num_iterations': 9200, 'request_rate': 200}, 'bert': {'batch_size': 2, 'arch': 'large', 'num_iterations': 3000, 'request_rate': 25}, 'yolov5s': {'arch': 'yolov5s', 'batch_size': 4, 'num_iterations': 9200, 'request_rate': 200}}
+resnet50 mobilenet_v2 {'policy': 'Streams', 'models': {'model0': {'mode': 'eval', 'name': 'resnet50'}, 'model1': {'mode': 'eval', 'name': 'mobilenet_v2'}}, 'shared_config': {'distribution': 'poisson', 'trace_path': './inter_arrival_times.json', 'pin_memory': True, 'seed': 42}, 'resnet50': {'arch': 'resnet50', 'batch_size': 8, 'num_iterations': 9200, 'request_rate': 200}, 'resnet101': {'arch': 'resnet101', 'batch_size': 8, 'num_iterations': 5000, 'request_rate': 100}, 'mobilenet_v2': {'arch': 'mobilenet_v2', 'batch_size': 16, 'num_iterations': 9200, 'request_rate': 200}, 'bert': {'batch_size': 2, 'arch': 'large', 'num_iterations': 3000, 'request_rate': 25}, 'yolov5s': {'arch': 'yolov5s', 'batch_size': 4, 'num_iterations': 9200, 'request_rate': 200}}
+resnet50 resnet101 {'policy': 'Streams', 'models': {'model0': {'mode': 'eval', 'name': 'resnet50'}, 'model1': {'mode': 'eval', 'name': 'resnet101'}}, 'shared_config': {'distribution': 'poisson', 'trace_path': './inter_arrival_times.json', 'pin_memory': True, 'seed': 42}, 'resnet50': {'arch': 'resnet50', 'batch_size': 8, 'num_iterations': 9200, 'request_rate': 200}, 'resnet101': {'arch': 'resnet101', 'batch_size': 8, 'num_iterations': 5000, 'request_rate': 100}, 'mobilenet_v2': {'arch': 'mobilenet_v2', 'batch_size': 16, 'num_iterations': 9200, 'request_rate': 200}, 'bert': {'batch_size': 2, 'arch': 'large', 'num_iterations': 3000, 'request_rate': 25}, 'yolov5s': {'arch': 'yolov5s', 'batch_size': 4, 'num_iterations': 9200, 'request_rate': 200}}
+resnet50 bert {'policy': 'Streams', 'models': {'model0': {'mode': 'eval', 'name': 'resnet50'}, 'model1': {'mode': 'eval', 'name': 'bert'}}, 'shared_config': {'distribution': 'poisson', 'trace_path': './inter_arrival_times.json', 'pin_memory': True, 'seed': 42}, 'resnet50': {'arch': 'resnet50', 'batch_size': 8, 'num_iterations': 9200, 'request_rate': 200}, 'resnet101': {'arch': 'resnet101', 'batch_size': 8, 'num_iterations': 5000, 'request_rate': 100}, 'mobilenet_v2': {'arch': 'mobilenet_v2', 'batch_size': 16, 'num_iterations': 9200, 'request_rate': 200}, 'bert': {'batch_size': 2, 'arch': 'large', 'num_iterations': 3000, 'request_rate': 25}, 'yolov5s': {'arch': 'yolov5s', 'batch_size': 4, 'num_iterations': 9200, 'request_rate': 200}}
+mobilenet_v2 resnet50 {'policy': 'Streams', 'models': {'model0': {'mode': 'eval', 'name': 'mobilenet_v2'}, 'model1': {'mode': 'eval', 'name': 'resnet50'}}, 'shared_config': {'distribution': 'poisson', 'trace_path': './inter_arrival_times.json', 'pin_memory': True, 'seed': 42}, 'resnet50': {'arch': 'resnet50', 'batch_size': 8, 'num_iterations': 9200, 'request_rate': 200}, 'resnet101': {'arch': 'resnet101', 'batch_size': 8, 'num_iterations': 5000, 'request_rate': 100}, 'mobilenet_v2': {'arch': 'mobilenet_v2', 'batch_size': 16, 'num_iterations': 9200, 'request_rate': 200}, 'bert': {'batch_size': 2, 'arch': 'large', 'num_iterations': 3000, 'request_rate': 25}, 'yolov5s': {'arch': 'yolov5s', 'batch_size': 4, 'num_iterations': 9200, 'request_rate': 200}}
+mobilenet_v2 mobilenet_v2 {'policy': 'Streams', 'models': {'model0': {'mode': 'eval', 'name': 'mobilenet_v2'}, 'model1': {'mode': 'eval', 'name': 'mobilenet_v2'}}, 'shared_config': {'distribution': 'poisson', 'trace_path': './inter_arrival_times.json', 'pin_memory': True, 'seed': 42}, 'resnet50': {'arch': 'resnet50', 'batch_size': 8, 'num_iterations': 9200, 'request_rate': 200}, 'resnet101': {'arch': 'resnet101', 'batch_size': 8, 'num_iterations': 5000, 'request_rate': 100}, 'mobilenet_v2': {'arch': 'mobilenet_v2', 'batch_size': 16, 'num_iterations': 9200, 'request_rate': 200}, 'bert': {'batch_size': 2, 'arch': 'large', 'num_iterations': 3000, 'request_rate': 25}, 'yolov5s': {'arch': 'yolov5s', 'batch_size': 4, 'num_iterations': 9200, 'request_rate': 200}}
+mobilenet_v2 resnet101 {'policy': 'Streams', 'models': {'model0': {'mode': 'eval', 'name': 'mobilenet_v2'}, 'model1': {'mode': 'eval', 'name': 'resnet101'}}, 'shared_config': {'distribution': 'poisson', 'trace_path': './inter_arrival_times.json', 'pin_memory': True, 'seed': 42}, 'resnet50': {'arch': 'resnet50', 'batch_size': 8, 'num_iterations': 9200, 'request_rate': 200}, 'resnet101': {'arch': 'resnet101', 'batch_size': 8, 'num_iterations': 5000, 'request_rate': 100}, 'mobilenet_v2': {'arch': 'mobilenet_v2', 'batch_size': 16, 'num_iterations': 9200, 'request_rate': 200}, 'bert': {'batch_size': 2, 'arch': 'large', 'num_iterations': 3000, 'request_rate': 25}, 'yolov5s': {'arch': 'yolov5s', 'batch_size': 4, 'num_iterations': 9200, 'request_rate': 200}}
+mobilenet_v2 bert {'policy': 'Streams', 'models': {'model0': {'mode': 'eval', 'name': 'mobilenet_v2'}, 'model1': {'mode': 'eval', 'name': 'bert'}}, 'shared_config': {'distribution': 'poisson', 'trace_path': './inter_arrival_times.json', 'pin_memory': True, 'seed': 42}, 'resnet50': {'arch': 'resnet50', 'batch_size': 8, 'num_iterations': 9200, 'request_rate': 200}, 'resnet101': {'arch': 'resnet101', 'batch_size': 8, 'num_iterations': 5000, 'request_rate': 100}, 'mobilenet_v2': {'arch': 'mobilenet_v2', 'batch_size': 16, 'num_iterations': 9200, 'request_rate': 200}, 'bert': {'batch_size': 2, 'arch': 'large', 'num_iterations': 3000, 'request_rate': 25}, 'yolov5s': {'arch': 'yolov5s', 'batch_size': 4, 'num_iterations': 9200, 'request_rate': 200}}
+resnet101 resnet50 {'policy': 'Streams', 'models': {'model0': {'mode': 'eval', 'name': 'resnet101'}, 'model1': {'mode': 'eval', 'name': 'resnet50'}}, 'shared_config': {'distribution': 'poisson', 'trace_path': './inter_arrival_times.json', 'pin_memory': True, 'seed': 42}, 'resnet50': {'arch': 'resnet50', 'batch_size': 8, 'num_iterations': 9200, 'request_rate': 200}, 'resnet101': {'arch': 'resnet101', 'batch_size': 8, 'num_iterations': 5000, 'request_rate': 100}, 'mobilenet_v2': {'arch': 'mobilenet_v2', 'batch_size': 16, 'num_iterations': 9200, 'request_rate': 200}, 'bert': {'batch_size': 2, 'arch': 'large', 'num_iterations': 3000, 'request_rate': 25}, 'yolov5s': {'arch': 'yolov5s', 'batch_size': 4, 'num_iterations': 9200, 'request_rate': 200}}
+resnet101 mobilenet_v2 {'policy': 'Streams', 'models': {'model0': {'mode': 'eval', 'name': 'resnet101'}, 'model1': {'mode': 'eval', 'name': 'mobilenet_v2'}}, 'shared_config': {'distribution': 'poisson', 'trace_path': './inter_arrival_times.json', 'pin_memory': True, 'seed': 42}, 'resnet50': {'arch': 'resnet50', 'batch_size': 8, 'num_iterations': 9200, 'request_rate': 200}, 'resnet101': {'arch': 'resnet101', 'batch_size': 8, 'num_iterations': 5000, 'request_rate': 100}, 'mobilenet_v2': {'arch': 'mobilenet_v2', 'batch_size': 16, 'num_iterations': 9200, 'request_rate': 200}, 'bert': {'batch_size': 2, 'arch': 'large', 'num_iterations': 3000, 'request_rate': 25}, 'yolov5s': {'arch': 'yolov5s', 'batch_size': 4, 'num_iterations': 9200, 'request_rate': 200}}
+resnet101 resnet101 11/02/2026 14:30:29 INFO    : [run_streams.py:26] dump config to results/streams/configs/gen_conf_eval-resnet101eval-resnet101.yaml
+11/02/2026 14:30:29 INFO    : [run_streams.py:30] running Streams baseline 1 times
+/home/cc/.local/lib/python3.10/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+{'model0': {'mode': 'eval', 'name': 'resnet101'}, 'model1': {'mode': 'eval', 'name': 'resnet101'}}
+['resnet101', 'resnet101'] ['eval', 'eval'] [{'arch': 'resnet101', 'batch_size': 8, 'num_iterations': 5000, 'request_rate': 100}, {'arch': 'resnet101', 'batch_size': 8, 'num_iterations': 5000, 'request_rate': 100}]
+num_clients is 2
+tid is 0, distribution is poisson, num_requests is 5000, rate is 100
+tid is 1, distribution is poisson, num_requests is 10000000, rate is 100
+11/02/2026 14:33:00 INFO    : [run_streams.py:26] dump config to results/streams/configs/gen_conf_eval-resnet101eval-bert.yaml
+11/02/2026 14:33:00 INFO    : [run_streams.py:30] running Streams baseline 1 times
+/home/cc/.local/lib/python3.10/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+{'model0': {'mode': 'eval', 'name': 'resnet101'}, 'model1': {'mode': 'eval', 'name': 'bert'}}
+['resnet101', 'bert'] ['eval', 'eval'] [{'arch': 'resnet101', 'batch_size': 8, 'num_iterations': 5000, 'request_rate': 100}, {'arch': 'large', 'batch_size': 2, 'num_iterations': 3000, 'request_rate': 25}]
+num_clients is 2
+tid is 1, distribution is poisson, num_requests is 10000000, rate is 25
+tid is 0, distribution is poisson, num_requests is 5000, rate is 100
+11/02/2026 14:36:48 INFO    : [run_streams.py:26] dump config to results/streams/configs/gen_conf_eval-berteval-resnet50.yaml
+11/02/2026 14:36:48 INFO    : [run_streams.py:30] running Streams baseline 1 times
+/home/cc/.local/lib/python3.10/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+{'model0': {'mode': 'eval', 'name': 'bert'}, 'model1': {'mode': 'eval', 'name': 'resnet50'}}
+['bert', 'resnet50'] ['eval', 'eval'] [{'arch': 'large', 'batch_size': 2, 'num_iterations': 3000, 'request_rate': 25}, {'arch': 'resnet50', 'batch_size': 8, 'num_iterations': 9200, 'request_rate': 200}]
+num_clients is 2
+tid is 1, distribution is poisson, num_requests is 10000000, rate is 200
+tid is 0, distribution is poisson, num_requests is 3000, rate is 25
+11/02/2026 14:40:52 INFO    : [run_streams.py:26] dump config to results/streams/configs/gen_conf_eval-berteval-mobilenet_v2.yaml
+11/02/2026 14:40:52 INFO    : [run_streams.py:30] running Streams baseline 1 times
+/home/cc/.local/lib/python3.10/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+{'model0': {'mode': 'eval', 'name': 'bert'}, 'model1': {'mode': 'eval', 'name': 'mobilenet_v2'}}
+['bert', 'mobilenet_v2'] ['eval', 'eval'] [{'arch': 'large', 'batch_size': 2, 'num_iterations': 3000, 'request_rate': 25}, {'arch': 'mobilenet_v2', 'batch_size': 16, 'num_iterations': 9200, 'request_rate': 200}]
+num_clients is 2
+tid is 1, distribution is poisson, num_requests is 10000000, rate is 200
+tid is 0, distribution is poisson, num_requests is 3000, rate is 25
+11/02/2026 14:44:39 INFO    : [run_streams.py:26] dump config to results/streams/configs/gen_conf_eval-berteval-resnet101.yaml
+11/02/2026 14:44:39 INFO    : [run_streams.py:30] running Streams baseline 1 times
+/home/cc/.local/lib/python3.10/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+{'model0': {'mode': 'eval', 'name': 'bert'}, 'model1': {'mode': 'eval', 'name': 'resnet101'}}
+['bert', 'resnet101'] ['eval', 'eval'] [{'arch': 'large', 'batch_size': 2, 'num_iterations': 3000, 'request_rate': 25}, {'arch': 'resnet101', 'batch_size': 8, 'num_iterations': 5000, 'request_rate': 100}]
+num_clients is 2
+tid is 1, distribution is poisson, num_requests is 10000000, rate is 100
+tid is 0, distribution is poisson, num_requests is 3000, rate is 25
+11/02/2026 14:48:40 INFO    : [run_streams.py:26] dump config to results/streams/configs/gen_conf_eval-berteval-bert.yaml
+11/02/2026 14:48:40 INFO    : [run_streams.py:30] running Streams baseline 1 times
+/home/cc/.local/lib/python3.10/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+{'model0': {'mode': 'eval', 'name': 'bert'}, 'model1': {'mode': 'eval', 'name': 'bert'}}
+['bert', 'bert'] ['eval', 'eval'] [{'arch': 'large', 'batch_size': 2, 'num_iterations': 3000, 'request_rate': 25}, {'arch': 'large', 'batch_size': 2, 'num_iterations': 3000, 'request_rate': 25}]
+num_clients is 2
+tid is 1, distribution is poisson, num_requests is 10000000, rate is 25
+tid is 0, distribution is poisson, num_requests is 3000, rate is 25
+{'policy': 'Streams', 'models': {'model0': {'mode': 'eval', 'name': 'resnet101'}, 'model1': {'mode': 'eval', 'name': 'resnet101'}}, 'shared_config': {'distribution': 'poisson', 'trace_path': './inter_arrival_times.json', 'pin_memory': True, 'seed': 42}, 'resnet50': {'arch': 'resnet50', 'batch_size': 8, 'num_iterations': 9200, 'request_rate': 200}, 'resnet101': {'arch': 'resnet101', 'batch_size': 8, 'num_iterations': 5000, 'request_rate': 100}, 'mobilenet_v2': {'arch': 'mobilenet_v2', 'batch_size': 16, 'num_iterations': 9200, 'request_rate': 200}, 'bert': {'batch_size': 2, 'arch': 'large', 'num_iterations': 3000, 'request_rate': 25}, 'yolov5s': {'arch': 'yolov5s', 'batch_size': 4, 'num_iterations': 9200, 'request_rate': 200}}
+resnet101 bert {'policy': 'Streams', 'models': {'model0': {'mode': 'eval', 'name': 'resnet101'}, 'model1': {'mode': 'eval', 'name': 'bert'}}, 'shared_config': {'distribution': 'poisson', 'trace_path': './inter_arrival_times.json', 'pin_memory': True, 'seed': 42}, 'resnet50': {'arch': 'resnet50', 'batch_size': 8, 'num_iterations': 9200, 'request_rate': 200}, 'resnet101': {'arch': 'resnet101', 'batch_size': 8, 'num_iterations': 5000, 'request_rate': 100}, 'mobilenet_v2': {'arch': 'mobilenet_v2', 'batch_size': 16, 'num_iterations': 9200, 'request_rate': 200}, 'bert': {'batch_size': 2, 'arch': 'large', 'num_iterations': 3000, 'request_rate': 25}, 'yolov5s': {'arch': 'yolov5s', 'batch_size': 4, 'num_iterations': 9200, 'request_rate': 200}}
+bert resnet50 {'policy': 'Streams', 'models': {'model0': {'mode': 'eval', 'name': 'bert'}, 'model1': {'mode': 'eval', 'name': 'resnet50'}}, 'shared_config': {'distribution': 'poisson', 'trace_path': './inter_arrival_times.json', 'pin_memory': True, 'seed': 42}, 'resnet50': {'arch': 'resnet50', 'batch_size': 8, 'num_iterations': 9200, 'request_rate': 200}, 'resnet101': {'arch': 'resnet101', 'batch_size': 8, 'num_iterations': 5000, 'request_rate': 100}, 'mobilenet_v2': {'arch': 'mobilenet_v2', 'batch_size': 16, 'num_iterations': 9200, 'request_rate': 200}, 'bert': {'batch_size': 2, 'arch': 'large', 'num_iterations': 3000, 'request_rate': 25}, 'yolov5s': {'arch': 'yolov5s', 'batch_size': 4, 'num_iterations': 9200, 'request_rate': 200}}
+bert mobilenet_v2 {'policy': 'Streams', 'models': {'model0': {'mode': 'eval', 'name': 'bert'}, 'model1': {'mode': 'eval', 'name': 'mobilenet_v2'}}, 'shared_config': {'distribution': 'poisson', 'trace_path': './inter_arrival_times.json', 'pin_memory': True, 'seed': 42}, 'resnet50': {'arch': 'resnet50', 'batch_size': 8, 'num_iterations': 9200, 'request_rate': 200}, 'resnet101': {'arch': 'resnet101', 'batch_size': 8, 'num_iterations': 5000, 'request_rate': 100}, 'mobilenet_v2': {'arch': 'mobilenet_v2', 'batch_size': 16, 'num_iterations': 9200, 'request_rate': 200}, 'bert': {'batch_size': 2, 'arch': 'large', 'num_iterations': 3000, 'request_rate': 25}, 'yolov5s': {'arch': 'yolov5s', 'batch_size': 4, 'num_iterations': 9200, 'request_rate': 200}}
+bert resnet101 {'policy': 'Streams', 'models': {'model0': {'mode': 'eval', 'name': 'bert'}, 'model1': {'mode': 'eval', 'name': 'resnet101'}}, 'shared_config': {'distribution': 'poisson', 'trace_path': './inter_arrival_times.json', 'pin_memory': True, 'seed': 42}, 'resnet50': {'arch': 'resnet50', 'batch_size': 8, 'num_iterations': 9200, 'request_rate': 200}, 'resnet101': {'arch': 'resnet101', 'batch_size': 8, 'num_iterations': 5000, 'request_rate': 100}, 'mobilenet_v2': {'arch': 'mobilenet_v2', 'batch_size': 16, 'num_iterations': 9200, 'request_rate': 200}, 'bert': {'batch_size': 2, 'arch': 'large', 'num_iterations': 3000, 'request_rate': 25}, 'yolov5s': {'arch': 'yolov5s', 'batch_size': 4, 'num_iterations': 9200, 'request_rate': 200}}
+bert bert {'policy': 'Streams', 'models': {'model0': {'mode': 'eval', 'name': 'bert'}, 'model1': {'mode': 'eval', 'name': 'bert'}}, 'shared_config': {'distribution': 'poisson', 'trace_path': './inter_arrival_times.json', 'pin_memory': True, 'seed': 42}, 'resnet50': {'arch': 'resnet50', 'batch_size': 8, 'num_iterations': 9200, 'request_rate': 200}, 'resnet101': {'arch': 'resnet101', 'batch_size': 8, 'num_iterations': 5000, 'request_rate': 100}, 'mobilenet_v2': {'arch': 'mobilenet_v2', 'batch_size': 16, 'num_iterations': 9200, 'request_rate': 200}, 'bert': {'batch_size': 2, 'arch': 'large', 'num_iterations': 3000, 'request_rate': 25}, 'yolov5s': {'arch': 'yolov5s', 'batch_size': 4, 'num_iterations': 9200, 'request_rate': 200}}
