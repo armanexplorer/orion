@@ -23,6 +23,8 @@ function_dict = {
     "resnet50": imagenet_loop,
     "resnet101": imagenet_loop,
     "mobilenet_v2": imagenet_loop,
+    "yolov5s": imagenet_loop,
+    "yolov5n": imagenet_loop,
     "bert": bert_loop,
     "transformer": transformer_loop,
 }

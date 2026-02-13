@@ -83,10 +83,33 @@ For the inference configs used in `rtx6000_results/inf_inf_updated/config_files/
 - `mobilenet_16_fwd`
 - `bert_2_fwd`
 
+If you add YOLOv5n, you will also need (suggested default):
+- `yolov5n_4_fwd`
+
 #### 2.1) Create profiling output folders
 ```bash
-mkdir -p profiling/profiles/rtx6000/{resnet50_8_fwd,resnet101_8_fwd,mobilenet_16_fwd,bert_2_fwd}
+mkdir -p profiling/profiles/rtx6000/{resnet50_8_fwd,resnet101_8_fwd,mobilenet_16_fwd,bert_2_fwd,yolov5n_4_fwd}
 mkdir -p benchmarking/model_kernels/rtx6000
+```
+
+#### 2.1.1) YOLOv5n prerequisites (weights + repo)
+
+This repo already vendors a YOLOv5 source checkout at:
+- `models/yolov5/repo/`
+
+To use `yolov5n`, you must place weights at:
+- `models/yolov5/yolov5n.pt`
+
+Example (download from Ultralytics YOLOv5 v7.0 release):
+```bash
+mkdir -p models/yolov5
+wget -O models/yolov5/yolov5n.pt \
+  https://github.com/ultralytics/yolov5/releases/download/v7.0/yolov5n.pt
+```
+
+If `torch.hub.load(..., source='local')` errors due to missing Python deps, install the YOLOv5 repo requirements:
+```bash
+pip install -r models/yolov5/repo/requirements.txt
 ```
 
 #### 2.2) Collect NCU CSVs (both “normal” + “raw”)
@@ -113,6 +136,19 @@ name=resnet101_8_fwd \
   && ncu --csv --profile-from-start off --target-processes all --replay-mode kernel \
        --metrics "$METRICS" \
        python3 profiling/benchmarks/profile_vision_silent.py --model resnet101 --batchsize 8 --device 0 \
+       > "$outdir/raw_ncu.csv" 2> "$outdir/ncu.stderr.log" \
+  && cp "$outdir/raw_ncu.csv" "$outdir/output_ncu.csv"
+```
+
+YOLOv5n uses a different profiler entrypoint (torch.hub local model):
+```bash
+name=yolov5n_4_fwd \
+  && outdir=profiling/profiles/rtx6000/$name \
+  && mkdir -p "$outdir" \
+  && echo "=== Profiling $name ===" \
+  && ncu --csv --profile-from-start off --target-processes all --replay-mode kernel \
+       --metrics "$METRICS" \
+       python3 profiling/benchmarks/profile_yolov5_silent.py --model yolov5n --batchsize 4 --img_size 640 --device 0 \
        > "$outdir/raw_ncu.csv" 2> "$outdir/ncu.stderr.log" \
   && cp "$outdir/raw_ncu.csv" "$outdir/output_ncu.csv"
 ```
@@ -181,12 +217,47 @@ For each directory above, run:
 ```bash
 python3 ../../../postprocessing/process_ncu.py --results_dir .
 
-# RTX 6000 (Turing) SM limits are compatible with these defaults; override here for explicitness:
-python3 ../../../postprocessing/get_num_blocks.py --results_dir . \
-  --max_threads_sm 1024 --max_shmem_sm 65536 --max_regs_sm 65536
+# Choose SM resource limits for *your exact GPU*.
+# These flags are the per-SM architectural maxima used by get_num_blocks.py to estimate
+# how many blocks can be concurrently resident on one SM (then infer SM_needed).
+#
+# Best practice: query them from CUDA (preferred) or from Nsight Compute "Launch Statistics".
+#
+# Option A (recommended): use the helper script in this repo
+# This prints the exact `get_num_blocks.py` flags and the computed roofline ridge point.
+/usr/bin/python3 scripts/compute_gpu_params.py --device 0
 
-# Uses raw_ncu.csv, ai_threshold default=9.2
-python3 ../../../postprocessing/roofline_analysis.py --results_dir . --ai_threshold 9.2
+# Option B: CUDA deviceQuery (authoritative; from CUDA samples)
+# If installed: `deviceQuery` prints Max Threads/SM, Shared Memory/SM, Registers/SM.
+
+# Example values that apply to THIS machine (Quadro RTX 6000, sm75) are:
+# - max_threads_sm = 1024 threads/SM
+# - max_shmem_sm   = 65536 bytes/SM (64 KiB)
+# - max_regs_sm    = 65536 32-bit registers/SM
+# (as printed by `scripts/compute_gpu_params.py`).
+
+python3 ../../../postprocessing/get_num_blocks.py --results_dir . \
+  --max_threads_sm 1024 \
+  --max_shmem_sm 65536 \
+  --max_regs_sm 65536
+
+# Choose ai_threshold (roofline "ridge point" / "knee" arithmetic intensity, in FLOP/byte).
+#
+# Best practice: open your model's `output_ncu.ncu-rep` in Nsight Compute and read the
+# ridge point from the Roofline / SpeedOfLight section. Use that ridge point value as
+# `--ai_threshold` for this GPU.
+#
+# Rule-of-thumb alternative (when you can't open the GUI):
+#   ai_threshold ≈ (peak_FLOP_per_s) / (peak_bytes_per_s)
+# using the same precision that dominates your kernels (often FP32 for these metrics).
+#
+# IMPORTANT: keep `ai_threshold` consistent across *all* models on the same GPU if you
+# want reproducible kernel classifications.
+#
+# For THIS machine (Quadro RTX 6000, sm75), `scripts/compute_gpu_params.py` computed:
+# - peak FP32 ≈ 19.35 TFLOP/s, peak DRAM ≈ 672.10 GB/s
+# => ai_threshold ≈ 28.8 FLOP/byte
+python3 ../../../postprocessing/roofline_analysis.py --results_dir . --ai_threshold 28.8
 ```
 
 Note on `--max_threads_sm`: use the value that matches your GPU architecture / what you used previously for RTX6000.
@@ -213,6 +284,16 @@ Replace `<NAME>` with:
 - `resnet50_8_fwd`
 - `resnet101_8_fwd`
 - `mobilenet_16_fwd`
+
+For YOLOv5n:
+```bash
+python3 ../../../postprocessing/generate_file_updated.py \
+  --input_file_name output_ncu_sms_roofline.csv \
+  --output_file_name ../../../../benchmarking/model_kernels/rtx6000/yolov5n_4_fwd \
+  --model_type vision
+```
+
+Note: YOLOv5n is treated as `--model_type vision` for kernel-file generation.
 
 Sanity checks:
 ```bash

@@ -36,6 +36,10 @@ model_to_wrapper = {
     'yolov5s': {
         'train': vision_train_wrapper,
         'eval': vision_eval_wrapper,
+    },
+    'yolov5n': {
+        'train': vision_train_wrapper,
+        'eval': vision_eval_wrapper,
     }
 }
 

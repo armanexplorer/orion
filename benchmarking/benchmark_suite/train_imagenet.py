@@ -31,9 +31,10 @@ def seed_everything(seed: int):
 
 
 class DummyDataLoader():
-    def __init__(self, batchsize):
+    def __init__(self, batchsize, img_size: int = 224):
         self.batchsize = batchsize
-        self.data = torch.rand([self.batchsize, 3, 224, 224], pin_memory=True)
+        self.img_size = img_size
+        self.data = torch.rand([self.batchsize, 3, self.img_size, self.img_size], pin_memory=True)
         self.target = torch.ones([self.batchsize], pin_memory=True, dtype=torch.long)
 
     def __iter__(self):
@@ -71,7 +72,8 @@ def imagenet_loop(
     barriers,
     client_barrier,
     tid,
-    input_file=''
+    input_file='',
+    img_size: int | None = None
 ):
 
     seed_everything(42)
@@ -99,10 +101,35 @@ def imagenet_loop(
 
     set_stream(backend_lib, tid)
 
+    if img_size is None:
+        img_size = 224
+    if isinstance(model_name, str) and model_name.lower().startswith('yolov5') and img_size == 224:
+        # Prefer YOLO's common default input size unless explicitly overridden.
+        img_size = 640
+
     #data = torch.rand([batchsize, 3, 224, 224]).contiguous()
     #target = torch.ones([batchsize]).to(torch.long)
-    model = models.__dict__[model_name](num_classes=1000)
-    model = model.to(0)
+    if isinstance(model_name, str) and model_name.lower().startswith('yolov5'):
+        if train:
+            raise NotImplementedError("YOLOv5 training is not supported by imagenet_loop; use eval mode")
+
+        orion_root = os.path.join(os.path.expanduser('~'), 'orion')
+        repo_path = os.path.join(orion_root, 'models', 'yolov5', 'repo')
+        weights_path = os.path.join(orion_root, 'models', 'yolov5', f"{model_name}.pt")
+        if not os.path.exists(weights_path):
+            raise FileNotFoundError(
+                f"Missing YOLO weights at {weights_path}. Download {model_name}.pt into ~/orion/models/yolov5/"
+            )
+
+        model = torch.hub.load(
+            repo_or_dir=repo_path,
+            model='custom',
+            source='local',
+            path=weights_path,
+            device=f'cuda:{local_rank}',
+        )
+    else:
+        model = models.__dict__[model_name](num_classes=1000).to(local_rank)
 
     if train:
         model.train()
@@ -111,7 +138,7 @@ def imagenet_loop(
     else:
         model.eval()
 
-    train_loader = DummyDataLoader(batchsize)
+    train_loader = DummyDataLoader(batchsize, img_size=img_size)
 
     train_iter = enumerate(train_loader)
     batch_idx, batch = next(train_iter)

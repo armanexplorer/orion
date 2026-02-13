@@ -37,5 +37,13 @@ bert:
 yolov5s:
   arch: yolov5s
   batch_size: 4
+  img_size: 640
+  num_iterations: 9200
+  request_rate: 200  # measured in 1/seconds
+
+yolov5n:
+  arch: yolov5n
+  batch_size: 4
+  img_size: 640
   num_iterations: 9200
   request_rate: 200  # measured in 1/seconds

@@ -128,10 +128,12 @@ def setup(model_config, shared_config, device):
     batch_size = model_config['batch_size']
     metric_fn = torch.nn.CrossEntropyLoss().to(device)
 
+    img_size = int(model_config.get('img_size', 640 if arch.startswith('yolov5') else 224))
+
     pin_memory = shared_config['pin_memory']
 
     train_loader = utils.DummyDataLoader(batch=(
-        torch.rand([batch_size, 3, 224, 224], pin_memory=pin_memory),
+        torch.rand([batch_size, 3, img_size, img_size], pin_memory=pin_memory),
         torch.ones([batch_size], pin_memory=pin_memory).to(torch.long)
     ))
     # else:
