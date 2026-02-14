@@ -250,14 +250,40 @@ python3 ../../../postprocessing/get_num_blocks.py --results_dir . \
 # Rule-of-thumb alternative (when you can't open the GUI):
 #   ai_threshold ≈ (peak_FLOP_per_s) / (peak_bytes_per_s)
 # using the same precision that dominates your kernels (often FP32 for these metrics).
+
+# Headless validation (no GUI): Nsight Compute exports the same device peak attributes into the
+# raw-metrics CSV. You can export and recompute the ridge point like this:
+#
+#   ncu --import output_ncu.ncu-rep --page raw --csv > /tmp/ncu_raw.csv
+#   python3 - <<'PY'
+#   import pandas as pd
+#   df = pd.read_csv('/tmp/ncu_raw.csv', header=0, skiprows=[1])
+#   r = df.iloc[0]
+#   sm = int(r['device__attribute_multiprocessor_count'])
+#   sm_khz = float(r['device__attribute_clock_rate'])
+#   mem_khz = float(r['device__attribute_memory_clock_rate'])
+#   bus_bits = float(r['device__attribute_global_memory_bus_width'])
+#   bw_gbs = (bus_bits/8.0) * (mem_khz*1e3) * 2.0 / 1e9
+#   peak_fp32_tflops = sm * 64 * 2.0 * (sm_khz*1e3) / 1e12  # sm75
+#   ai = (peak_fp32_tflops*1e12) / (bw_gbs*1e9)
+#   print('ridge(ai_threshold)=', ai)
+#   PY
 #
 # IMPORTANT: keep `ai_threshold` consistent across *all* models on the same GPU if you
 # want reproducible kernel classifications.
 #
-# For THIS machine (Quadro RTX 6000, sm75), `scripts/compute_gpu_params.py` computed:
-# - peak FP32 ≈ 19.35 TFLOP/s, peak DRAM ≈ 672.10 GB/s
-# => ai_threshold ≈ 28.8 FLOP/byte
-python3 ../../../postprocessing/roofline_analysis.py --results_dir . --ai_threshold 28.8
+# For THIS machine (Quadro RTX 6000, sm75), `scripts/compute_gpu_params.py` prints TWO values:
+#
+# - CUDA device attributes (matches Nsight Compute / NCU Roofline peaks):
+#     peak FP32 ≈ 16.31 TFLOP/s, peak DRAM ≈ 672.10 GB/s
+#     => ai_threshold ≈ 24.3 FLOP/byte
+#
+# - NVML max clocks (nvidia-smi "Max Clocks"; may differ from NCU):
+#     peak FP32 ≈ 19.35 TFLOP/s, peak DRAM ≈ 672.10 GB/s
+#     => ai_threshold ≈ 28.8 FLOP/byte
+#
+# For reproducibility with Nsight Compute Roofline/SpeedOfLight, prefer the CUDA-attribute value.
+python3 ../../../postprocessing/roofline_analysis.py --results_dir . --ai_threshold 24.3
 ```
 
 Note on `--max_threads_sm`: use the value that matches your GPU architecture / what you used previously for RTX6000.
