@@ -87,9 +87,14 @@ When porting config files from the authors’ H100 setup to a new machine (RTX60
 - We empirically validated `num_kernels` on RTX6000 by adding an env-gated print in the scheduler (enabled with `ORION_LOG_KERNEL_COUNTS=1`) and running the short debug configs (`config_files/v2/ideal/debug_*_inf.json`).
 - For each model, we checked that `captured_records` (from the interposer’s per-client index) equals `configured_num_kernels` for many iterations; on RTX6000 v2 configs we observed exact matches:
   - ResNet50 (bs=8): 174
-  - MobileNetV2 (bs=8): 151
+  - MobileNetV2 (bs=16): 151
   - ResNet101 (bs=8): 344
   - BERT: 429
+
+YOLOv5n note:
+- YOLOv5n can have slight per-iteration variability in the number of intercepted records (allocator/caching effects, torch.hub startup behavior, etc.). For v2, we treat YOLOv5n as a special case and rely on the scheduler’s env-gated auto iteration-boundary inference (`ORION_AUTO_NUM_KERNELS_SEC`), which is auto-enabled for YOLO workloads by `src/scheduler_frontend.py`.
+- The `num_kernels` value in the YOLOv5n v2 JSON configs should be treated as a fallback for “non-auto” runs; it may not perfectly match every single iteration if variability exists.
+- To sanity-check YOLOv5n on a new machine/build, run `config_files/v2/ideal/debug_yolov5n_inf.json` with `ORION_LOG_KERNEL_COUNTS=1` (and optionally `ORION_LOG_AUTO_NUM_KERNELS=1`) and verify the printed `KCOUNT` lines look reasonable and don’t show systematic drift.
 
 Implementation note (important for reproducibility): Orion must be preloaded *before* importing torch/CUDA.
 - `benchmarking/launch_jobs.py` supports an LD_PRELOAD bootstrap via `--orion_preload` (enabled by default; use `--no_orion_preload` to opt out).

@@ -1,4 +1,6 @@
 #include "scheduler.h"
+#include <cctype>
+#include <cstring>
 #define MIN_DURATION 100000 // might need to change this - emperical
 
 using namespace std;
@@ -6,6 +8,7 @@ using namespace std;
 // globals
 void* klib;
 vector<vector<op_info>> op_info_vector;
+vector<string> client_model_names;
 int* fidx;
 int* num_client_kernels;
 int* num_client_max_iters;
@@ -269,12 +272,75 @@ void* Scheduler::busy_wait_profile(int num_clients, int iter, bool warmup, int w
 		update_start = INT_MAX;
 	}
 
+	// Optional: auto-detect the true per-iteration record count (num_kernels)
+	// for workloads that have placeholder/mismatched configs or slight
+	// per-iteration variability.
+	//
+	// Motivation: if configured num_kernels is too small, the scheduler may
+	// "finish" an iteration early and exit a warmup phase, while the client is
+	// still issuing CUDA work. Since the interposer blocks kernel launches until
+	// the scheduler drains the queue, this causes a deadlock.
+	// Conversely, if configured num_kernels is too large (or the workload issues
+	// slightly fewer records on some iterations), the scheduler can wait forever
+	// for a record that will never arrive, while the client is blocked inside
+	// backend_lib.block(it).
+	//
+	// This fallback is env-gated and only applies to YOLOv5 clients.
+	// It detects an end-of-iteration by observing a sustained idle gap with an
+	// empty client queue after at least one record has been scheduled.
+	auto env_flag_enabled = [](const char* name) -> bool {
+		const char* v = getenv(name);
+		return (v && v[0] != '\0' && strcmp(v, "0") != 0);
+	};
+
+	const char* auto_env = getenv("ORION_AUTO_NUM_KERNELS_SEC");
+	double auto_sec = 0.0;
+	if (auto_env) {
+		auto_sec = atof(auto_env);
+	}
+	const bool auto_enabled = (auto_sec > 0.0);
+	const bool auto_log = env_flag_enabled("ORION_LOG_AUTO_NUM_KERNELS") || env_flag_enabled("ORION_LOG_KERNEL_COUNTS");
+	vector<std::chrono::time_point<std::chrono::high_resolution_clock>> last_progress;
+	vector<bool> auto_yolo;
+	const int AUTO_PLACEHOLDER_KERNELS = INT_MAX / 4;
+	// Guard against false positives: there can be brief CPU-side gaps between
+	// intercepted CUDA calls even mid-iteration. Only infer an iteration boundary
+	// after we've seen a substantial number of scheduled records.
+	const int AUTO_MIN_SEEN = 200;
+	if (auto_enabled) {
+		last_progress.resize(num_clients, std::chrono::high_resolution_clock::now());
+		auto_yolo.resize(num_clients, false);
+		for (int i = 0; i < num_clients; i++) {
+			if (i >= (int)client_model_names.size()) {
+				continue;
+			}
+			std::string m = client_model_names[i];
+			for (auto &c : m) c = (char)tolower(c);
+			if (m.find("yolov5") == std::string::npos) {
+				continue;
+			}
+			auto_yolo[i] = true;
+			// Use a large placeholder so we never stop early; we'll infer the true
+			// boundary each iteration via idle-gap detection.
+			num_client_kernels[i] = AUTO_PLACEHOLDER_KERNELS;
+			if (auto_log) {
+				printf(
+					"AUTO_NUM_KERNELS enabled client=%d idle_threshold_s=%.3f placeholder=%d\n",
+					i,
+					auto_sec,
+					AUTO_PLACEHOLDER_KERNELS
+				);
+			}
+		}
+	}
+
 	while(1) {
+		auto now = std::chrono::high_resolution_clock::now();
 		vector<func_record*> frecords(num_clients, NULL);
 		size = 0;
 
 		for (int i=0; i<num_clients; i++) {
-			if (seen[i] == num_client_kernels[i])
+			if ((seen[i] == num_client_kernels[i]))
 				continue;
 
 			pthread_mutex_lock(client_mutexes[i]);
@@ -304,9 +370,16 @@ void* Scheduler::busy_wait_profile(int num_clients, int iter, bool warmup, int w
 		}
 		else {
 			if (frecords[hp_client] != NULL) { // high priority
-
-				op_info op_info_1 = op_info_vector[hp_client][seen[hp_client]];
+				int op_idx_1 = seen[hp_client];
+				if (op_idx_1 >= (int)op_info_vector[hp_client].size()) {
+					op_idx_1 = (int)op_info_vector[hp_client].size() - 1;
+					if (op_idx_1 < 0) op_idx_1 = 0;
+				}
+				op_info op_info_1 = op_info_vector[hp_client][op_idx_1];
 				schedule_kernel(*(frecords[hp_client]), sched_streams[hp_client], hp_client, events[hp_client][event_ids[hp_client]], seen, event_ids, hp_client);
+				if (auto_enabled) {
+					last_progress[hp_client] = now;
+				}
 				streams[hp_client] = 1;
 				profiles[hp_client] = op_info_1.profile;
 				cur_sms[hp_client] = op_info_1.sm_used;
@@ -320,7 +393,12 @@ void* Scheduler::busy_wait_profile(int num_clients, int iter, bool warmup, int w
 				// Do round-robin for the BE clients
 				int j = t % (num_clients-1);
 				if (frecords[j] != NULL) { // low priority
-					op_info op_info_0 = op_info_vector[j][seen[j]];
+						int op_idx_0 = seen[j];
+						if (op_idx_0 >= (int)op_info_vector[j].size()) {
+							op_idx_0 = (int)op_info_vector[j].size() - 1;
+							if (op_idx_0 < 0) op_idx_0 = 0;
+						}
+						op_info op_info_0 = op_info_vector[j][op_idx_0];
 					bool schedule = false;
 
 					//printf("%d, %d, %d\n", low_sms, high_sms, sm_threshold);
@@ -362,12 +440,52 @@ void* Scheduler::busy_wait_profile(int num_clients, int iter, bool warmup, int w
 							large_found = true;
 						}
 						schedule_kernel(*(frecords[j]), sched_streams[j], j, events[j][event_ids[j]], seen, event_ids, j);
+						if (auto_enabled) {
+							last_progress[j] = now;
+						}
 						status = 0;
 						pop_from_queue(client_buffers[j], client_mutexes[j], j);
 
 						streams[j] = 0;
 						start = j;
 					}
+				}
+			}
+		}
+
+		// Per-iteration auto-completion for YOLOv5: if the client queue stays empty
+		// and we observe a sustained idle gap, infer the end-of-iteration boundary
+		// as the number of records scheduled so far (seen[i]).
+		if (auto_enabled) {
+			for (int i = 0; i < num_clients; i++) {
+				if (i >= (int)auto_yolo.size() || !auto_yolo[i]) {
+					continue;
+				}
+				if (seen[i] <= 0) {
+					continue;
+				}
+
+				size_t qsz = 0;
+				pthread_mutex_lock(client_mutexes[i]);
+				qsz = client_buffers[i]->size();
+				pthread_mutex_unlock(client_mutexes[i]);
+
+				double idle_s = std::chrono::duration_cast<std::chrono::duration<double>>(now - last_progress[i]).count();
+				if (
+					qsz == 0
+					&& idle_s >= auto_sec
+					&& num_client_kernels[i] == AUTO_PLACEHOLDER_KERNELS
+					&& seen[i] >= AUTO_MIN_SEEN
+				) {
+					if (auto_log) {
+						printf(
+							"AUTO_NUM_KERNELS client=%d infer_iter_end seen=%d idle_s=%.3f\n",
+							i,
+							seen[i],
+							idle_s
+						);
+					}
+					num_client_kernels[i] = seen[i];
 				}
 			}
 		}
@@ -381,7 +499,7 @@ void* Scheduler::busy_wait_profile(int num_clients, int iter, bool warmup, int w
 				|| (stop_ack[i] == true)
 			)
 				finished += 1;
-			else if (seen[i] == num_client_kernels[i]) {
+			else if ((seen[i] == num_client_kernels[i])) {
 				// check if GPU work for this client has finished
 				if (!locked[i]) {
 					pthread_mutex_lock(client_mutexes[i]);
@@ -404,6 +522,21 @@ void* Scheduler::busy_wait_profile(int num_clients, int iter, bool warmup, int w
 					}
 				}
 				if (ready) {
+					const char* log_counts_env = getenv("ORION_LOG_KERNEL_COUNTS");
+					if (log_counts_env && atoi(log_counts_env) > 0) {
+						// At this point the client mutex is held (locked[i] == true).
+						// seen[i] == configured num_kernels; fidx[i] is the interposer-captured record count.
+						printf(
+							"KCOUNT client=%d iter=%d seen=%d configured_num_kernels=%d captured_records=%d opinfo_rows=%zu queue_size=%zu\n",
+							i,
+							num_client_cur_iters[i],
+							seen[i],
+							num_client_kernels[i],
+							fidx[i],
+							op_info_vector[i].size(),
+							client_buffers[i]->size()
+						);
+					}
 					// if yes, reset meta-structures for this client, and let it continue
 					seen[i] = 0;
 					if (seq)
@@ -416,6 +549,11 @@ void* Scheduler::busy_wait_profile(int num_clients, int iter, bool warmup, int w
 					DEBUG_PRINT("UNLOCK CLIENT %d\n", i);
 					num_client_cur_iters[i] += 1;
 					locked[i] = false;
+
+					// If YOLO is in auto mode, reset back to the placeholder for the next iteration.
+					if (auto_enabled && i < (int)auto_yolo.size() && auto_yolo[i]) {
+						num_client_kernels[i] = AUTO_PLACEHOLDER_KERNELS;
+					}
 
 					auto end = std::chrono::high_resolution_clock::now();
 					float duration = std::chrono::duration_cast<std::chrono::microseconds>(end - client_starts[i]).count();
@@ -553,10 +691,16 @@ extern "C" {
 	) {
 
 		struct passwd *pw = getpwuid(getuid());
-		char *homedir = pw->pw_dir;
-		char* lib_path = "/orion/src/cuda_capture/libinttemp.so";
+		const char *homedir = pw ? pw->pw_dir : nullptr;
+		const char* lib_path = "/orion/src/cuda_capture/libinttemp.so";
+		std::string full_lib_path;
+		if (homedir) {
+			full_lib_path = std::string(homedir) + lib_path;
+		} else {
+			full_lib_path = std::string(lib_path);
+		}
 
-		klib = dlopen(strcat(homedir, lib_path), RTLD_NOW | RTLD_GLOBAL);
+		klib = dlopen(full_lib_path.c_str(), RTLD_NOW | RTLD_GLOBAL);
 
 		if (!klib) {
 			fprintf(stderr, "Error: %s\n", dlerror());
@@ -589,7 +733,9 @@ extern "C" {
 		}
 
 		// 2. metadata structures
+		client_model_names.clear();
 		for (int i=0; i<num_clients; i++) {
+			client_model_names.push_back(std::string(models[i] ? models[i] : ""));
 			op_info_vector.push_back({});
 			client_durations.push_back({});
 			populate_kernel_info(files[i], op_info_vector[i]);
@@ -678,6 +824,52 @@ extern "C" {
 
 	void* reset(Scheduler* scheduler, int num_clients) {
 		scheduler->profile_reset(num_clients);
+		return NULL;
+	}
+
+	// Reset per-client iteration counters and block-status flags.
+	//
+	// This is useful for workloads that issue CUDA work during model load (e.g.
+	// YOLOv5 via torch.hub). Orion's Python frontend runs a short warmup-setup
+	// schedule before the actual warmup iterations; without a reset, that setup
+	// work consumes one logical iteration (num_client_cur_iters increments),
+	// causing the subsequent warmup phase to end early and potentially deadlock
+	// clients that are still issuing kernel launches.
+	void* reset_iters(Scheduler* scheduler, int num_clients) {
+		// Reset scheduler-side per-iteration state.
+		scheduler->profile_reset(num_clients);
+
+		// Reset logical iteration counters.
+		if (num_client_cur_iters) {
+			for (int i = 0; i < num_clients; i++) {
+				num_client_cur_iters[i] = 0;
+			}
+		}
+
+		// Clear per-iteration unblock flags so clients don't skip block(it).
+		if (request_status && num_client_max_iters) {
+			for (int i = 0; i < num_clients; i++) {
+				if (!request_status[i]) {
+					continue;
+				}
+				for (int it = 0; it < num_client_max_iters[i]; it++) {
+					request_status[i][it] = false;
+				}
+			}
+		}
+
+		// Best-effort: clear timing markers.
+		if (client_starts_set && num_client_max_iters) {
+			for (int i = 0; i < num_clients; i++) {
+				if (!client_starts_set[i]) {
+					continue;
+				}
+				for (int it = 0; it < num_client_max_iters[i]; it++) {
+					client_starts_set[i][it] = false;
+				}
+			}
+		}
+
 		return NULL;
 	}
 }

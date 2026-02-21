@@ -2,7 +2,7 @@
   {
     "arch": "yolov5n",
     "kernel_file": "/home/cc/orion/benchmarking/model_kernels/rtx6000/yolov5n_4_fwd",
-    "num_kernels": 1,
+    "num_kernels": 251,
     "num_iters": 10000000,
     "args": {
       "model_name": "yolov5n",
@@ -27,6 +27,6 @@
       "uniform": false,
       "dummy_data": true,
       "train": false
-    "num_kernels": 251,
+    }
   }
 ]

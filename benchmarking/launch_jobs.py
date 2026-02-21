@@ -1,32 +1,118 @@
 import argparse
+import glob
 import json
+import os
+import sys
 import threading
 import time
 from ctypes import *
-import os
-import sys
-from torchvision import models
-import torch
 
-home_directory = os.path.expanduser( '~' )
-sys.path.append(f"{home_directory}/DeepLearningExamples/PyTorch/LanguageModeling/Transformer-XL/pytorch")
-sys.path.append(f"{home_directory}/DeepLearningExamples/PyTorch/LanguageModeling/Transformer-XL/pytorch/utils")
-from benchmark_suite.transformer_trainer import transformer_loop
-sys.path.append(f"{home_directory}/DeepLearningExamples/PyTorch/LanguageModeling/BERT")
-from bert_trainer import bert_loop
+def _candidate_preload_libs() -> list[str]:
+    """Return libs to prepend to LD_PRELOAD for Orion runs.
 
-from benchmark_suite.train_imagenet import imagenet_loop
+    Important: LD_PRELOAD must be set before importing torch/initializing CUDA.
+    """
 
-from src.scheduler_frontend import PyScheduler
+    home = os.path.expanduser('~')
+    libs: list[str] = []
+
+    # Orion interposer.
+    libs.append(os.path.join(home, 'orion', 'src', 'cuda_capture', 'libinttemp.so'))
+
+    # Packaged NVIDIA libs (pip nvidia-* layout). These are what our runners preload.
+    py_mm = f"python{sys.version_info.major}.{sys.version_info.minor}"
+    base = os.path.join(home, '.local', 'lib', py_mm, 'site-packages', 'nvidia')
+    patterns = [
+        os.path.join(base, 'cudnn', 'lib', 'libcudnn.so.9'),
+        os.path.join(base, 'cudnn', 'lib', 'libcudnn.so'),
+        os.path.join(base, 'cublas', 'lib', 'libcublasLt.so.12'),
+        os.path.join(base, 'cublas', 'lib', 'libcublasLt.so'),
+        os.path.join(base, 'cublas', 'lib', 'libcublas.so.12'),
+        os.path.join(base, 'cublas', 'lib', 'libcublas.so'),
+    ]
+    for pat in patterns:
+        for candidate in glob.glob(pat):
+            libs.append(candidate)
+
+    # Filter to existing, de-dup while preserving order.
+    out: list[str] = []
+    seen: set[str] = set()
+    for lib in libs:
+        if lib and os.path.exists(lib) and lib not in seen:
+            seen.add(lib)
+            out.append(lib)
+    return out
+
+
+def _maybe_reexec_with_ld_preload(orion_preload: bool) -> None:
+    """If requested, re-exec the current process with LD_PRELOAD set.
+
+    This must run before importing torch/torchvision.
+    """
+
+    if not orion_preload:
+        return
+
+    if os.environ.get('ORION_LAUNCH_JOBS_PRELOADED', '') == '1':
+        return
+
+    libs = _candidate_preload_libs()
+    if not libs:
+        raise RuntimeError('No preload libraries found for Orion (libinttemp.so missing?)')
+
+    existing = os.environ.get('LD_PRELOAD', '')
+    existing_parts = [p for p in existing.split(':') if p]
+
+    merged: list[str] = []
+    seen: set[str] = set()
+    for p in libs + existing_parts:
+        if p and p not in seen:
+            seen.add(p)
+            merged.append(p)
+
+    env = os.environ.copy()
+    env['LD_PRELOAD'] = ':'.join(merged)
+    env['ORION_LAUNCH_JOBS_PRELOADED'] = '1'
+
+    os.execvpe(sys.executable, [sys.executable] + sys.argv, env)
+
+
+def _lazy_imports(need_transformer: bool, need_bert: bool):
+    """Import torch/torchvision and training loops after preload bootstrap.
+
+    Important: avoid polluting sys.path unless the requested model needs it.
+    YOLOv5's repo has top-level packages named `utils` and `models` that can
+    collide with other projects (e.g., NVIDIA DeepLearningExamples).
+    """
+
+    import torch
+    from torchvision import models
+
+    from benchmark_suite.train_imagenet import imagenet_loop
+    from benchmark_suite.yolov5_trainer import yolov5_loop
+    from src.scheduler_frontend import PyScheduler
+
+    transformer_loop = None
+    bert_loop = None
+
+    home_directory = os.path.expanduser('~')
+    if need_transformer:
+        sys.path.append(f"{home_directory}/DeepLearningExamples/PyTorch/LanguageModeling/Transformer-XL/pytorch")
+        sys.path.append(f"{home_directory}/DeepLearningExamples/PyTorch/LanguageModeling/Transformer-XL/pytorch/utils")
+        from benchmark_suite.transformer_trainer import transformer_loop as _transformer_loop
+
+        transformer_loop = _transformer_loop
+
+    if need_bert:
+        sys.path.append(f"{home_directory}/DeepLearningExamples/PyTorch/LanguageModeling/BERT")
+        from bert_trainer import bert_loop as _bert_loop
+
+        bert_loop = _bert_loop
+
+    return torch, models, transformer_loop, bert_loop, imagenet_loop, yolov5_loop, PyScheduler
 
 function_dict = {
-    "resnet50": imagenet_loop,
-    "resnet101": imagenet_loop,
-    "mobilenet_v2": imagenet_loop,
-    "yolov5s": imagenet_loop,
-    "yolov5n": imagenet_loop,
-    "bert": bert_loop,
-    "transformer": transformer_loop,
+    # Populated lazily in main() after torch import.
 }
 
 
@@ -58,6 +144,7 @@ def seed_everything(seed: int):
     import random, os
     import numpy as np
 
+    import torch
     random.seed(seed)
     os.environ['PYTHONHASHSEED'] = str(seed)
     np.random.seed(seed)
@@ -65,6 +152,32 @@ def seed_everything(seed: int):
     torch.cuda.manual_seed(seed)
 
 def launch_jobs(config_dict_list, input_args, run_eval):
+
+    archs = {str(cfg.get('arch', '')).lower() for cfg in config_dict_list}
+    need_transformer = 'transformer' in archs
+    need_bert = 'bert' in archs
+
+    torch, models, transformer_loop, bert_loop, imagenet_loop, yolov5_loop, PyScheduler = _lazy_imports(
+        need_transformer=need_transformer,
+        need_bert=need_bert,
+    )
+    global function_dict
+    function_dict = {
+        "resnet50": imagenet_loop,
+        "resnet101": imagenet_loop,
+        "mobilenet_v2": imagenet_loop,
+        "yolov5n": yolov5_loop,
+        "yolov5s": yolov5_loop,
+        "bert": bert_loop,
+        "transformer": transformer_loop,
+    }
+
+    for arch, fn in list(function_dict.items()):
+        if fn is None and arch in archs:
+            raise ImportError(
+                f"Requested arch '{arch}' but its training loop could not be imported. "
+                f"If you're running BERT/Transformer, ensure ~/DeepLearningExamples exists as described in INSTALL.md/README."
+            )
 
     seed_everything(42)
 
@@ -161,6 +274,19 @@ if __name__ == "__main__":
                         help='If orion is used, and the high priority job is training, this shows the maximum tolerated training iteration time')
 
     parser.add_argument(
+        '--orion_preload',
+        action='store_true',
+        default=True,
+        help='Re-exec this script with LD_PRELOAD configured like the experiment runners (libinttemp + packaged cuDNN/cuBLAS). Enabled by default.'
+    )
+    parser.add_argument(
+        '--no_orion_preload',
+        action='store_false',
+        dest='orion_preload',
+        help='Disable the LD_PRELOAD bootstrap/re-exec behavior.'
+    )
+
+    parser.add_argument(
         '--kernel_gpu',
         type=str,
         default=None,
@@ -174,6 +300,11 @@ if __name__ == "__main__":
     )
 
     args = parser.parse_args()
+
+    # Must happen before importing torch/torchvision.
+    _maybe_reexec_with_ld_preload(args.orion_preload)
+
+    import torch
 
     torch.cuda.set_device(0)
     # affinity_mask = {0,1,2,3}
