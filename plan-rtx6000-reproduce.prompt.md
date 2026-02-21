@@ -70,6 +70,31 @@ Notes:
 - The `--kernel_gpu rtx6000` flag is important: it rewrites any `kernel_file` paths inside JSON configs to `~/orion/benchmarking/model_kernels/rtx6000/<basename>`.
 - Your config JSONs can still point at `.../model_kernels/h100/...` as long as the **basenames** exist under `benchmarking/model_kernels/rtx6000/`.
 
+#### 1.1) Brief: how we adapted configs for a new GPU (RTX6000)
+
+When porting config files from the authors’ H100 setup to a new machine (RTX6000), we treated config fields in three categories:
+
+1) **Paths / machine-specific inputs**
+- Ensure the kernel profile files used by configs exist for the new GPU under `benchmarking/model_kernels/rtx6000/`.
+- Prefer running all experiments with `--kernel_gpu rtx6000` (or `--kernel_root <path>`) so configs don’t need hard-coded absolute paths.
+
+2) **Load parameters (allowed to adapt for “best RTX6000 results”)**
+- We adapted `rps` (request rate) for Inf-Inf Poisson experiments to match the Orion paper’s Inf-Inf Poisson rates (Table 3), and kept them consistent across Orion/REEF/Temporal and MPS/Streams baselines.
+- In contrast to `num_kernels`, `rps` is a workload parameter and is expected to vary across experimental conditions.
+
+3) **Structural scheduler parameters (must match the captured stream; not a tuning knob)**
+- `num_kernels` must match the number of intercepted “records” per iteration/request for that model/config. If it is wrong, the scheduler will cut iterations too early/late and distort latency/throughput.
+- We empirically validated `num_kernels` on RTX6000 by adding an env-gated print in the scheduler (enabled with `ORION_LOG_KERNEL_COUNTS=1`) and running the short debug configs (`config_files/v2/ideal/debug_*_inf.json`).
+- For each model, we checked that `captured_records` (from the interposer’s per-client index) equals `configured_num_kernels` for many iterations; on RTX6000 v2 configs we observed exact matches:
+  - ResNet50 (bs=8): 174
+  - MobileNetV2 (bs=8): 151
+  - ResNet101 (bs=8): 344
+  - BERT: 429
+
+Implementation note (important for reproducibility): Orion must be preloaded *before* importing torch/CUDA.
+- `benchmarking/launch_jobs.py` supports an LD_PRELOAD bootstrap via `--orion_preload` (enabled by default; use `--no_orion_preload` to opt out).
+- This mirrors what the runner scripts historically did with `LD_PRELOAD=... python3 ...`.
+
 ---
 
 ### 2) Re-generate RTX6000 kernel info files (the critical input)

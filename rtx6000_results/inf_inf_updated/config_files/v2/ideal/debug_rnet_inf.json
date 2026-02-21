@@ -1,0 +1,16 @@
+[
+  {
+    "arch": "resnet50",
+    "kernel_file": "/home/cc/orion/benchmarking/model_kernels/rtx6000/resnet50_8_fwd",
+    "num_kernels": 174,
+    "num_iters": 30,
+    "args": {
+      "model_name": "resnet50",
+      "batchsize": 8,
+      "rps": 0,
+      "uniform": false,
+      "dummy_data": true,
+      "train": false
+    }
+  }
+]

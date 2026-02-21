@@ -1,0 +1,16 @@
+[
+  {
+    "arch": "mobilenet_v2",
+    "kernel_file": "/home/cc/orion/benchmarking/model_kernels/rtx6000/mobilenet_16_fwd",
+    "num_kernels": 151,
+    "num_iters": 30,
+    "args": {
+      "model_name": "mobilenet_v2",
+      "batchsize": 16,
+      "rps": 0,
+      "uniform": false,
+      "dummy_data": true,
+      "train": false
+    }
+  }
+]

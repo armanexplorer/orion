@@ -1,9 +1,9 @@
 #!/bin/bash
 
-mkdir results
-mkdir results/ideal
-mkdir results/reef
-mkdir results/orion
-mkdir results/mps
-mkdir results/temporal
-mkdir results/streams
+mkdir -p results
+mkdir -p results/ideal
+mkdir -p results/reef
+mkdir -p results/orion
+mkdir -p results/mps
+mkdir -p results/temporal
+mkdir -p results/streams

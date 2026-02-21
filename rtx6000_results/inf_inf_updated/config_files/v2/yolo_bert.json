@@ -1,0 +1,30 @@
+[
+  {
+    "arch": "yolov5n",
+    "kernel_file": "/home/cc/orion/benchmarking/model_kernels/rtx6000/yolov5n_4_fwd",
+    "num_kernels": 251,
+    "num_iters": 10000000,
+    "args": {
+      "model_name": "yolov5n",
+      "batchsize": 4,
+      "img_size": 640,
+      "rps": 50,
+      "uniform": false,
+      "dummy_data": true,
+      "train": false
+    }
+  },
+  {
+    "arch": "bert",
+    "kernel_file": "/home/cc/orion/benchmarking/model_kernels/rtx6000/bert_2_fwd",
+    "num_kernels": 429,
+    "num_iters": 3000,
+    "args": {
+      "batchsize": 2,
+      "rps": 5,
+      "uniform": false,
+      "dummy_data": true,
+      "train": false
+    }
+  }
+]
