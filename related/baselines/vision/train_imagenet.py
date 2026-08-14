@@ -2,6 +2,7 @@ import torch
 from torchvision import models, datasets, transforms
 import torch.nn.functional as F
 import logging
+import os
 import utils
 from utils.sync_info import BasicSyncInfo, ConcurrentSyncInfo
 import time
@@ -104,8 +105,24 @@ def setup(model_config, shared_config, device):
     torch.cuda.set_device(device)
     arch = model_config['arch']
     logging.info(f'vision model with arch {arch}')
-    model = models.__dict__[arch](num_classes=1000)
-    model = model.to(device)
+    
+    # YOLOv5 handling
+    if arch.startswith('yolov5'):
+        orion_root = os.path.expanduser('~') + '/orion'
+        repo_path = f'{orion_root}/models/yolov5/repo'
+        weights_path = f'{orion_root}/models/yolov5/{arch}.pt'
+        
+        model = torch.hub.load(
+            repo_or_dir=repo_path,
+            model='custom',
+            source='local',
+            path=weights_path,
+            device='cuda:0'
+        ).to(device)
+    else:
+        # Existing torchvision models
+        model = models.__dict__[arch](num_classes=1000)
+        model = model.to(device)
     # optimizer_func = getattr(torch.optim, model_config['optimizer'])
     optimizer = torch.optim.SGD(model.parameters(), lr=0.1)
     batch_size = model_config['batch_size']

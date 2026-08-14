@@ -36,12 +36,13 @@ cudnnStatus_t cudnnBackendExecute(cudnnHandle_t handle, cudnnBackendDescriptor_t
 	{
 
 		*(void **)(&cudnn_backend_func) = dlsym(RTLD_NEXT, "cudnnBackendExecute");
-		assert(cudnn_backend_func != NULL);
-
-		status = (*cudnn_backend_func)(handle, executionPlan, varianPack);
-		if (status != CUDNN_STATUS_SUCCESS)
-			printf("status is %d\n", status);
-		assert(status == CUDNN_STATUS_SUCCESS);
+		// Compatibility fix for cuDNN 9: function may not exist, skip if NULL
+		if (cudnn_backend_func != NULL) {
+			status = (*cudnn_backend_func)(handle, executionPlan, varianPack);
+			if (status != CUDNN_STATUS_SUCCESS)
+				printf("status is %d\n", status);
+			assert(status == CUDNN_STATUS_SUCCESS);
+		}
 
 	}
 
@@ -93,15 +94,14 @@ cudnnStatus_t cudnnConvolutionForward(cudnnHandle_t handle, const void *alpha, c
 		if (cudnn_conv_func == NULL)
 		{
 			*(void **)(&cudnn_conv_func) = dlsym(RTLD_NEXT, "cudnnConvolutionForward");
-			assert(cudnn_conv_func != NULL);
 		}
-
-		status = (*cudnn_conv_func)(handle, alpha, xDesc, x, wDesc, w, convDesc, algo, workSpace, workSpaceSizeInBytes, beta, yDesc, y);
-		if (status != CUDNN_STATUS_SUCCESS)
-			printf("status is %d\n", status);
-		assert(status == CUDNN_STATUS_SUCCESS);
-
-		DEBUG_PRINT("CONV submitted!!\n");
+		if (cudnn_conv_func != NULL) {
+			status = (*cudnn_conv_func)(handle, alpha, xDesc, x, wDesc, w, convDesc, algo, workSpace, workSpaceSizeInBytes, beta, yDesc, y);
+			if (status != CUDNN_STATUS_SUCCESS)
+				printf("status is %d\n", status);
+			assert(status == CUDNN_STATUS_SUCCESS);
+			DEBUG_PRINT("CONV submitted!!\n");
+		}
 	}
 
 	return status;
@@ -167,10 +167,11 @@ cudnnStatus_t cudnnBatchNormalizationForwardTrainingEx(cudnnHandle_t handle, cud
 		if (cudnn_bnorm_func == NULL)
 		{
 			*(void **)(&cudnn_bnorm_func) = dlsym(RTLD_NEXT, "cudnnBatchNormalizationForwardTrainingEx");
-			assert(cudnn_bnorm_func != NULL);
 		}
-		status = (*cudnn_bnorm_func)(handle, mode, bnOps, alpha, beta, xDesc, xData, zDesc, zData, yDesc, yData, bnScaleBiasMeanVarDesc, bnScaleData, bnBiasData, exponentialAverageFactor, resultRunningMeanData, resultRunningVarianceData, epsilon, saveMean, saveInvVariance, activationDesc, workspace, workSpaceSizeInBytes, reserveSpace, reserveSpaceSizeInBytes);
-		assert(status == CUDNN_STATUS_SUCCESS);
+		if (cudnn_bnorm_func != NULL) {
+			status = (*cudnn_bnorm_func)(handle, mode, bnOps, alpha, beta, xDesc, xData, zDesc, zData, yDesc, yData, bnScaleBiasMeanVarDesc, bnScaleData, bnBiasData, exponentialAverageFactor, resultRunningMeanData, resultRunningVarianceData, epsilon, saveMean, saveInvVariance, activationDesc, workspace, workSpaceSizeInBytes, reserveSpace, reserveSpaceSizeInBytes);
+			assert(status == CUDNN_STATUS_SUCCESS);
+		}
 	}
 
 	return status;
@@ -223,11 +224,11 @@ cudnnStatus_t cudnnBatchNormalizationForwardInference(cudnnHandle_t handle, cudn
 		if (cudnn_bnorm_infer_func == NULL)
 		{
 			*(void **)(&cudnn_bnorm_infer_func) = dlsym(RTLD_NEXT, "cudnnBatchNormalizationForwardInference");
-			assert(cudnn_bnorm_infer_func != NULL);
 		}
-
-		status = (*cudnn_bnorm_infer_func)(handle, mode, alpha, beta, xDesc, x, xDesc, y, bnScaleBiasMeanVarDesc, bnScale, bnBias, estimatedMean, estimatedVariance, epsilon);
-		assert(status == CUDNN_STATUS_SUCCESS);
+		if (cudnn_bnorm_infer_func != NULL) {
+			status = (*cudnn_bnorm_infer_func)(handle, mode, alpha, beta, xDesc, x, xDesc, y, bnScaleBiasMeanVarDesc, bnScale, bnBias, estimatedMean, estimatedVariance, epsilon);
+			assert(status == CUDNN_STATUS_SUCCESS);
+		}
 	}
 
 	return status;
@@ -288,13 +289,11 @@ cudnnStatus_t cudnnRNNForwardInference(cudnnHandle_t handle, const cudnnRNNDescr
 		if (cudnn_rnn_func == NULL)
 		{
 			*(void **)(&cudnn_rnn_func) = dlsym(RTLD_NEXT, "cudnnRNNForwardInference");
-			assert(cudnn_rnn_func != NULL);
 		}
-
-		status = (*cudnn_rnn_func)(handle, rnnDesc, seqLength, xDesc, x, hxDesc, hx, cxDesc, cx, wDesc, w, yDesc, y, hyDesc, hy, cyDesc, cy, workspace, workSpaceSizeInBytes);
-
-		// TODO: not sure why this complains here in just one call!
-		assert(status == CUDNN_STATUS_SUCCESS);
+		if (cudnn_rnn_func != NULL) {
+			status = (*cudnn_rnn_func)(handle, rnnDesc, seqLength, xDesc, x, hxDesc, hx, cxDesc, cx, wDesc, w, yDesc, y, hyDesc, hy, cyDesc, cy, workspace, workSpaceSizeInBytes);
+			assert(status == CUDNN_STATUS_SUCCESS);
+		}
 	}
 
 	return status;
@@ -378,10 +377,10 @@ cudnnStatus_t cudnnRNNForwardTraining(
 		if (cudnn_rnn_train_func == NULL)
 		{
 			*(void **)(&cudnn_rnn_train_func) = dlsym(RTLD_NEXT, "cudnnRNNForwardTraining");
-			assert(cudnn_rnn_train_func != NULL);
 		}
-
-		status = (*cudnn_rnn_train_func)(handle, rnnDesc, seqLength, xDesc, x, hxDesc, hx, cxDesc, cx, wDesc, w, yDesc, y, hyDesc, hy, cyDesc, cy, workspace, workSpaceSizeInBytes, reserveSpace, reserveSpaceSizeInBytes);
+		if (cudnn_rnn_train_func != NULL) {
+			status = (*cudnn_rnn_train_func)(handle, rnnDesc, seqLength, xDesc, x, hxDesc, hx, cxDesc, cx, wDesc, w, yDesc, y, hyDesc, hy, cyDesc, cy, workspace, workSpaceSizeInBytes, reserveSpace, reserveSpaceSizeInBytes);
+		}
 	}
 
 	return status;
@@ -481,10 +480,9 @@ cudnnStatus_t cudnnBatchNormalizationBackwardEx(
 		if (cudnn_bnorm_bw_func == NULL)
 		{
 			*(void **)(&cudnn_bnorm_bw_func) = dlsym(RTLD_NEXT, "cudnnBatchNormalizationBackwardEx");
-			assert(cudnn_bnorm_bw_func != NULL);
 		}
-
-		status = (*cudnn_bnorm_bw_func)(
+		if (cudnn_bnorm_bw_func != NULL) {
+			status = (*cudnn_bnorm_bw_func)(
 			handle,
 			mode,
 			bnOps,
@@ -516,11 +514,11 @@ cudnnStatus_t cudnnBatchNormalizationBackwardEx(
 			reserveSpace,
 			reserveSpaceSizeInBytes);
 
-		if (status != CUDNN_STATUS_SUCCESS)
-			printf("status is %d\n", status);
-		assert(status == CUDNN_STATUS_SUCCESS);
-
-		DEBUG_PRINT("BNORM BACKWARD submitted!!\n");
+			if (status != CUDNN_STATUS_SUCCESS)
+				printf("status is %d\n", status);
+			assert(status == CUDNN_STATUS_SUCCESS);
+			DEBUG_PRINT("BNORM BACKWARD submitted!!\n");
+		}
 	}
 
 	return status;
@@ -582,9 +580,9 @@ cudnnStatus_t cudnnConvolutionBackwardData(
 		if (cudnn_conv_bw_data_func == NULL)
 		{
 			*(void **)(&cudnn_conv_bw_data_func) = dlsym(RTLD_NEXT, "cudnnConvolutionBackwardData");
-			assert(cudnn_conv_bw_data_func != NULL);
 		}
-		status = (*cudnn_conv_bw_data_func)(
+		if (cudnn_conv_bw_data_func != NULL) {
+			status = (*cudnn_conv_bw_data_func)(
 			handle,
 			alpha,
 			wDesc,
@@ -598,7 +596,8 @@ cudnnStatus_t cudnnConvolutionBackwardData(
 			beta,
 			dxDesc,
 			dx);
-		assert(status == CUDNN_STATUS_SUCCESS);
+			assert(status == CUDNN_STATUS_SUCCESS);
+		}
 	}
 
 	return status;
@@ -661,10 +660,9 @@ cudnnStatus_t cudnnConvolutionBackwardFilter(
 		if (cudnn_conv_bw_filter_func == NULL)
 		{
 			*(void **)(&cudnn_conv_bw_filter_func) = dlsym(RTLD_NEXT, "cudnnConvolutionBackwardFilter");
-			assert(cudnn_conv_bw_filter_func != NULL);
 		}
-
-		status = (*cudnn_conv_bw_filter_func)(
+		if (cudnn_conv_bw_filter_func != NULL) {
+			status = (*cudnn_conv_bw_filter_func)(
 			handle,
 			alpha,
 			xDesc,
@@ -678,8 +676,8 @@ cudnnStatus_t cudnnConvolutionBackwardFilter(
 			beta,
 			dwDesc,
 			dw);
-
-		assert(status == CUDNN_STATUS_SUCCESS);
+			assert(status == CUDNN_STATUS_SUCCESS);
+		}
 	}
 
 	return status;

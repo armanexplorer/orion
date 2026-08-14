@@ -9,7 +9,8 @@ trace_files_hp = [
     ("BERT", "bert")
 ]
 
-ld_preload_cmd = "LD_PRELOAD=/root/orion/src/cuda_capture/libinttemp.so:/usr/local/lib/python3.10/dist-packages/torch/lib/../../nvidia/cudnn/lib/libcudnn.so.9:/usr/local/lib/python3.10/dist-packages/torch/lib/../../nvidia/cublas/lib/libcublasLt.so.12:/usr/local/lib/python3.10/dist-packages/torch/lib/../../nvidia/cublas/lib/libcublas.so.12"
+HOME = os.path.expanduser("~")
+ld_preload_cmd = f"LD_PRELOAD={HOME}/orion/src/cuda_capture/libinttemp.so:{HOME}/.local/lib/python3.10/site-packages/nvidia/cudnn/lib/libcudnn.so.9:{HOME}/.local/lib/python3.10/site-packages/nvidia/cublas/lib/libcublasLt.so.12:{HOME}/.local/lib/python3.10/site-packages/nvidia/cublas/lib/libcublas.so.12"
 
 for (model, f) in trace_files_hp:
     for run in range(num_runs):
@@ -20,4 +21,4 @@ for (model, f) in trace_files_hp:
 
         # copy results
         os.system(f"cp client_0.json results/ideal/{model}_{run}_hp.json")
-        os.system("rm client_0.json")
+        os.system("rm -f client_0.json")
